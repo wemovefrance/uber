@@ -13,7 +13,7 @@
 	<!-- Configuration de la vue "home" -->
 	<definition name="home" extends="base.definition">
 		<put-attribute name="title" value="accueil" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/toto.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/home.jsp" />
 	</definition>
 	
 </tiles-definitions>
