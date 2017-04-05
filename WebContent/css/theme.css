@@ -1,0 +1,35 @@
+#bodyaccueil {width = 60%;
+	text-align: center;
+}
+
+#menu {width = 40%;parent { text-align:center;
+	
+}
+
+.footer{
+	text-align: center;
+}
+
+.container_FAQ{
+	
+	
+}
+
+.container_FAQ ul{
+	
+}
+
+.container_FAQ li{
+     display: inline ;	
+}
+
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 100%;
+}
