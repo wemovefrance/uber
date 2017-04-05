@@ -8,12 +8,39 @@
 		<put-attribute name="title" value="" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
 		<put-attribute name="body" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="footer" value="" />
 	</definition>
 
 	<!-- Configuration de la vue "home" -->
-	<definition name="home" extends="base.definition">
-		<put-attribute name="title" value="accueil" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/home.jsp" />
+	<definition name="accueil" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
+	
+		<!-- Configuration de la vue "home" -->
+	<definition name="accueilfaq" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+	</definition>
+	
+		<!-- Configuration de la vue "accueil_inscription" -->
+	<definition name="accueildevenirpartenaire" extends="base.definition">
+		<put-attribute name="title" value="Devenir partenaire" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp" />
+	</definition>
+	
+		<!-- Configuration de la vue "accueil_inscription" -->
+	<definition name="accueilfaq" extends="base.definition">
+		<put-attribute name="title" value="FAQ" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>

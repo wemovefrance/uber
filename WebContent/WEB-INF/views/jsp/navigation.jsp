@@ -11,9 +11,7 @@
 					<li><a href="subscribe"> Devenir partenaire </a></li>
 					<li><a href="quisommesnous"> Qui sommes-nous ? </a></li>
 					<li><a href="faq"> FAQ </a></li>
-					
 				</ul>
-			
 		</div>
 	</div>
 </nav>

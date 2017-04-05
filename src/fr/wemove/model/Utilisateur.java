@@ -2,6 +2,7 @@ package fr.wemove.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,49 +10,59 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import antlr.collections.List;
+import java.util.List;
 
 @Entity
-@Table(name="personne")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Table(name = "utilisateurs")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="PER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private int id;
-	
-	@Column(name="PER_NOM")
+
+	@Column(name = "NOM")
 	private String nom;
-	
-	@Column(name="PER_PRENOM")
+
+	@Column(name = "PRENOM")
 	private String prenom;
-	
-	@Column(name="MAIL")
+
+	@Column(name = "MAIL")
 	private String email;
-	
-	@Column(name="LOGIN")
+
+	@Column(name = "LOGIN")
 	private String login;
-	
-	@Column(name="PASS")
+
+	@Column(name = "PASS")
 	private String motDePasse;
 
-	@Column(name="ADRESSE")
-	private Adresse adresse; //!!!!!!
-	
-	private List<Trajets> trajets;
+	@OneToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "UTILISATEUR_ADRESSE_ID", referencedColumnName = "ADRESSE_ID")
+	private Adresse adresse;
 
-	public List<Trajets> getTrajets() {
+	private List<Trajet> trajets;
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public List<Trajet> getTrajets() {
 		return trajets;
 	}
 
-	public void setTrajets(List<Trajets> trajets) {
+	public void setTrajets(List<Trajet> trajets) {
 		this.trajets = trajets;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -99,5 +110,5 @@ public class Utilisateur implements Serializable {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-	
+
 }
