@@ -5,13 +5,15 @@
 <nav>
 	<div class="nav-wrapper">
 		<div class="container">
-			<a href="#" class="brand-logo">Spring MVC - ${ utilisateur }</a>
 			
-			<c:if test="${ utilisateur != null }">
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="home"><spring:message code="page.nav.home" /></a></li>
+					<li><a href="home"> Acceuil </a></li>
+					<li><a href="subscribe"> Devenir partenaire </a></li>
+					<li><a href="quisommesnous"> Qui sommes-nous ? </a></li>
+					<li><a href="faq"> FAQ </a></li>
+					
 				</ul>
-			</c:if>
+			
 		</div>
 	</div>
 </nav>
