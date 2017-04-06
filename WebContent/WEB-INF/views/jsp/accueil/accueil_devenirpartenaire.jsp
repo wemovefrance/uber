@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 
 <h1 class="titrePage"> Devenir partenaire </h1>
 
@@ -18,9 +20,9 @@
 	<br /> 
 	<span class="required"> * Champ requis </span>
 	
-	<form id="utilisateur" method="post" action="">
+	<form:form id="utilisateur" method="post" action="inscriptionUtilisateur">
 
-		<label for="nom"> Nom <span class="required" title="le nom est obligatoire">*</span></label>
+		<form:label path="nom"> Nom <span class="required" title="le nom est obligatoire">*</span></form:label>
 		<input name="nom" id="nom" type="text"/>
 		
 		<br />
@@ -69,7 +71,7 @@
  
 		<input type="submit" value="Devenir partenaire" />
 
-	</form>
+	</form:form>
 </div>
 
 
@@ -80,7 +82,7 @@
 	
 	<span class="required"> * Champ requis </span>
 	
-	<form id="conducteur" method="post" action="">
+	<form id="conducteur" method="post" action="InscriptionConducteur">
 
 		<label for="nom"> Nom <span class="required" title="le nom est obligatoire">*</span></label>
 		<input name="nom" id="nom" type="text"/>

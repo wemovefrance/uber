@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import frwemove.model.Conducteur;
-import frwemove.model.Utilisateur;
+import fr.wemove.model.Conducteur;
+import fr.wemove.model.Utilisateur;
 
 @Controller
 @RequestMapping("/accueil")
@@ -25,6 +25,7 @@ public class HomeController {
 	@RequestMapping(value = "/faq")
 	public String accueilfaq(Model model) {
 		return "accueilfaq";
+	}
 	
 	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
 	public String devenirPartenaire ( Model model) {

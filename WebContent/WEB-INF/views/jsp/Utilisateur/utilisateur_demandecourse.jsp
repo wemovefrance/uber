@@ -1,12 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+ 
+    
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-</body>
-</html>
+    
+    <div class="photo-nom-prenom-notes-conducteur">
+   			 	<img src ="" id ="photo-profil-chauffeur"/>
+    			<p> ${conducteur.prenom} ${conducteur.nom} </p>
+   			 	<p class="noteChauffeur"> note </p>
+    </div>
+    
+    <input type= "button" id="butt-consult-conducteur" value="Consulter profil"/>
+    
+    <form:form modelAttribute="trajet" action ="" method="post">
+    
+    		<form:label path="nomCourse"> Nom de maCourse <span class="required" title="champ obligatoire">*</span></form:label>
+    		<form:input path="nomCourse" />
+    		<form:errors path="nomCourse" /> 
+    		
+    		<label for="dateCourse"> Programmer ma course <span class="required" title="champ obligatoire">*</span></label>
+    		<input type="date" id="dateCourse" name="dateCourse" />	
+    
+    		<input type="submit" value="Demander course"/> 
+    		
+    </form:form>  
+    
+    

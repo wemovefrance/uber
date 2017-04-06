@@ -10,6 +10,14 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- Hibernate Validator -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>5.2.4.Final</version>
+			</dependency>
+	
 		<!-- Spring Web MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>

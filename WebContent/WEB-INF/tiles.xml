@@ -3,7 +3,8 @@
 	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<!-- Configuration du layout principal -->
+
+	<!--  LAYOUT PRINCIPAL -->
 	<definition name="base.definition" template="/WEB-INF/views/jsp/structure.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
@@ -12,7 +13,10 @@
 		<put-attribute name="footer" value="" />
 	</definition>
 
-	<!-- Configuration de la vue "home" -->
+
+	<!-- ESPACE ACCUEIL -->
+
+				<!--  ACCEUIL -->
 	<definition name="accueil" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
@@ -21,7 +25,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "home" -->
+				<!-- FAQ -->
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
@@ -30,17 +34,58 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "accueil_inscription" -->
+				<!-- 	ACCUEIL INSCRIPTION -->
 	<definition name="accueildevenirpartenaire" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "accueil_inscription" -->
-	<definition name="accueilfaq" extends="base.definition">
-		<put-attribute name="title" value="FAQ" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
-	</definition>
 	
+		<!-- ESPACE UTILISATEUR -->
+		
+				<!--  UTILISATEUR_ACCUEIL -->
+		<definition name="utilisateurAccueil" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Utilisateur/utilisateur_accueil.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		</definition>
+		
+		<!--  UTILISATEUR_PROFIL_CHAUFFEUR -->
+		<definition name="utilisateurProfilChauffeur" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Utilisateur/utilisateur_profilchauffeur.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		</definition>
+		
+		<!--  UTILISATEUR_DEMANDE_COURSE -->
+		<definition name="utilisateurDemandeCourse" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Utilisateur/utilisateur_demandedecourse.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		</definition>
+	
+		<!--  UTILISATEUR_MESSAGERIE_NOTIFICATIONS -->
+		<definition name="utilisateurDemandeCourse" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Utilisateur/utilisateur_messagerie-notification.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		</definition>
+		
+		<!--  UTILISATEUR_GESTION PROFIL -->
+		<definition name="utilisateurDemandeCourse" extends="base.definition">
+		<put-attribute name="title" value="Bienvenue" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestionprofil.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		</definition>
 	
 </tiles-definitions>
