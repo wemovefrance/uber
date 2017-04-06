@@ -5,6 +5,7 @@ import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,15 @@ import javax.persistence.Table;
 @Table(name = "notifications")
 public class Notification implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "NOTIFICATION_ID")
-	private int id;
+	private Integer id_not;
 
 	@Column(name = "MESSAGE")
 	private String message;
@@ -32,6 +38,14 @@ public class Notification implements Serializable {
 	@Column(name = "DATE_ENVOI")
 	private Date envoi;
 
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name = "NOTIFICATION_TRAJET_ID")
+	private Trajet trajet;
+
+	public Notification() {
+		super();
+	}
+
 	public Trajet getTrajet() {
 		return trajet;
 	}
@@ -39,17 +53,21 @@ public class Notification implements Serializable {
 	public void setTrajet(Trajet trajet) {
 		this.trajet = trajet;
 	}
-
-	@ManyToOne
-	@JoinColumn(name = "TRAJET_ID")
-	private Trajet trajet;
-
-	public int getId() {
-		return id;
+	
+	public void setId_not(Integer id_not) {
+		this.id_not = id_not;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getId_not() {
+		return id_not;
+	}
+
+	public void setId_not(int id_not) {
+		this.id_not = id_not;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getMessage() {

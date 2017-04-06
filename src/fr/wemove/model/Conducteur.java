@@ -1,14 +1,13 @@
 package fr.wemove.model;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -17,12 +16,37 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "COND_ID", referencedColumnName = "USER_ID")
 public class Conducteur extends Utilisateur {
 
-	@Column(name = "COND_NOTE")
-	private int noteMoyenne;
 
-	@ManyToMany(fetch = FetchType.EAGER) // (cascade=CascadeType.MERGE)
-	@JoinTable(name = "conducteur_vehicules", joinColumns = @JoinColumn(name = "COND_ID", referencedColumnName = "COND_ID"), inverseJoinColumns = @JoinColumn(name = "VEHICULE_ID", referencedColumnName = "VEHICULE_ID"))
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "COND_NOTE")
+	private Integer noteMoyenne;
+
+	@OneToMany(mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Vehicule> vehicules;
+	
+	@OneToMany(mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	private List<Trajet> trajets;
+	
+	public List<Trajet> getTrajets() {
+		return trajets;
+	}
+
+	public void setTrajets(List<Trajet> trajets) {
+		this.trajets = trajets;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setNoteMoyenne(Integer noteMoyenne) {
+		this.noteMoyenne = noteMoyenne;
+	}
+
+	public Conducteur() {
+		super();
+	}
 
 	public List<Vehicule> getVehicules() {
 		return vehicules;
@@ -39,5 +63,6 @@ public class Conducteur extends Utilisateur {
 	public void setNoteMoyenne(int noteMoyenne) {
 		this.noteMoyenne = noteMoyenne;
 	}
+	
 
 }

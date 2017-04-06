@@ -1,6 +1,9 @@
 package fr.wemove.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,13 +12,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "adresses")
-public class Adresse {
+//@Embeddable
+public class Adresse implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ADRESSE_ID")
-	private int id;
-
+	private Integer id_adresse;
 	@Column(name = "VILLE")
 	private String ville;
 	@Column(name = "RUE")
@@ -24,13 +29,21 @@ public class Adresse {
 	private int numero;
 	@Column(name = "CODE_POSTAL")
 	private int codePostal;
-
-	public int getId() {
-		return id;
+	
+	public Adresse() {
+		super();
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Integer getId_adresse() {
+		return id_adresse;
+	}
+
+	public void setId_adresse(Integer id_adresse) {
+		this.id_adresse = id_adresse;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getVille() {

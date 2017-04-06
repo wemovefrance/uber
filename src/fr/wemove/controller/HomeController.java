@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import frwemove.model.Conducteur;
-import frwemove.model.Utilisateur;
+import fr.wemove.model.Conducteur;
+import fr.wemove.model.Utilisateur;
 
 @Controller
 @RequestMapping("/accueil")
@@ -25,7 +25,8 @@ public class HomeController {
 	@RequestMapping(value = "/faq")
 	public String accueilfaq(Model model) {
 		return "accueilfaq";
-	
+	}
+	/*
 	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
 	public String devenirPartenaire ( Model model) {
 		
@@ -34,36 +35,35 @@ public class HomeController {
 		
 		return "accueildevenirpartenaire";
 	}
-	
+	*/
+	/*
 	@RequestMapping ( value = "/inscription", method = RequestMethod.POST)
 	public String inscriptionUtilisateur (@Valid @ModelAttribute ("utilisateur") Utilisateur utilisateur, BindingResult result, Model model) {
-		if ( result.hasErrors()) {
-			
-			return "accueil_inscription";
-			
+		if ( result.hasErrors()) {			
+			return "accueildevenirpartenaire";
 		} 
-		
-		return "utilisateur_accueil";
+		return "accueil"; // accueil conduit!
 	}
-	
+	*/
+	/*
 	@RequestMapping ( value = "/inscription", method = RequestMethod.POST)
 	public String inscriptionConducteur (@ Valid @ModelAttribute ("conducteur") Conducteur conducteur, BindingResult result, Model model) {
 		
 	if ( result.hasErrors()) {
 			
-			return "accueil_inscription";
+			return "accueildevenirpartenaire";
 		
 	}
 	
-	return "driver_account";
+	return "accueil"; //Accueil conducteur
 	}
 	
 	@RequestMapping(value = "/QuiSommesNous", method = RequestMethod.GET)
 	public String quisommesnous ( Model model) {
 		
-		return "quisommesnous";
+		return "accueilfaq";
 	}
-
+*/
 }
 
 

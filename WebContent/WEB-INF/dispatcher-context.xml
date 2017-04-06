@@ -18,7 +18,7 @@
 	<!-- Configuration par annotation -->
 	<context:annotation-config />
 	<context:component-scan
-		base-package="fr.wemove.controller,fr.wemove.dao,fr.wemove.model" />
+		base-package="fr.wemove.*" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -48,7 +48,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan"
-			value="fr.wemove.controller,fr.wemove.model,fr.wemove.dao" />
+			value="fr.wemove.*" />
 
 		<!-- On précise le provider ... -->
 		<property name="jpaVendorAdapter">
