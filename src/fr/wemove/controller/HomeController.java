@@ -27,6 +27,7 @@ public class HomeController {
 		return "accueilfaq";
 	}
 	/*
+	
 	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
 	public String devenirPartenaire ( Model model) {
 		

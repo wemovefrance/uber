@@ -12,7 +12,7 @@
 		<put-attribute name="footer" value="" />
 	</definition>
 
-	<!-- Configuration de la vue "home" -->
+	<!-- Configuration de la vue "accueil" -->
 	<definition name="accueil" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
@@ -21,7 +21,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "home" -->
+		<!-- Configuration de la vue "accueilfaq" -->
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
@@ -30,7 +30,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "accueil_inscription" -->
+		<!-- Configuration de la vue "accueildevenirpartenaire" -->
 	<definition name="accueildevenirpartenaire" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp" />

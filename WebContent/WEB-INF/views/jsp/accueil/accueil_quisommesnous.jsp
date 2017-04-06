@@ -5,5 +5,5 @@
 
 <h1> Qui sommes-nous ?</h1>
 
-<p> Image </p>
+<p> Nous sommes une équipe de 3 personnes, jeunes et dynamiques, qui travaillent ensemble afin de simplifier votre vie quotidienne </p>
 
