@@ -16,20 +16,23 @@
 	<definition name="accueil" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/accueil/accueil.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/jsp/accueil/menu.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
-	
-		<!-- Configuration de la vue "accueilfaq" -->
+
+	<!-- Configuration de la vue "accueilfaq" -->
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/views/jsp/accueil/menu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
+
 		<!-- Configuration de la vue "accueildevenirUtilisateur " -->
 	<definition name="accueildevenirutilisateur" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
@@ -47,7 +50,31 @@
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="FAQ" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
+
+	<!-- Configuration de la vue "accueil qui sommes nous " -->
+	<definition name="accueilquisommesnous" extends="base.definition">
+		<put-attribute name="title" value="Qui sommes-nous ?" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/accueil/accueil_quisommesnous.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-	
+	<!-- Configuration de la vue "accueildevenirpartenaire" -->
+	<definition name="accueildevenirpartenaire" extends="base.definition">
+		<put-attribute name="title" value="Devenir partenaire" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+	</definition>
+
+	<!-- Configuration de la vue "accueil_inscription" -->
+	<definition name="contact" extends="base.definition">
+		<put-attribute name="title" value="Contact" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/accueil/accueil_contact.jsp" />
+
+	</definition>
 </tiles-definitions>

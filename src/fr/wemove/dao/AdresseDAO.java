@@ -2,8 +2,13 @@ package fr.wemove.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.wemove.model.Adresse;
 
+@Repository
+@Transactional
 public class AdresseDAO extends DAO<Adresse> {
 	
 	@Override

@@ -23,10 +23,25 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/faq")
-	public String accueilfaq(Model model) {
+	public String accueilfaq() {
 		return "accueilfaq";
 	}
 	
+	@RequestMapping(value = "/contact")
+	public String accueilcontact() {
+		return "contact";
+	}
+
+
+	@RequestMapping(value = "/quisommesnous")
+	public String accueilquisommesnous() {
+		return "accueilquisommesnous";
+	}
+	
+	@RequestMapping(value = "/devenirpartenaire")
+	public String devenirPartenaire () {
+		return "accueildevenirpartenaire";
+	}
 }
 
 

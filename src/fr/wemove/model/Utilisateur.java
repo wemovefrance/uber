@@ -56,7 +56,7 @@ public class Utilisateur implements Serializable {
 	private String confirmation;
 	
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="USER_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
 	private Adresse adresse;
 	

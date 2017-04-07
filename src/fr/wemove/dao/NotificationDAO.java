@@ -2,8 +2,13 @@ package fr.wemove.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.wemove.model.Notification;
 
+@Repository
+@Transactional
 public class NotificationDAO extends DAO<Notification> {
 
 	@Override

@@ -29,7 +29,27 @@ public class Adresse implements Serializable{
 	private int numero;
 	@Column(name = "CODE_POSTAL")
 	private int codePostal;
+	@Column(name = "LATITUDE")
+	private int latitude;
+	@Column(name = "LONGIITUDE")
+	private int longitude;
 	
+	public int getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(int latitude) {
+		this.latitude = latitude;
+	}
+
+	public int getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(int longitude) {
+		this.longitude = longitude;
+	}
+
 	public Adresse() {
 		super();
 	}

@@ -4004,10 +4004,11 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #00ffff;
+  background-color: #3498db;
   width: 100%;
   height: 56px;
   line-height: 56px;
+    font-weight: bold;}
 }
 
 nav.nav-extended {
