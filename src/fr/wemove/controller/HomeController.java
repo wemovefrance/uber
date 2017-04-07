@@ -1,5 +1,8 @@
 
 package fr.wemove.controller;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 
 import javax.validation.Valid;
 
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
 
@@ -17,8 +21,11 @@ import fr.wemove.model.Utilisateur;
 @RequestMapping("/accueil")
 public class HomeController {
 	
-	@RequestMapping(value = "")
-	public String home(Model model) {
+	@RequestMapping(value = "",method = RequestMethod.GET)
+	public String home(HttpServletRequest request) {
+		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); 
+		HashMap<Double,Double> coordonnesConducteur = utilisateurDAO.findHashmapConducteurCoordinates() ;
+		request.getSession().setAttribute("listeCoordonnees",coordonnesConducteur) ;
 		return "accueil";
 	}
 	

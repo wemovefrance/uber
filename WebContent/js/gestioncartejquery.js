@@ -1,24 +1,131 @@
+// Position par défaut (Port de Marseille)
+
+// var centerpos = new google.maps.LatLng(43.327469,5.358023) ;
+// var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);
+/*var latlng;*/
+var myKey = "AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c";
+var map ;
+var markerPos ;
+
+/*
+ * marker = new google.maps.Marker({ position: latlng, map: map, title:"Vous
+ * êtes ici", icon: "fleche.png" });
+ */
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0
 };
+/*
+ * var optionsGmaps = { center:centerpos, mapTypeId:
+ * google.maps.MapTypeId.ROADMAP, zoom: 15 };
+ */
+/*
+ * function loadScript() { var script = document.createElement('script');
+ * script.type = 'text/javascript'; script.src =
+ * "https://maps.googleapis.com/maps/api/js?key=" + myKey +
+ * "&sensor=false&callback=initialize"; document.body.appendChild(script); }
+ */
+function initMap() {
+	 map = new google.maps.Map(document.getElementById('map'), {
+	   center: {lat: -34.397, lng: 150.644},
+	   zoom: 9	 })
+	 
+	 markerPos = new google.maps.LatLng(43.327469,5.358023);
+	    var marker = new google.maps.Marker({
+	        position: markerPos,
+	        map: map,
+	        title:"Vous êtes ici"
+	      });
+	 
+	 	var infoWindow = new google.maps.InfoWindow({map: map});
 
-function success(pos) {
-  var crd = pos.coords;
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  sessionStorage.setItem("latitude",crd.latitude);
-  console.log(`Longitude: ${crd.longitude}`);
-  sessionStorage.setItem("longitude",crd.longitude);
-  console.log(`More or less ${crd.accuracy} meters.`);
-  console.log(`-------------------------------`);
+// PERMET DE RECUPERER LA POSITION DU NAVIGATEUR
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Votre position');
+    map.setCenter(pos);
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
+}
 };
+
+
+// SI JE RECUPERE LA POSITION, ALORS J'EXECUTE CE CODE
+function maPosition(position) {
+	  var crd = position.coords;
+	  var infopos = "test" ;
+	  console.log('Your current position is:');
+	  console.log(`Latitude : ${crd.latitude}`);
+	  sessionStorage.setItem("latitude",crd.latitude);
+	  console.log(`Longitude: ${crd.longitude}`);
+	  sessionStorage.setItem("longitude",crd.longitude);
+	  console.log(`More or less ${crd.accuracy} meters.`);
+	  console.log(`-------------------------------`);
+	  document.getElementById("infoposition").innerHTML = infopos;
+
+	  // Un nouvel objet LatLng pour Google Maps avec les paramètres de
+		// position
+	  // latlng = new google.maps.LatLng(position.coords.latitude,
+		// position.coords.longitude);
+	  /*
+		 * var pos2 = new google.maps.LatLng(43.327469,5.358023) ; // latlng =
+		 * new google.maps.LatLng(pos2.coords.latitude, pos2.coords.longitude); //
+		 * Ajout d'un marqueur à la position trouvée var marker = new
+		 * google.maps.Marker({ position: pos2, map: map, title:"Vous êtes ici"
+		 * }); /* // Permet de centrer la carte sur la position latlng
+		 * map.panTo(latlng);
+		 */
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+infoWindow.setPosition(pos);
+infoWindow.setContent(browserHasGeolocation ?
+                      'Erreur: Nous n\'avons pas réussi à vous trouver.' :
+                      'Erreur: Votre navigateur ne supporte pas la géolocalisation.');
+};
+
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 };
-function repeatResearchPos(){
-	setInterval('navigator.geolocation.getCurrentPosition(success)',5000);
-};
-repeatResearchPos();
+
+// Fonction de callback en cas d’erreur
+function erreurPosition(error) {
+    var info = "Erreur lors de la géolocalisation : ";
+    switch(error.code) {
+    case error.TIMEOUT:
+    	info += "Timeout !";
+    break;
+    case error.PERMISSION_DENIED:
+	info += "Vous n’avez pas donné la permission";
+    break;
+    case error.POSITION_UNAVAILABLE:
+    	info += "La position n’a pu être déterminée";
+    break;
+    case error.UNKNOWN_ERROR:
+	info += "Erreur inconnue";
+    break;
+    }
+    document.getElementById("infoposition").innerHTML = info;
+}
+
+function recoverDriverList(){
+	
+	
+}
+/*
+ * function repeatResearchPos(){
+ * setInterval('navigator.geolocation.getCurrentPosition(maPosition)',erreurPosition,5000); };
+ */
+navigator.geolocation.getCurrentPosition(maPosition);

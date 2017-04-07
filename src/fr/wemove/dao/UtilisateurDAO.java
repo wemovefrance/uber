@@ -1,6 +1,7 @@
 package fr.wemove.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.wemove.model.Adresse;
 import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
 
@@ -29,7 +31,17 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 	}
 	
 	public List<Conducteur> findAllConducteurs() {
-		return this.em.createQuery("SELECT c FROM conducteurs c", Conducteur.class).getResultList();
+		return this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
+	}
+	
+	public HashMap<Double,Double> findHashmapConducteurCoordinates() {
+		List<Conducteur> conducteurs = findAllConducteurs();
+		HashMap<String,String> listeCoordonnees ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){
+			Adresse adresseConducteur = conducteurs.get(ii).getAdresse() ;
+			listeCoordonnees.put(adresseConducteur.getLatitude(),adresseConducteur.getLongitude()) ;
+		}		
+		return listeCoordonnees ;
 	}
 
 	@Override
