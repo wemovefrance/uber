@@ -23,20 +23,26 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/faq")
-	public String accueilfaq(Model model) {
+	public String accueilfaq() {
 		return "accueilfaq";
 	}
-	/*
 	
-	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
-	public String devenirPartenaire ( Model model) {
-		
-		model.addAttribute("utilisateur", new Utilisateur());
-		model.addAttribute("conducteur", new Conducteur());
-		
+
+	@RequestMapping(value = "/contact")
+	public String accueilcontact() {
+		return "contact";
+	}
+
+
+	@RequestMapping(value = "/quisommesnous")
+	public String accueilquisommesnous() {
+		return "accueilquisommesnous";
+	}
+	
+	@RequestMapping(value = "/devenirpartenaire")
+	public String devenirPartenaire () {
 		return "accueildevenirpartenaire";
 	}
-	*/
 	/*
 	@RequestMapping ( value = "/inscription", method = RequestMethod.POST)
 	public String inscriptionUtilisateur (@Valid @ModelAttribute ("utilisateur") Utilisateur utilisateur, BindingResult result, Model model) {
