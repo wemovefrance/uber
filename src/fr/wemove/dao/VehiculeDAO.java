@@ -2,8 +2,13 @@ package fr.wemove.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.wemove.model.Vehicule;
 
+@Repository
+@Transactional
 public class VehiculeDAO extends DAO<Vehicule> {
 
 	@Override

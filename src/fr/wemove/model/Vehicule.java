@@ -34,7 +34,7 @@ public class Vehicule implements Serializable {
 	private Integer id_vehi;
 
 	@Column(name = "VOLUME_COFFRE")
-	private int volumeCoffre;
+	private double volumeCoffre;
 	@Column(name = "MARQUE")
 	private String marque;
 	@Column(name = "MODELE")
@@ -68,12 +68,12 @@ public class Vehicule implements Serializable {
 		return serialVersionUID;
 	}
 
-	public int getVolumeCoffre() {
+	public double getVolumeCoffre() {
 		return volumeCoffre;
 	}
 
-	public void setVolumeCoffre(int volumeCoffre) {
-		this.volumeCoffre = volumeCoffre;
+	public void setVolumeCoffre(double d) {
+		this.volumeCoffre = d;
 	}
 
 	public String getMarque() {

@@ -49,7 +49,7 @@ public class Utilisateur implements Serializable {
 	@Column(name = "PASS")
 	private String motDePasse;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="USER_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
 	private Adresse adresse;
 	

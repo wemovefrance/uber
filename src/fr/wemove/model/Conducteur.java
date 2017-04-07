@@ -22,10 +22,10 @@ public class Conducteur extends Utilisateur {
 	@Column(name = "COND_NOTE")
 	private Integer noteMoyenne;
 
-	@OneToMany(mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Vehicule> vehicules;
 	
-	@OneToMany(mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conducteur")//, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Trajet> trajets;
 	
 	public List<Trajet> getTrajets() {
