@@ -9,6 +9,8 @@
 <link href="<c:url value="/css/materialize.css" />" rel="stylesheet">
 <!--  <link href="<c:url value="/css/materialize.min.css" />" rel="stylesheet"> -->
 <link href="<c:url value="/css/theme.css" />" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!--<script src="<c:url value="/js/jmaterialize.js" />"></script>-->
 <!--<script src="<c:url value="/js/materialize.min.js" />"></script>--> 
 <!-- <script src="<c:url value="/js/googlemapapi.js" />"></script> -->
@@ -64,13 +66,12 @@
 	<tiles:insertAttribute name="navigation" />
 	<table width="100%">
 		<tr>
-			<th
-			 class="bodyaccueil"><tiles:insertAttribute name="body" /></th>
-			<th id="menu"><tiles:insertAttribute name="menu" /></th>
+			<th width="80%" class="bodyaccueil"><tiles:insertAttribute name="body" /></th>
+			<th id="menu" width="20%"><tiles:insertAttribute name="menu" /></th>
 		</tr>
 	</table>
-	<p id="footer">
+	<div id="footer">
 		<tiles:insertAttribute name="footer" />
-	</p>
+	</div>
 </body>
 </html>
