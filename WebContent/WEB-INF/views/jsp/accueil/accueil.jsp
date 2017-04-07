@@ -1,2 +1,2 @@
-<h1>Bienvenue</h1>
+<h1>Bienvenue ${user.prenom}</h1>
 <div id="map"></div>

@@ -30,11 +30,18 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-		<!-- Configuration de la vue "accueildevenirpartenaire" -->
-	<definition name="accueildevenirpartenaire" extends="base.definition">
+		<!-- Configuration de la vue "accueildevenirUtilisateur " -->
+	<definition name="accueildevenirutilisateur" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirutilisateur.jsp" />
 	</definition>
+	
+		<!-- Configuration de la vue "accueildevenirConducteur" -->
+	<definition name="accueildevenirconducteur" extends="base.definition">
+		<put-attribute name="title" value="Devenir partenaire" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirconducteur.jsp" />
+	</definition>
+	
 	
 		<!-- Configuration de la vue "accueil_inscription" -->
 	<definition name="accueilfaq" extends="base.definition">
