@@ -21,3 +21,4 @@ function error(err) {
 function repeatResearchPos(){
 	setInterval('navigator.geolocation.getCurrentPosition(success)',5000);
 };
+repeatResearchPos() ;

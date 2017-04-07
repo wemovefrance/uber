@@ -59,6 +59,41 @@
 
 	</form:form>
 
+<h1>Google Direction API Demo</h1>
+
+<div id="test"> </div>
+
+<button type="button" onclick="getDirections()">Get Directions</button>
+
+<script type="text/javascript">
+function getDirections() {
+	var parameters = "origin=Boston,MA&destination=Concord,MA&sensor=false";
+	//$.getJSON(escape("http://maps.googleapis.com/maps/api/directions/json?" + parameters), function(data){
+	$.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c", function(data){
+       
+		var longitude = 0;
+		var latitute = 0;
+       	latitude = data.results[0].geometry.location.lat;
+       	longitude = data.results[0].geometry.location.lng;
+       	console.log(latitude);
+       	console.log(longitude);
+	});
+	
+
+   		$.ajax({
+   			var position = 'lat='+25+'&lon'+27;
+		      type: "POST",
+		      dataType : 'json',
+		      url: "http://localhost:8080/frWeMove/accueil/inscriptionConducteur",
+		      data: JSON.stringify(position),
+		      success :function(result) {
+		       // do what ever you want with data
+		     }
+   		})
+}
+	
+</script>
+
 
 
 </div>

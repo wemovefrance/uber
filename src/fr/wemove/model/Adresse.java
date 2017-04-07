@@ -30,11 +30,11 @@ public class Adresse implements Serializable{
 	@Column(name = "CODE_POSTAL")
 	private int codePostal;
 	@Column(name = "LATITUDE")
-	private int latitude;
+	private double latitude;
 	@Column(name = "LONGIITUDE")
-	private int longitude;
+	private double longitude;
 	
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
@@ -42,7 +42,7 @@ public class Adresse implements Serializable{
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
