@@ -2,7 +2,9 @@
 <!DOCTYPE tiles-definitions PUBLIC
 	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+	
 <tiles-definitions>
+
 	<!-- Configuration du layout principal -->
 	<definition name="base.definition" template="/WEB-INF/views/jsp/structure.jsp">
 		<put-attribute name="title" value="" />
@@ -50,6 +52,9 @@
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="FAQ" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
+		
+			</definition>
+		
 
 	<!-- Configuration de la vue "accueil qui sommes nous " -->
 	<definition name="accueilquisommesnous" extends="base.definition">
@@ -77,4 +82,5 @@
 			value="/WEB-INF/views/jsp/accueil/accueil_contact.jsp" />
 
 	</definition>
+	
 </tiles-definitions>

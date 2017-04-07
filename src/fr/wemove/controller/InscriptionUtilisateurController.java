@@ -43,31 +43,15 @@ public class InscriptionUtilisateurController {
 			return "accueildevenirutilisateur";
 		} 
 	
-		utilisateurDao.save(utilisateur);
+		System.out.println(utilisateur.getEmail());
+		System.out.println(utilisateur.getNom());
+		
+		this.utilisateurDao.save(utilisateur);
 		
 		return "accueil";
 		
 		
 	}
 	
-	/*
-
-	@RequestMapping ( value = "accueil/inscriptionConducteur", method = RequestMethod.POST)
-	public String inscriptionConducteur (@ModelAttribute ("driver") Conducteur conducteur, BindingResult result, Model model) {
-		
 	
-		
-		
-	if ( result.hasErrors()) {
-			
-			return "accueildevenirpartenaire";
-		
-	}
-	
-	return "accueil"; 
-	}
-	
-	
-	
-	*/
 }

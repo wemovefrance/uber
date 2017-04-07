@@ -41,8 +41,12 @@ public class InscriptionConducteurController {
 			return "accueildevenirconducteur";
 		} 
 	
+		try {
 		utilisateurDao.save(conducteur);
-		
+		} catch ( Exception e) {
+			
+			e.printStackTrace();
+		}
 		return "accueil";
 		
 		
