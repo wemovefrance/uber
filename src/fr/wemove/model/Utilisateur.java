@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 //import java.util.List;
 
@@ -34,6 +36,7 @@ public class Utilisateur implements Serializable {
 	@Column(name = "USER_ID")
 	private Integer id_user;
 
+	
 	@Column(name = "NOM")
 	private String nom;
 
@@ -45,9 +48,13 @@ public class Utilisateur implements Serializable {
 
 	@Column(name = "LOGIN")
 	private String login;
-
+	
 	@Column(name = "PASS")
 	private String motDePasse;
+	
+	@Transient
+	private String confirmation;
+	
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="USER_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
@@ -142,6 +149,14 @@ public class Utilisateur implements Serializable {
 
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
+	}
+	
+	public String getConfirmation() {
+		return confirmation;
+	}
+
+	public void setConfirmation(String confirmation) {
+		this.confirmation = confirmation;
 	}
 
 }

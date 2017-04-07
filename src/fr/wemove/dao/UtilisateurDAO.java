@@ -3,6 +3,9 @@ package fr.wemove.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +17,7 @@ import fr.wemove.model.Utilisateur;
 public class UtilisateurDAO extends DAO<Utilisateur>
 {
 
+	
 	@Override
 	public Utilisateur find(int id) {
 		return this.em.find(Utilisateur.class, id);

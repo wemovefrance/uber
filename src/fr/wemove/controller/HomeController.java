@@ -27,7 +27,6 @@ public class HomeController {
 		return "accueilfaq";
 	}
 	
-
 	@RequestMapping(value = "/contact")
 	public String accueilcontact() {
 		return "contact";
@@ -43,34 +42,6 @@ public class HomeController {
 	public String devenirPartenaire () {
 		return "accueildevenirpartenaire";
 	}
-	/*
-	@RequestMapping ( value = "/inscription", method = RequestMethod.POST)
-	public String inscriptionUtilisateur (@Valid @ModelAttribute ("utilisateur") Utilisateur utilisateur, BindingResult result, Model model) {
-		if ( result.hasErrors()) {			
-			return "accueildevenirpartenaire";
-		} 
-		return "accueil"; // accueil conduit!
-	}
-	*/
-	/*
-	@RequestMapping ( value = "/inscription", method = RequestMethod.POST)
-	public String inscriptionConducteur (@ Valid @ModelAttribute ("conducteur") Conducteur conducteur, BindingResult result, Model model) {
-		
-	if ( result.hasErrors()) {
-			
-			return "accueildevenirpartenaire";
-		
-	}
-	
-	return "accueil"; //Accueil conducteur
-	}
-	
-	@RequestMapping(value = "/QuiSommesNous", method = RequestMethod.GET)
-	public String quisommesnous ( Model model) {
-		
-		return "accueilfaq";
-	}
-*/
 }
 
 

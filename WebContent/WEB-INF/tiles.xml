@@ -2,7 +2,9 @@
 <!DOCTYPE tiles-definitions PUBLIC
 	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+	
 <tiles-definitions>
+
 	<!-- Configuration du layout principal -->
 	<definition name="base.definition" template="/WEB-INF/views/jsp/structure.jsp">
 		<put-attribute name="title" value="" />
@@ -32,21 +34,24 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
+		<!-- Configuration de la vue "accueildevenirUtilisateur " -->
+	<definition name="accueildevenirutilisateur" extends="base.definition">
+		<put-attribute name="title" value="Devenir partenaire" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirutilisateur.jsp" />
+	</definition>
+	
+		<!-- Configuration de la vue "accueildevenirConducteur" -->
+	<definition name="accueildevenirconducteur" extends="base.definition">
+		<put-attribute name="title" value="Devenir partenaire" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirconducteur.jsp" />
+	</definition>
+		
 	<!-- Configuration de la vue "accueil qui sommes nous " -->
 	<definition name="accueilquisommesnous" extends="base.definition">
 		<put-attribute name="title" value="Qui sommes-nous ?" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/accueil/accueil_quisommesnous.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
-
-	<!-- Configuration de la vue "accueildevenirpartenaire" -->
-	<definition name="accueildevenirpartenaire" extends="base.definition">
-		<put-attribute name="title" value="Devenir partenaire" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/accueil/accueil_devenirpartenaire.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
@@ -120,4 +125,5 @@
 			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
+	
 </tiles-definitions>
