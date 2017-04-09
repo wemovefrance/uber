@@ -10,3 +10,7 @@
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c&callback=initMap"
 	async defer>
 </script>
+<form>
+	<input id="latitudeshidden" type="hidden" name="latitudesConducteur" value="${latitudesConducteurs}">
+	<input id="longitudeshidden" type="hidden" name="longitudesConducteur" value="${longitudesConducteurs}">
+	</form>
