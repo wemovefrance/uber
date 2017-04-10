@@ -37,41 +37,29 @@ public class InscriptionConducteurController {
 	}
 	
 	
-//	@RequestMapping ( value = "/accueil/inscriptionConducteur", method = RequestMethod.POST)
-//	public String inscriptionUtilisateur (@ModelAttribute("driver") Conducteur conducteur, BindingResult result, Model model ){
-//		
-//		new ConducteurSubscribeValidator().validate(conducteur, result);
-//		
-//
-//		if ( result.hasErrors()) {	
-//			
-//			return "accueildevenirconducteur";
-//		} 
-//	
-//		try {
-//		utilisateurDao.save(conducteur);
-//		} catch ( Exception e) {
-//			
-//			e.printStackTrace();
-//		}
-//		return "accueil";
-//		
-//		
-//	}
-	
-	
 	@RequestMapping ( value = "/accueil/inscriptionConducteur", method = RequestMethod.POST)
-	public  @ResponseBody String getPosition (@RequestParam String lat, @RequestParam String lon){
+	public String inscriptionUtilisateur (@ModelAttribute("driver") Conducteur conducteur, BindingResult result, Model model){
 		
-		System.out.println("Je suis passée là");
+		new ConducteurSubscribeValidator().validate(conducteur, result);
 		
-		String adLatitude = lat;
-		String adLongitude = lon;
-		
+		//@RequestParam double lat, @RequestParam double lon
+		//System.out.println(lat);
+	
+
+		if ( result.hasErrors()) {	
+			
+			return "accueildevenirconducteur";
+		} 
+	
+		try {
+		utilisateurDao.save(conducteur);
+		} catch ( Exception e) {
+			
+			e.printStackTrace();
+		}
 		return "accueil";
 		
 		
 	}
-	
 
 }

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.NumberFormat;
+
 @Entity
 @Table(name = "adresses")
 //@Embeddable
@@ -31,14 +33,14 @@ public class Adresse implements Serializable{
 	private int codePostal;
 	@Column(name = "LATITUDE")
 	private double latitude;
-	@Column(name = "LONGIITUDE")
+	@Column(name = "LONGITUDE")
 	private double longitude;
 	
 	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
@@ -46,7 +48,7 @@ public class Adresse implements Serializable{
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
