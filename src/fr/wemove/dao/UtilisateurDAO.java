@@ -4,9 +4,11 @@ package fr.wemove.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,14 +38,33 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 	/*
 	public HashMap<Double,Double> findHashmapConducteurCoordinates() {
 		List<Conducteur> conducteurs = findAllConducteurs();
-		HashMap<String,String> listeCoordonnees ;
+		HashMap<Double,Double> listeCoordonnees ;
 		for (int ii=0 ; ii<conducteurs.size() ; ii++){
 			Adresse adresseConducteur = conducteurs.get(ii).getAdresse() ;
-			listeCoordonnees.put(adresseConducteur.getLatitude(),adresseConducteur.getLongitude()) ;
+			listeCoordonnees.put((Double)adresseConducteur.getLatitude(),(Double)adresseConducteur.getLongitude()) ;
 		}		
 		return listeCoordonnees ;
 	}
-*/
+	
+	public List<Double> findConducteursLat() {
+		List<Conducteur> conducteurs = findAllConducteurs();
+		List<Double> latitudeListe = null ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			latitudeListe.add((double) conducteurs.get(ii).getAdresse().getLatitude()) ;
+			System.out.println(conducteurs.get(ii).getAdresse().getLatitude());
+			}		
+		return latitudeListe ;
+	}	
+	
+	public List<Double> findConducteursLong() {
+		List<Conducteur> conducteurs = findAllConducteurs();
+		List<Double> longitudeListe = null ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			longitudeListe.add((double) conducteurs.get(ii).getAdresse().getLongitude()) ;
+			}		
+		return longitudeListe ;
+	}*/
+	
 	@Override
 	public Utilisateur save(Utilisateur object) {
 		return this.em.merge(object);
