@@ -16,10 +16,9 @@
 	
 </form:form>
 
-
-<form action="#">
+<form action="/frWeMove/accueil/inscriptionUtilisateur">
 	<input class="bouttonmenuaccueil" type="submit" value="Inscription passager">
 </form>
-<form action="#">
+<form action="/frWeMove/accueil/inscriptionConducteur">
 	<input class="bouttonmenuaccueil" type="submit" value="Inscription conducteur">
 </form>
