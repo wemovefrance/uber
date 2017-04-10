@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-<<<<<<< HEAD
 import fr.wemove.exception.WrongUsernameOrPasswordException;
-=======
->>>>>>> bastien
 import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
@@ -38,7 +35,7 @@ public class HomeController {
 	UtilisateurDAO utilisateurDAO;
 
 	@RequestMapping(value = "")
-	public String home(Model model, HttpSession session) {
+	public String home(Model model, HttpSession session, HttpServletRequest request) {
 
 		model.addAttribute("partner", new Utilisateur());
 		session.setAttribute("partenaire", new Utilisateur());
@@ -50,13 +47,13 @@ public class HomeController {
 		*/	
 		ArrayList <Double> latitudesConducteurs = new ArrayList<Double>() ; 
 		ArrayList <Double> longitudesConducteurs = new ArrayList<Double>() ;
-		HttpSession session = request.getSession();
+		HttpSession session1 = request.getSession();
 		latitudesConducteurs.add(43.456343) ;
 		longitudesConducteurs.add(6.535101) ;
 		latitudesConducteurs.add(43.409486) ;
 		longitudesConducteurs.add(6.085163) ;
-		session.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
-		session.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
+		session1.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
+		session1.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
 		System.out.println(longitudesConducteurs);
 		System.out.println(latitudesConducteurs);
 		return "accueil";
