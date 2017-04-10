@@ -21,6 +21,11 @@ import fr.wemove.model.Utilisateur;
 @RequestMapping("/accueil")
 public class HomeController {
 	
+	@RequestMapping(value = "")
+	public String home() {
+		return "accueil";
+	}
+	/*
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String home(HttpServletRequest request) {
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); 
@@ -28,7 +33,7 @@ public class HomeController {
 		request.getSession().setAttribute("listeCoordonnees",coordonnesConducteur) ;
 		return "accueil";
 	}
-	
+	*/
 	@RequestMapping(value = "/faq")
 	public String accueilfaq() {
 		return "accueilfaq";
