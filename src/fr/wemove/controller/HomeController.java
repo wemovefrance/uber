@@ -20,10 +20,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-<<<<<<< HEAD
+
 import fr.wemove.exception.WrongUsernameOrPasswordException;
-=======
->>>>>>> bastien
+
 import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;

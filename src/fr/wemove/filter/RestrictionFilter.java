@@ -36,7 +36,7 @@ public class RestrictionFilter implements Filter {
 		
 		HttpSession session = req.getSession();
 		
-		if ( session.getAttribute("conducteur") == null ) {
+		if ( session.getAttribute("partenaire") == null ) {
 			
 			resp.sendRedirect( req.getContextPath() + VUE_ACCUEIL);
 		} 

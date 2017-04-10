@@ -55,8 +55,8 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		
 	}
 		
-		return this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
-	}
+		
+	
 	/*
 	public HashMap<Double,Double> findHashmapConducteurCoordinates() {
 		List<Conducteur> conducteurs = findAllConducteurs();
