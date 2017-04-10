@@ -76,8 +76,8 @@ function initMap() {
 		
 	}
 		
-	  markerPos = new google.maps.LatLng(40,5); 
-	  //markerPos = new google.maps.LatLng(43.5338335,5.509246999999999); 
+	  //markerPos = new google.maps.LatLng(40,5); 
+	  markerPos = new google.maps.LatLng(43.5338335,5.509246999999999); 
 	  var marker = new google.maps.Marker(
 			  { position: markerPos, map: map, title:"Vous êtes ici"
 	  });
@@ -166,7 +166,7 @@ function erreurPosition(error) {
 function recoverPosition() {
 	latitudesAll = document.getElementById('latitudeshidden').value;
 	latitudes = latitudesAll.split(',');
-	longitudesAll = document.getElementById('latitudeshidden').value;
+	longitudesAll = document.getElementById('longitudeshidden').value;
 	longitudes = longitudesAll.split(',');
 }
 /*

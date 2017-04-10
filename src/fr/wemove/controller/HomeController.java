@@ -25,21 +25,16 @@ import fr.wemove.model.Utilisateur;
 public class HomeController {
 	
 	@RequestMapping(value = "")
-	public String home() {
-		return "accueil";
-	}
-	/*
-	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String home(HttpServletRequest request) {
-		/*
-		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); 
+		
+		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); /*
 		List <Double> latitudesConducteurs = utilisateurDAO.findConducteursLat() ;
 		List <Double> longitudesConducteurs = utilisateurDAO.findConducteursLong() ;
 		request.getSession().setAttribute("latitudesConducteurs",latitudesConducteurs) ;
 		request.getSession().setAttribute("longitudesConducteurs",longitudesConducteurs) ;
 		*/	
-		ArrayList <Double> latitudesConducteurs = new ArrayList() ; 
-		ArrayList <Double> longitudesConducteurs = new ArrayList() ;
+		ArrayList <Double> latitudesConducteurs = new ArrayList<Double>() ; 
+		ArrayList <Double> longitudesConducteurs = new ArrayList<Double>() ;
 		HttpSession session = request.getSession();
 		latitudesConducteurs.add(43.456343) ;
 		longitudesConducteurs.add(6.535101) ;
@@ -48,9 +43,10 @@ public class HomeController {
 		session.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
 		session.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
 		System.out.println(longitudesConducteurs);
+		System.out.println(latitudesConducteurs);
 		return "accueil";
 	}
-	*/
+	
 	@RequestMapping(value = "/faq")
 	public String accueilfaq() {
 		return "accueilfaq";

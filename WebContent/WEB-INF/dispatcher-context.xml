@@ -35,13 +35,13 @@
 		</property>
 	</bean>
 
+
 	<!-- On crée le DataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/uber_wemove" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="url" value="jdbc:mysql://172.31.2.17:3306/uber_wemove" />
+		<property name="username" value="Adrien" />
+		<property name="password" value="Adrien" />
 	</bean>
 
 	<!-- On crée un entityManagerFactory local à partir de la dataSource -->
