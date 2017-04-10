@@ -108,4 +108,9 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 			return false;
 		}
 	}
+
+	public Utilisateur findByLogin(String login, String motDePasse) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
