@@ -2,4 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
-<h1>ça marche pas mieux</h1>
+<h1>Bonjour ${partenaire.nom} ${partenaire.prenom}</h1>
+
+
