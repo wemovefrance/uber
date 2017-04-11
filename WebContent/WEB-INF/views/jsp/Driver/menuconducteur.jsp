@@ -1,6 +1,6 @@
 
 <i class="fa fa-user-circle-o fa-5x"></i>
-<p> Bonjour username </p>
+<p> Bonjour ${conducteur.login} </p>
 <p>  </p>
 <form action="/frWeMove/conducteur/gestionprofil">
 	<input class="bouttonmenuaccueil" type="submit" value="Gestion du profil">

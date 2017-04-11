@@ -1,6 +1,7 @@
 package fr.wemove.dao;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,11 +36,10 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 	}
 	
 	public List<Conducteur> findAllConducteurs() {
-		
 		return (List<Conducteur>) this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
 	}
 
-	/*
+	
 	public Utilisateur findByLogin(String login, String motDePasse) throws WrongUsernameOrPasswordException {
 		
 		try {
@@ -54,39 +54,36 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 		
 	}
-		
-		return this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
-	}
 	/*
-	public HashMap<Double,Double> findHashmapConducteurCoordinates() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		HashMap<Double,Double> listeCoordonnees ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){
-			Adresse adresseConducteur = conducteurs.get(ii).getAdresse() ;
-			listeCoordonnees.put((Double)adresseConducteur.getLatitude(),(Double)adresseConducteur.getLongitude()) ;
-		}		
-		return listeCoordonnees ;
-	}
-	
-	public List<Double> findConducteursLat() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		List<Double> latitudeListe = null ;
+	public ArrayList<Double> findConducteursLat() {
+		ArrayList<Conducteur> conducteurs = new ArrayList<Conducteur>() ;
+		conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<Double> latitudeListe = new ArrayList<Double>() ;
 		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
 			latitudeListe.add((double) conducteurs.get(ii).getAdresse().getLatitude()) ;
 			System.out.println(conducteurs.get(ii).getAdresse().getLatitude());
 			}		
-		return latitudeListe ;
+		return (ArrayList<Double>) latitudeListe ;
 	}	
 	
-	public List<Double> findConducteursLong() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		List<Double> longitudeListe = null ;
+	public ArrayList<Double> findConducteursLong() {
+		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<Double> longitudeListe = new ArrayList<Double>() ;
 		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
 			longitudeListe.add((double) conducteurs.get(ii).getAdresse().getLongitude()) ;
 			}		
 		return longitudeListe ;
-	}*/
+	}
 	
+	public ArrayList<String> findConducteursLogin() {
+		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<String> loginListe = new ArrayList<String>() ; ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			loginListe.add((String) conducteurs.get(ii).getLogin()) ;
+			}		
+		return loginListe ;
+	}
+	*/
 	@Override
 	public Utilisateur save(Utilisateur object) {
 		return this.em.merge(object);
@@ -109,8 +106,5 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 	}
 
-	public Utilisateur findByLogin(String login, String motDePasse) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

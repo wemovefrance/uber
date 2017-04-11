@@ -39,23 +39,42 @@ public class HomeController {
 
 		model.addAttribute("partner", new Utilisateur());
 		session.setAttribute("partenaire", new Utilisateur());
-		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); /*
-		List <Double> latitudesConducteurs = utilisateurDAO.findConducteursLat() ;
-		List <Double> longitudesConducteurs = utilisateurDAO.findConducteursLong() ;
-		request.getSession().setAttribute("latitudesConducteurs",latitudesConducteurs) ;
-		request.getSession().setAttribute("longitudesConducteurs",longitudesConducteurs) ;
-		*/	
-		ArrayList <Double> latitudesConducteurs = new ArrayList<Double>() ; 
-		ArrayList <Double> longitudesConducteurs = new ArrayList<Double>() ;
-		HttpSession session1 = request.getSession();
+		
+		List<Conducteur> listeConducteurs = new ArrayList<Conducteur>() ;
+		listeConducteurs = this.utilisateurDAO.findAllConducteurs() ;
+		ArrayList<Double> latitudesConducteurs = new ArrayList<Double>() ;
+		ArrayList<Double> longitudesConducteurs = new ArrayList<Double>() ;
+		ArrayList<String> usernamesConducteurs = new ArrayList<String>() ;
+		ArrayList<Integer> userIdConducteurs = new ArrayList<Integer>() ;
+		
+		for (int ii=0 ; ii<listeConducteurs.size() ; ii++){	
+			latitudesConducteurs.add((double) listeConducteurs.get(ii).getAdresse().getLatitude()) ;
+			longitudesConducteurs.add((double) listeConducteurs.get(ii).getAdresse().getLongitude()) ;
+			usernamesConducteurs.add((String) listeConducteurs.get(ii).getLogin()) ;
+			userIdConducteurs.add((Integer) listeConducteurs.get(ii).getId_user()) ;
+			}		
+		/*
+		ArrayList <Double> latitudesConducteurs = utilisateurDAO.findConducteursLat() ;
+		ArrayList <Double> longitudesConducteurs = utilisateurDAO.findConducteursLong() ;
+		ArrayList <String> usernamesConducteurs = utilisateurDAO.findConducteursLogin() ;
+		*/HttpSession session1 = request.getSession();
+		/*
 		latitudesConducteurs.add(43.456343) ;
 		longitudesConducteurs.add(6.535101) ;
 		latitudesConducteurs.add(43.409486) ;
 		longitudesConducteurs.add(6.085163) ;
+		usernamesConducteurs.add("Driver 1") ;
+		usernamesConducteurs.add("Driver 2") ;
+		*/
 		session1.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
 		session1.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
+		session1.setAttribute("usernamesConducteurs",usernamesConducteurs) ;
+		session1.setAttribute("userIdConducteurs",userIdConducteurs) ;
+		/*
 		System.out.println(longitudesConducteurs);
 		System.out.println(latitudesConducteurs);
+		System.out.println(usernamesConducteurs);
+		*/
 		return "accueil";
 	}
 
@@ -102,14 +121,13 @@ public class HomeController {
 
 						if (utilisateur.getId_user() == conducteur.getId_user()) {
 
-							session.setAttribute("partenaire", conducteur);
-
+							session.setAttribute("conducteur", conducteur);
 							return "driverprofil";
 						}
 
 					}
 
-					session.setAttribute("partenaire", utilisateur);
+					session.setAttribute("utilisateur", utilisateur);
 
 					return "utilisateuraccueil";
 				}
