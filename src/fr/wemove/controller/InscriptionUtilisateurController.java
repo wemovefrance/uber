@@ -48,7 +48,7 @@ public class InscriptionUtilisateurController {
 		
 		this.utilisateurDao.save(utilisateur);
 		
-		return "redirect:/accueil";
+		return "accueil";
 		
 		
 	}

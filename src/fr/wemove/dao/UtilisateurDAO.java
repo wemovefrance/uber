@@ -54,6 +54,36 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 		
 	}
+	/*
+	public ArrayList<Double> findConducteursLat() {
+		ArrayList<Conducteur> conducteurs = new ArrayList<Conducteur>() ;
+		conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<Double> latitudeListe = new ArrayList<Double>() ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			latitudeListe.add((double) conducteurs.get(ii).getAdresse().getLatitude()) ;
+			System.out.println(conducteurs.get(ii).getAdresse().getLatitude());
+			}		
+		return (ArrayList<Double>) latitudeListe ;
+	}	
+	
+	public ArrayList<Double> findConducteursLong() {
+		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<Double> longitudeListe = new ArrayList<Double>() ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			longitudeListe.add((double) conducteurs.get(ii).getAdresse().getLongitude()) ;
+			}		
+		return longitudeListe ;
+	}
+	
+	public ArrayList<String> findConducteursLogin() {
+		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
+		ArrayList<String> loginListe = new ArrayList<String>() ; ;
+		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
+			loginListe.add((String) conducteurs.get(ii).getLogin()) ;
+			}		
+		return loginListe ;
+	}
+	*/
 	@Override
 	public Utilisateur save(Utilisateur object) {
 		return this.em.merge(object);

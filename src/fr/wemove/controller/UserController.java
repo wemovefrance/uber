@@ -14,36 +14,46 @@ import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
 
 @Controller
-@RequestMapping("/conducteur")
-public class DriverController {
+@RequestMapping("/utilisateur")
+public class UserController {
 	
 	@RequestMapping(value = "")
 	public String accueil(Model model) {
-		return "driveraccueil";
-	}
-
-	@RequestMapping(value = "carte")
-	public String carte(Model model) {
-		return "drivercarte";
+		return "utilisateuraccueil";
 	}
 
 	@RequestMapping(value = "trajet")
 	public String trajet(Model model) {
-		return "drivertrajet";
+		return "utilisateurtrajet";
+	}
+	
+	@RequestMapping(value = "profilConducteur")
+	public String profilConducteur(Model model) {
+		return "utilisateurprofilchauffeur";
+	}
+	
+	@RequestMapping(value = "demandeCourse")
+	public String demandeCourse(Model model) {
+		return "utlisateurdemandecourse";
+	}
+	
+	@RequestMapping(value = "noteSourse")
+	public String noteSourse(Model model) {
+		return "utlisateurnotecourse";
 	}
 
 	@RequestMapping(value = "paiements")
 	public String paiements(Model model) {
-		return "driverpaiements";
+		return "utilisateurpaiements";
 	}
 
 	@RequestMapping(value = "notifications")
 	public String notifications(Model model) {
-		return "drivernotifications";
+		return "utilisateurnotifications";
 	}
 
 	@RequestMapping(value = "gestionprofil")
 	public String gestionprofil(Model model) {
-		return "drivergestionprofil";
+		return "utilisateurgestionprofil";
 	}
 }
