@@ -17,13 +17,13 @@ import fr.wemove.model.*;
 @RequestMapping("/api/generator")
 public class GeneratorController {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired
 	private UtilisateurDAO UtilisateurDAO;
-	
+
 	@Autowired
 	private VehiculeDAO VehiculeDAO;
-		
+
 	@RequestMapping(value="", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity generate() {
@@ -42,22 +42,29 @@ public class GeneratorController {
 		adresseUn.setVille("Toulon");
 		adresseUn.setRue("Hotel de ville");
 		adresseUn.setNumero(22);
+		adresseUn.setLatitude(43.120366);
+		adresseUn.setLongitude(5.932212);
 		
 		adresseDeux.setCodePostal(84);
 		adresseDeux.setVille("Gordes");
 		adresseDeux.setRue("Chemin du puits");
 		adresseDeux.setNumero(25);
+		adresseDeux.setLatitude(43.828619);
+		adresseDeux.setLongitude(5.209146);
 		
 		adresseTrois.setCodePostal(13);
 		adresseTrois.setVille("Aix");
 		adresseTrois.setRue("Place des quarts d'heure");
 		adresseTrois.setNumero(4);
+		adresseTrois.setLatitude(43.529941);
+		adresseTrois.setLongitude(5.446263);
 		
 		adresseQuatre.setCodePostal(69);
 		adresseQuatre.setVille("Lyon");
 		adresseQuatre.setRue("Boulevard Garibaldi");
 		adresseQuatre.setNumero(45);
-		
+		adresseQuatre.setLatitude(45.759122);
+		adresseQuatre.setLongitude(4.851118); 
 		
 		/* CREATION D'UN Utilisateur */
 		myUtilisateur = new Utilisateur();

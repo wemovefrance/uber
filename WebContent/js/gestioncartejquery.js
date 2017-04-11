@@ -8,7 +8,10 @@ var map;
 var markerPos;
 var longitudes;
 var latitudes;
-
+var usernamesConducteurs ;
+var gmarkers = [];
+var label ;
+var nn ;
 /*
  * marker = new google.maps.Marker({ position: latlng, map: map, title:"Vous
  * êtes ici", icon: "fleche.png" });
@@ -34,22 +37,36 @@ function plotMarker(Lat, Long, Label) {
 	var marker = new google.maps.Marker({
 		position : markerPos,
 		map : map,
-		title : Label
+		title : Label,
 	});
+	gmarkers.push(marker);
+	var infowindow = new google.maps.InfoWindow({
+	    content: '<a href="/frWeMove/utilisateur/profilConducteur?userId=' +userid+ '"> '+Label+' </a>'});
+	var ttt = gmarkers[nn] ;
+	ttt.addListener('click', function() {
+	    infowindow.open(map, ttt);
+	  });
 }
 
 function initMap() {
+	
 	map = new google.maps.Map(document.getElementById('map'), {
 		center : {
 			lat : -34.397,
 			lng : 150.644
 		},
 		zoom : 9
-	})
+	});
 	recoverPosition();
-	//if (latitudes.length() == longitudes.length()) {
-	
-		for (nn = 0; nn < longitudes.length; nn++) {
+		for (nn = 0; nn < longitudes.length; nn++) {			
+			label = usernamesConducteurs[nn] ;
+			label = label.replace(']','');
+			label = label.replace('[','');
+			label = label.replace(' ','');			
+			userid = userIdsConducteurs[nn] ;
+			userid = userid.replace(']','');
+			userid = userid.replace('[','');
+			userid = userid.replace(' ','');
 			Lat = latitudes[nn] ;
 			console.log("Lat1="+Lat);
 			Lat = Lat.replace(']','');
@@ -63,25 +80,36 @@ function initMap() {
 			Long = Long.replace('[','');
 			Long = Long.replace(' ','');
 			Long=Number(Long);
-			//plotMarker(Lat,Long, "test");
+			// plotMarker(Lat,Long, "test");
 			console.log("Long2="+Long);
 			console.log(Lat);
 			console.log(Long);
-			markerPos = new google.maps.LatLng(Lat,Long);var marker = new
+			plotMarker(parseFloat(Lat), parseFloat(Long), label, userid);
+		}
+				/*
+			markerPos = new google.maps.LatLng(Lat,Long);
+			var marker = new
 			  google.maps.Marker({ 
 				  position: markerPos, 
 				  map: map, 
-				  title:"Vous êtes ici"
+				  title: label
 			  });
+			gmarkers.push(marker);
+			var infowindow = new google.maps.InfoWindow({
+				    content: label
+			  });
+			gmarkers[nn].addListener('click', function() {
+				    infowindow.open(map, gmarkers[nn]);
+				  });*/
+	
 		
-	}
-		
-	  //markerPos = new google.maps.LatLng(40,5); 
+	  // markerPos = new google.maps.LatLng(40,5);
+		/*
 	  markerPos = new google.maps.LatLng(43.5338335,5.509246999999999); 
 	  var marker = new google.maps.Marker(
 			  { position: markerPos, map: map, title:"Vous êtes ici"
 	  });
-
+*/
 	var infoWindow = new google.maps.InfoWindow({
 		map : map
 	});
@@ -168,6 +196,10 @@ function recoverPosition() {
 	latitudes = latitudesAll.split(',');
 	longitudesAll = document.getElementById('longitudeshidden').value;
 	longitudes = longitudesAll.split(',');
+	usernamesConducteursAll = document.getElementById('usernameshidden').value;
+	usernamesConducteurs = usernamesConducteursAll.split(',');
+	userIdsConducteursAll = document.getElementById('userIdshidden').value;
+	userIdsConducteurs = userIdsConducteursAll.split(',');
 }
 /*
  * function repeatResearchPos(){

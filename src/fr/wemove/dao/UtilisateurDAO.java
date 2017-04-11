@@ -1,6 +1,7 @@
 package fr.wemove.dao;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,7 +36,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 	}
 	
 	public List<Conducteur> findAllConducteurs() {
-		
 		return (List<Conducteur>) this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
 	}
 
@@ -54,39 +54,6 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 		
 	}
-		
-		
-	
-	/*
-	public HashMap<Double,Double> findHashmapConducteurCoordinates() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		HashMap<Double,Double> listeCoordonnees ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){
-			Adresse adresseConducteur = conducteurs.get(ii).getAdresse() ;
-			listeCoordonnees.put((Double)adresseConducteur.getLatitude(),(Double)adresseConducteur.getLongitude()) ;
-		}		
-		return listeCoordonnees ;
-	}
-	
-	public List<Double> findConducteursLat() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		List<Double> latitudeListe = null ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
-			latitudeListe.add((double) conducteurs.get(ii).getAdresse().getLatitude()) ;
-			System.out.println(conducteurs.get(ii).getAdresse().getLatitude());
-			}		
-		return latitudeListe ;
-	}	
-	
-	public List<Double> findConducteursLong() {
-		List<Conducteur> conducteurs = findAllConducteurs();
-		List<Double> longitudeListe = null ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
-			longitudeListe.add((double) conducteurs.get(ii).getAdresse().getLongitude()) ;
-			}		
-		return longitudeListe ;
-	}*/
-	
 	@Override
 	public Utilisateur save(Utilisateur object) {
 		return this.em.merge(object);
