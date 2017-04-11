@@ -31,7 +31,6 @@ public class UtilisateurController {
 		return "utilisateurdemandecourse";
 	}
 
-
 	@RequestMapping(value = "evaluationcourse")
 	public String course(Model model) {
 		return "utilisateurevaluationcourse";

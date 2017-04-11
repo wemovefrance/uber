@@ -5,19 +5,24 @@
 	
 <tiles-definitions>
 
-	<!-- Configuration du layout principal -->
+	<!-- INITIALISATION -->
 	<definition name="base.definition" template="/WEB-INF/views/jsp/structure.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/accueil/navigation.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="menu" value="" />
 		<put-attribute name="footer" value="" />
 	</definition>
 
-	<!-- Configuration de la vue "accueil" -->
+
+
+	<!--  ******************** SECTION ACCUEIL ******************** -->
+	
+	<!-- ACCUEIL -->
+	
 	<definition name="accueil" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/accueil/navigation.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/accueil/accueil.jsp" />
 		<put-attribute name="menu"
@@ -25,58 +30,81 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
-	<!-- Configuration de la vue "accueilfaq" -->
+
+	<!-- ACCEUIL FAQ" -->
+	
 	<definition name="accueilfaq" extends="base.definition">
 		<put-attribute name="title" value="Bienvenue" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/accueil/navigation.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/accueil/accueil_faq.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
-		<!-- Configuration de la vue "accueildevenirUtilisateur " -->
+
+	<!-- ACCEUIL DEVENIR UTILISATEUR" -->
+	
 	<definition name="accueildevenirutilisateur" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirutilisateur.jsp" />
 	</definition>
+
+
+	<!-- ACCEUIL DEVENIR CONDUCTEUR" -->
 	
-		<!-- Configuration de la vue "accueildevenirConducteur" -->
 	<definition name="accueildevenirconducteur" extends="base.definition">
 		<put-attribute name="title" value="Devenir partenaire" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/accueil/accueil_devenirconducteur.jsp" />
 	</definition>
-		
-	<!-- Configuration de la vue "accueil qui sommes nous " -->
+
+
+	<!-- ACCEUIL QUI SOMMES NOUS" -->
+	
 	<definition name="accueilquisommesnous" extends="base.definition">
 		<put-attribute name="title" value="Qui sommes-nous ?" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/accueil/navigation.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/accueil/accueil_quisommesnous.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
-	<!-- Configuration de la vue "accueil_inscription" -->
+
+	<!-- ACCEUIL CONTACT" -->
+	
 	<definition name="contact" extends="base.definition">
 		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/accueil/navigation.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/accueil/accueil_contact.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
+	
+	
+	
+	
 
-	<!--  ESPACE DRIVER -->
+	<!--  ******************** SECTION DRIVER ******************** -->
+	
+	
 
-	<!-- Configuration de la vue "accueil_inscription" -->
+
+
+
+	<!-- DRIVER PROFIL - ACCUEIL -->
+	
 	<definition name="driveraccueil" extends="base.definition">
-		<put-attribute name="title" value="Accueil Conducteur" />
+		<put-attribute name="title" value="Contact" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Driver/driver_accueil.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/Driver/driver_profil.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
+
+	<!-- DRIVER MAP -->
+	
 	<definition name="drivercarte" extends="base.definition">
 		<put-attribute name="title" value="Carte conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
@@ -87,6 +115,9 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
+
+	<!-- DRIVER GESTION TRAJETS -->
+	
 	<definition name="drivertrajet" extends="base.definition">
 		<put-attribute name="title" value="Trajets conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
@@ -97,6 +128,9 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
+
+	<!-- DRIVER GESTION PAIEMENTS -->
+	
 	<definition name="driverpaiements" extends="base.definition">
 		<put-attribute name="title" value="Paiements Conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
@@ -108,6 +142,8 @@
 	</definition>
 
 
+	<!-- DRIVER NOTIFICATIONS -->
+	
 	<definition name="drivernotifications" extends="base.definition">
 		<put-attribute name="title" value="Notifications Conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
@@ -118,6 +154,9 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
+
+	<!-- DRIVER GESTION PROFIL -->
+	
 	<definition name="drivergestionprofil" extends="base.definition">
 		<put-attribute name="title" value="Gestion profil Conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
@@ -128,27 +167,19 @@
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-	<!-- Configuration de la vue "accueil_inscription" -->
-	<definition name="driverprofil" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-<<<<<<< HEAD
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Driver/driver_profil.jsp" />
-			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
 	
 	
-	<!--  ESPACE UTILISATEUR -->
 	
-	
-	<!-- Configuration de la vue "accueil" -->
+
+	<!--  ******************** SECTION UTILISATEUR ******************** -->
+
+
+
+	<!-- CONDUCTEUR ACCUEIL -->
 	
 	<definition name="utilisateuraccueil" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
@@ -156,127 +187,51 @@
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-	<!-- Configuration de la vue "demande course" -->
 	
-		<definition name="utilisateurdemandecourse" extends="base.definition">
+	<!-- CONDUCTEUR DEMANDE COURSE -->
+	
+	<definition name="utilisateurdemandecourse" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_demandecourse.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
-		
-	<!-- Configuration de la vue "evaluation course" -->
 	
-		<definition name="utilisateurevaluationcourse" extends="base.definition">
+	
+	<!-- CONDUCTEUR EVALUATION COURSE -->
+	
+	<definition name="utilisateurevaluationcourse" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_evaluationcourse.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
-
-
-		<!-- Configuration de la vue "utilisateurgestionprofil" -->
 	
-		<definition name="utilisateurgestionprofil" extends="base.definition">
+	
+	<!-- CONDUCTEUR GESTION PROFIL -->
+	
+	<definition name="utilisateurgestionprofil" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestionprofil.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-=======
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_accueil.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-
-<definition name="utilisateurtrajet" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestiontrajets.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
 	
-<definition name="utilisateurprofilchauffeur" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_profilchauffeur.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
+	<!-- CONDUCTEUR GESTION TRAJETS-->
 	
-<definition name="utlisateurdemandecourse" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_demandecourse.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
-	
-<definition name="utlisateurnotecourse" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_evaluationcourse.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
-	
-<definition name="utilisateurpaiements" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestiontranscations.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
-	
-<definition name="utilisateurnotifications" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_messagerie-notification.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
-	</definition>
-	
-<definition name="utilisateurgestionprofil" extends="base.definition">
-		<put-attribute name="title" value="Contact" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestionprofil.jsp" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
->>>>>>> bastien
-	</definition>
-	
-	<!-- Configuration de la vue "utilisateurgestiontrajets" -->
-	
-		<definition name="utilisateurgestiontrajets" extends="base.definition">
+	<definition name="utilisateurgestiontrajets" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
@@ -284,23 +239,25 @@
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
-	<!-- Configuration de la vue "utilisateurgestiontransactions" -->
 	
-		<definition name="utilisateurgestiontransactions" extends="base.definition">
+	<!-- CONDUCTEUR GESTION TRANSACTIONS -->
+	
+	<definition name="utilisateurgestiontransactions" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestiontransactions.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
-
-	<!-- Configuration de la vue "utilisateurnotifications" -->
 	
-		<definition name="utilisateurnotifications" extends="base.definition">
+	
+	<!-- CONDUCTEUR NOTIFICATIONS -->
+	
+	<definition name="utilisateurnotifications" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"
@@ -309,11 +266,11 @@
 	</definition>
 	
 	
-	<!-- Configuration de la vue "utilisateur profil chauffeur" -->
+	<!-- CONDUCTEUR PROFIL CHAUFFEURS-->
 	
-		<definition name="utilisateurprofilchauffeur" extends="base.definition">
+	<definition name="utilisateurprofilchauffeur" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
-		<put-attribute name="navigation" value="/WEB-INF/views/jsp/navigation.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
 		<put-attribute name="body"

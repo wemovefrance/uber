@@ -42,10 +42,6 @@ public class HomeController {
 	public String home(Model model, HttpSession session, HttpServletRequest request) {
 
 		model.addAttribute("partner", new Utilisateur());
-		
-		ArrayList <Double> latitudesConducteurs = new ArrayList<Double>() ; 
-		ArrayList <Double> longitudesConducteurs = new ArrayList<Double>() ;
-		HttpSession session1 = request.getSession();
 		List<Conducteur> listeConducteurs = new ArrayList<Conducteur>() ;
 		listeConducteurs = this.utilisateurDAO.findAllConducteurs() ;
 		ArrayList<Double> latitudesConducteurs = new ArrayList<Double>() ;
@@ -59,11 +55,10 @@ public class HomeController {
 			usernamesConducteurs.add((String) listeConducteurs.get(ii).getLogin()) ;
 			userIdConducteurs.add((Integer) listeConducteurs.get(ii).getId_user()) ;
 			}		
-		HttpSession session1 = request.getSession();
-		session1.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
-		session1.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
-		session1.setAttribute("usernamesConducteurs",usernamesConducteurs) ;
-		session1.setAttribute("userIdConducteurs",userIdConducteurs) ;
+		session.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
+		session.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
+		session.setAttribute("usernamesConducteurs",usernamesConducteurs) ;
+		session.setAttribute("userIdConducteurs",userIdConducteurs) ;
 		return "accueil";
 	}
 
@@ -87,7 +82,6 @@ public class HomeController {
 	@RequestMapping(value = "/connexion", method = RequestMethod.GET)
 	public String login(Model model) {
 
-		model.addAttribute("partner", new Utilisateur());
 
 		return "accueil";
 	}
@@ -97,7 +91,7 @@ public class HomeController {
 			HttpSession session, HttpServletRequest request, RedirectAttributes attr)  {
 
 		new PartnerLoginValidator().validate(utilisateur, result);
-		RedirectView view = new RedirectView();
+		
 
 		if (!result.hasErrors()) {
 
