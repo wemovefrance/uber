@@ -42,10 +42,6 @@ public class InscriptionConducteurController {
 		
 		new ConducteurSubscribeValidator().validate(conducteur, result);
 		
-		//@RequestParam double lat, @RequestParam double lon
-		//System.out.println(lat);
-	
-
 		if ( result.hasErrors()) {	
 			
 			return "accueildevenirconducteur";
