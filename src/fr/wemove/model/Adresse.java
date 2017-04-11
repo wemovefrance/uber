@@ -30,23 +30,23 @@ public class Adresse implements Serializable{
 	@Column(name = "CODE_POSTAL")
 	private int codePostal;
 	@Column(name = "LATITUDE")
-	private int latitude;
-	@Column(name = "LONGIITUDE")
-	private int longitude;
+	private double latitude;
+	@Column(name = "LONGITUDE")
+	private double longitude;
 	
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 

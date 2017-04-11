@@ -18,37 +18,48 @@ import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
 
 @Controller
-@RequestMapping("/conducteur")
-public class DriverController {
+@RequestMapping("/utilisateur")
+public class UtilisateurController {
 	
 	@RequestMapping(value = "monprofil")
 	public String accueil(Model model) {
-		return "driveraccueil";
+		return "utilisateuraccueil";
 	}
 
-	@RequestMapping(value = "carte")
+	@RequestMapping(value = "demandecourse")
 	public String carte(Model model) {
-		return "drivercarte";
+		return "utilisateurdemandecourse";
 	}
 
-	@RequestMapping(value = "trajet")
-	public String trajet(Model model) {
-		return "drivertrajet";
+
+	@RequestMapping(value = "evaluationcourse")
+	public String course(Model model) {
+		return "utilisateurevaluationcourse";
+	}
+	
+	@RequestMapping(value = "gestionprofil")
+	public String gestionprofil(Model model) {
+		return "utilisateurgestionprofil";
 	}
 
-	@RequestMapping(value = "paiements")
+	@RequestMapping(value = "gestiontrajets")
+	public String trajets (Model model) {
+		return "utilisateurgestiontrajets";
+	}
+	
+	@RequestMapping(value = "gestiontransactions")
 	public String paiements(Model model) {
-		return "driverpaiements";
+		return "utilisateurgestiontransactions";
 	}
 
 	@RequestMapping(value = "notifications")
 	public String notifications(Model model) {
-		return "drivernotifications";
+		return "utilisateurnotifications";
 	}
-
-	@RequestMapping(value = "/gestionprofil")
-	public String gestionprofil(Model model) {
-		return "drivergestionprofil";
+	
+	@RequestMapping(value = "profilchauffeur")
+	public String chauffeur(Model model) {
+		return "utilisateurprofilchauffeur";
 	}
 	
 	@RequestMapping ( value="/deconnexion")
@@ -59,5 +70,6 @@ public class DriverController {
 		response.sendRedirect ( request.getContextPath() + "/accueil");
 		
 	}
+
 	
 }

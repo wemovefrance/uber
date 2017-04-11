@@ -39,7 +39,7 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		return (List<Conducteur>) this.em.createQuery("SELECT c FROM Conducteur c", Conducteur.class).getResultList();
 	}
 
-	/*
+	
 	public Utilisateur findByLogin(String login, String motDePasse) throws WrongUsernameOrPasswordException {
 		
 		try {
@@ -109,8 +109,5 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 	}
 
-	public Utilisateur findByLogin(String login, String motDePasse) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

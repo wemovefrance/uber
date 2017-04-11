@@ -5,7 +5,7 @@
    <div class=" info-trajets">
    <ul class="mesTrajets"> 
    
-   <li> Bonjour ${partenaire.nom} ${partenaire.prenom} </li>
+   <li> Bonjour ${utilisateur.nom} ${utilisateur.prenom} </li>
    <li> Dernier trajet : ${dernierTrajet.dateDuTrajet} </li>
    <li> prochain trajet : ${prochainTrajet.dateDuTrajet} </li>
    </ul>
