@@ -1,7 +1,5 @@
 package fr.wemove.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.wemove.dao.*;
-import fr.wemove.model.*;
+import fr.wemove.dao.UtilisateurDAO;
+import fr.wemove.dao.VehiculeDAO;
+import fr.wemove.model.Adresse;
+import fr.wemove.model.Conducteur;
+import fr.wemove.model.Notification;
+import fr.wemove.model.Utilisateur;
+import fr.wemove.model.Vehicule;
 
 @RestController
 @RequestMapping("/api/generator")
@@ -131,6 +134,11 @@ public class GeneratorController {
 		myVehicule.setVolumeCoffre(5);
 		myVehicule.setConducteur(myConducteur);
 		myVehicule = this.VehiculeDAO.save(myVehicule);
+		
+		/* CREATION DES NOTIFICATIONS */
+		
+		Notification notificationDemandeTrajet = new Notification();
+		notificationDemandeTrajet.setMessage("Vous avez une demande de trajet");
 
 		return new ResponseEntity(HttpStatus.OK);
 	}

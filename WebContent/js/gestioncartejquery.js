@@ -205,4 +205,7 @@ function recoverPosition() {
  * function repeatResearchPos(){
  * setInterval('navigator.geolocation.getCurrentPosition(maPosition)',erreurPosition,5000); };
  */
-navigator.geolocation.getCurrentPosition(maPosition);
+function repeatResearchPos(){
+	setInterval('navigator.geolocation.getCurrentPosition(success)',5000);
+};
+repeatResearchPos() ;

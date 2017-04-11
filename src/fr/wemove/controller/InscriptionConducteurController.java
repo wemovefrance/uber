@@ -1,14 +1,20 @@
 package fr.wemove.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import fr.wemove.dao.UtilisateurDAO;
+import fr.wemove.model.Adresse;
 import fr.wemove.model.Conducteur;
 import fr.wemove.validator.ConducteurSubscribeValidator;
 
@@ -32,7 +38,7 @@ public class InscriptionConducteurController {
 	
 	
 	@RequestMapping ( value = "/accueil/inscriptionConducteur", method = RequestMethod.POST)
-	public String inscriptionUtilisateur (@ModelAttribute("driver") Conducteur conducteur, BindingResult result, Model model ){
+	public String inscriptionUtilisateur (@ModelAttribute("driver") Conducteur conducteur, BindingResult result, Model model){
 		
 		new ConducteurSubscribeValidator().validate(conducteur, result);
 		
@@ -51,7 +57,5 @@ public class InscriptionConducteurController {
 		
 		
 	}
-	
-	
 
 }
