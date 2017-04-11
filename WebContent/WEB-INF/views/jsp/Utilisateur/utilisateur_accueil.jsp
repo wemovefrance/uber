@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<div id="infoposition"></div>
+	<div id="infoposition"></div>
 <div id="map" style="height: 500px;"></div>
 
 <script
@@ -15,19 +15,16 @@
 		type="hidden" name="longitudesConducteur"
 		value="${longitudesConducteurs}">
 </form>
-<!-- 
-<div class=" info-trajets">
-	<ul class="mesTrajets">
-
-		<li>Bonjour ${partenaire.nom} ${partenaire.prenom}</li>
-		<li>Dernier trajet : ${dernierTrajet.dateDuTrajet}</li>
-		<li>prochain trajet : ${prochainTrajet.dateDuTrajet}</li>
-	</ul>
-</div>
- -->
- 
-<div class="map"></div>
-
-<input class="bouttonmenuaccueil" type="button" id="gestionTrajet" value=" Gestion mes trajets" />
-<input class="bouttonmenuaccueil" type="button" id="gestionTransaction"
-	value=" Gestion mes paiements" />
+   <div class=" info-trajets">
+   <ul class="mesTrajets"> 
+   
+   <li> Bonjour ${utilisateur.nom} ${utilisateur.prenom} </li>
+   <li> Dernier trajet : ${dernierTrajet.dateDuTrajet} </li>
+   <li> prochain trajet : ${prochainTrajet.dateDuTrajet} </li>
+   </ul>
+   </div> 
+   
+   <div class="map"> </div>
+   
+   <input type="button" id="gestionTrajet" value =" Gestion d'un trajet"/>
+   <input type="button" id="gestionTransaction" value =" Gestion transactions"/>

@@ -38,8 +38,8 @@ public class Adresse implements Serializable{
 		return latitude;
 	}
 
-	public void setLatitude(double d) {
-		this.latitude = d;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 	public double getLongitude() {
