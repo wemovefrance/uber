@@ -38,13 +38,12 @@ public class HomeController {
 	@Autowired
 	UtilisateurDAO utilisateurDAO;
 
-	@RequestMapping(value = "")
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Model model, HttpSession session, HttpServletRequest request) {
 
 
 		model.addAttribute("partner", new Utilisateur());
-<<<<<<< HEAD
-		session.setAttribute("partenaire", new Utilisateur());
+	
 		
 		List<Conducteur> listeConducteurs = new ArrayList<Conducteur>() ;
 		listeConducteurs = this.utilisateurDAO.findAllConducteurs() ;
@@ -59,41 +58,11 @@ public class HomeController {
 			usernamesConducteurs.add((String) listeConducteurs.get(ii).getLogin()) ;
 			userIdConducteurs.add((Integer) listeConducteurs.get(ii).getId_user()) ;
 			}		
-		/*
-		ArrayList <Double> latitudesConducteurs = utilisateurDAO.findConducteursLat() ;
-		ArrayList <Double> longitudesConducteurs = utilisateurDAO.findConducteursLong() ;
-		ArrayList <String> usernamesConducteurs = utilisateurDAO.findConducteursLogin() ;
-		*/HttpSession session1 = request.getSession();
-		/*
-=======
-	
-		
-		UtilisateurDAO utilisateurDAO = new UtilisateurDAO(); /*
-		List <Double> latitudesConducteurs = utilisateurDAO.findConducteursLat() ;
-		List <Double> longitudesConducteurs = utilisateurDAO.findConducteursLong() ;
-		request.getSession().setAttribute("latitudesConducteurs",latitudesConducteurs) ;
-		request.getSession().setAttribute("longitudesConducteurs",longitudesConducteurs) ;
-		*/	
-		ArrayList <Double> latitudesConducteurs = new ArrayList<Double>() ; 
-		ArrayList <Double> longitudesConducteurs = new ArrayList<Double>() ;
-		HttpSession session1 = request.getSession();
->>>>>>> 99726d8f871fcd8e0ef22672fba9efc084f295ef
-		latitudesConducteurs.add(43.456343) ;
-		longitudesConducteurs.add(6.535101) ;
-		latitudesConducteurs.add(43.409486) ;
-		longitudesConducteurs.add(6.085163) ;
-		usernamesConducteurs.add("Driver 1") ;
-		usernamesConducteurs.add("Driver 2") ;
-		*/
-		session1.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
-		session1.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
-		session1.setAttribute("usernamesConducteurs",usernamesConducteurs) ;
-		session1.setAttribute("userIdConducteurs",userIdConducteurs) ;
-		/*
-		System.out.println(longitudesConducteurs);
-		System.out.println(latitudesConducteurs);
-		System.out.println(usernamesConducteurs);
-		*/
+		session.setAttribute("latitudesConducteurs",latitudesConducteurs) ;
+		session.setAttribute("longitudesConducteurs",longitudesConducteurs) ;
+		session.setAttribute("usernamesConducteurs",usernamesConducteurs) ;
+		session.setAttribute("userIdConducteurs",userIdConducteurs) ;
+
 		return "accueil";
 	}
 
@@ -114,6 +83,7 @@ public class HomeController {
 
 
 
+	
 	@RequestMapping(value = "/connexion", method = RequestMethod.GET)
 	public String login(Model model) {
 
@@ -121,6 +91,7 @@ public class HomeController {
 
 		return "accueil";
 	}
+	
 
 	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
 	public String loginPartenaire(@ModelAttribute("partner") Utilisateur utilisateur, BindingResult result, Model model,

@@ -4,7 +4,6 @@
 
 
 <h1>Bienvenue</h1>
-<div id="infoposition"></div>
 <div id="map" style="height: 500px;"></div>
 
 <script

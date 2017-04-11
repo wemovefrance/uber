@@ -41,7 +41,7 @@ function plotMarker(Lat, Long, Label) {
 	});
 	gmarkers.push(marker);
 	var infowindow = new google.maps.InfoWindow({
-	    content: '<a href="/frWeMove/utilisateur/profilConducteur?userId=' +userid+ '"> '+Label+' </a>'});
+	    content: '<a href="/frWeMove/utilisateur/profilchauffeur?userId=' +userid+ '"> '+Label+' </a>'});
 	var ttt = gmarkers[nn] ;
 	ttt.addListener('click', function() {
 	    infowindow.open(map, ttt);

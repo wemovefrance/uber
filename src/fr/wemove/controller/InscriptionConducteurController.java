@@ -47,7 +47,7 @@ public class InscriptionConducteurController {
 			
 			e.printStackTrace();
 		}
-		return "accueil";
+		return "redirect:/accueil";
 		
 		
 	}
