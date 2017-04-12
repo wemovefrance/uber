@@ -144,6 +144,17 @@
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
+	<!-- Configuration de la vue "accueil_inscription" -->
+	<definition name="drivergestionvehicule" extends="base.definition">
+		<put-attribute name="title" value="Contact" />
+		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/Driver/driver_gestionvoiture.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
+	</definition>
+	
 	
 <!-- **************UTILISATEUR************** -->
 
