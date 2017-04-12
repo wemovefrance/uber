@@ -98,7 +98,7 @@ public class HomeController {
 			HttpSession session, HttpServletRequest request, RedirectAttributes attr)  {
 
 		new PartnerLoginValidator().validate(utilisateur, result);
-		RedirectView view = new RedirectView();
+	
 
 		if (!result.hasErrors()) {
 
