@@ -32,16 +32,35 @@ public class Notification implements Serializable {
 	@Column(name = "MESSAGE")
 	private String message;
 
-	@Column(name = "STATUT")
-	private String statut;
+	@Column(name = "STATUT_UTILISATEUR")
+	private String statutUtilisateur;
+	
+	@Column(name = "STATUT_CONDUCTEUR")
+	private String statutConducteur;
 
 	@Column(name = "DATE_ENVOI")
-	private Date envoi;
+	private String envoi;
 
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "NOTIFICATION_TRAJET_ID")
 	private Trajet trajet;
 
+	public String getStatutUtilisateur() {
+		return statutUtilisateur;
+	}
+
+	public void setStatutUtilisateur(String statutUtilisateur) {
+		this.statutUtilisateur = statutUtilisateur;
+	}
+
+	public String getStatutConducteur() {
+		return statutConducteur;
+	}
+
+	public void setStatutConducteur(String statutConducteur) {
+		this.statutConducteur = statutConducteur;
+	}
+	
 	public Notification() {
 		super();
 	}
@@ -78,19 +97,11 @@ public class Notification implements Serializable {
 		this.message = message;
 	}
 
-	public String getStatut() {
-		return statut;
-	}
-
-	public void setStatut(String statut) {
-		this.statut = statut;
-	}
-
-	public Date getEnvoi() {
+	public String getEnvoi() {
 		return envoi;
 	}
 
-	public void setEnvoi(Date envoi) {
+	public void setEnvoi(String envoi) {
 		this.envoi = envoi;
 	}
 

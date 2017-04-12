@@ -17,10 +17,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.wemove.dao.NotificationDAO;
+import fr.wemove.dao.TrajetDAO;
 import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Conducteur;
+import fr.wemove.model.Notification;
 import fr.wemove.model.Trajet;
 import fr.wemove.model.Utilisateur;
+import fr.wemove.validator.TrajetValidator;
+import fr.wemove.validator.UtilisateurSubscribeValidator;
 
 @Controller
 @RequestMapping("/utilisateur")
@@ -28,6 +33,12 @@ public class UtilisateurController {
 	
 	@Autowired
 	private UtilisateurDAO utilisateurDAO;
+	
+	@Autowired
+	private TrajetDAO trajetDAO;
+	
+	@Autowired 
+	private NotificationDAO notificationDAO;
 	
 	@RequestMapping(value = "monprofil")
 	public String accueil(Model model) {
@@ -37,14 +48,31 @@ public class UtilisateurController {
 	@RequestMapping(value = "demandecourse", method= RequestMethod.GET)
 	public String carte (Model model) {
 		
-		return "utilisateurdemandecourse";
+		model.addAttribute("nouveauTrajet",new Trajet());
+		return "demandecourse";
 	}
 
 	
 	@RequestMapping(value = "demandecourse", method= RequestMethod.POST)
-	public String carte(@ModelAttribute("trajet") Trajet trajet , BindingResult result, Model model) {
+	public String carte(@ModelAttribute("nouveauTrajet") Trajet trajet , BindingResult result, Model model) {
+
+		new TrajetValidator().validate(trajet, result);
 		
-		return "utilisateurdemandecourse";
+		if ( result.hasErrors()) {	
+			
+			return "demandecourse";
+		} 
+		Notification notificationDemande = new Notification();
+		
+		notificationDemande.setMessage("Vous avez une demande de trajet");
+		notificationDemande.setStatutConducteur("nonLu");
+		notificationDemande.setStatutUtilisateur("lu");
+		notificationDemande.setTrajet(trajet);
+		notificationDemande = this.notificationDAO.save(notificationDemande);		
+		
+		this.trajetDAO.save(trajet);
+		
+		return "redirect:/utilisateur/monprofil";
 	}
 
 	@RequestMapping(value = "evaluationcourse")

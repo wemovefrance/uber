@@ -162,7 +162,7 @@
 	
 	<!-- Configuration de la vue "demande course" -->
 	
-		<definition name="utilisateurdemandecourse" extends="base.definition">
+		<definition name="demandecourse" extends="base.definition">
 		<put-attribute name="title" value="Accueil" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
