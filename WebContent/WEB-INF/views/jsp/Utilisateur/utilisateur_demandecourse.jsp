@@ -15,14 +15,14 @@
     
     <form:form modelAttribute="trajet" action ="" method="post">
     
-    		<form:label path="nomCourse"> Nom de maCourse <span class="required" title="champ obligatoire">*</span></form:label>
+<%--     		<form:label path="nomCourse"> Nom de maCourse <span class="required" title="champ obligatoire">*</span></form:label>
     		<form:input path="nomCourse" />
     		<form:errors path="nomCourse" /> 
     		
     		<label for="dateCourse"> Programmer ma course <span class="required" title="champ obligatoire">*</span></label>
     		<input type="date" id="dateCourse" name="dateCourse" />	
     
-    		<input type="submit" value="Demander course"/> 
+    		<input type="submit" value="Demander course"/>  --%>
     		
     </form:form>  
     
