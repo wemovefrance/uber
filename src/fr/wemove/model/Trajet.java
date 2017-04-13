@@ -33,11 +33,11 @@ public class Trajet implements Serializable {
 	@Column(name = "TRAJET_ID")
 	private Integer id_trajet;
 	//@Embedded
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="DEPART_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
 	private Adresse depart;
 	//@Embedded
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="ARRIVEE_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
 	private Adresse arrivee;
 	public void setId_trajet(Integer id_trajet) {
@@ -49,7 +49,7 @@ public class Trajet implements Serializable {
 	@Column(name = "COMMENTAIRES")
 	private String commentaire;
 	@Column(name = "DATE")
-	private Date dateDuTrajet;
+	private String dateDuTrajet;
 
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "COND_TRAJET_ID")
@@ -62,11 +62,11 @@ public class Trajet implements Serializable {
 	@OneToMany(mappedBy = "trajet", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Notification> notification;
 
-	public Date getDateDuTrajet() {
+	public String getDateDuTrajet() {
 		return dateDuTrajet;
 	}
 
-	public void setDateDuTrajet(Date dateDuTrajet) {
+	public void setDateDuTrajet(String dateDuTrajet) {
 		this.dateDuTrajet = dateDuTrajet;
 	}
 

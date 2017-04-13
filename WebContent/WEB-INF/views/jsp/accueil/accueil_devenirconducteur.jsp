@@ -66,12 +66,16 @@
 		
 		<form:hidden id="lat" path="adresse.latitude" value=""/>
 		<form:hidden id="lon" path="adresse.longitude" value=""/>
+		<form:hidden id="tex" path="adresse.nom" value=""/>
 		
 		<form:checkbox path="condGV" value="true"/> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
 		
 		<div style="backgound-color:red"><input type="submit" value="Devenir conducteur" /></div>
 
 	</form:form>
+	
+	
+</div>
 	
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
@@ -101,6 +105,7 @@
 	                longitude = results[0].geometry.location.lng();
 	                $('#lat').val(latitude);
 	                $('#lon').val(longitude);
+	               	$('#tex').val(address);
 
 	                console.log($('#lat').val());
 	                console.log($('#lon').val());
@@ -113,5 +118,3 @@
 </script>
 
 
-
-</div>
