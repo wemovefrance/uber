@@ -54,7 +54,7 @@ public class UtilisateurController {
 
 	
 	@RequestMapping(value = "demandecourse", method= RequestMethod.POST)
-	public String carte(@ModelAttribute("nouveauTrajet") Trajet trajet , BindingResult result, Model model) {
+	public String carte(@ModelAttribute("nouveauTrajet") Trajet trajet , BindingResult result, Model model, HttpSession session ) {
 
 		new TrajetValidator().validate(trajet, result);
 		
@@ -62,15 +62,20 @@ public class UtilisateurController {
 			
 			return "demandecourse";
 		} 
+		 
+		Conducteur conducteur = (Conducteur) session.getAttribute("conducteurOnClick");
+		Utilisateur utilisateur =(Utilisateur) session.getAttribute("utilisateur");
+		
+		trajet.setUtilisateur(utilisateur);
+		trajet.setConducteur(conducteur);
+		
 		Notification notificationDemande = new Notification();
 		
 		notificationDemande.setMessage("Vous avez une demande de trajet");
 		notificationDemande.setStatutConducteur("nonLu");
 		notificationDemande.setStatutUtilisateur("lu");
 		notificationDemande.setTrajet(trajet);
-		notificationDemande = this.notificationDAO.save(notificationDemande);		
-		
-		this.trajetDAO.save(trajet);
+		notificationDemande = this.notificationDAO.save(notificationDemande);
 		
 		return "redirect:/utilisateur/monprofil";
 	}

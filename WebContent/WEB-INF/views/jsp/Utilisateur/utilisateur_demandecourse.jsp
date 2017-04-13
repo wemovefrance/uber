@@ -34,17 +34,17 @@
 
   <label>Adresse de départ</label>
   <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse...">
-  <input type="hidden" id="street_number" name="street_number" disabled>
-  <input type="hidden" id="route" name="route" disabled>
-  <input type="hidden" id="locality" name="locality" disabled>
-  <input type="hidden" id="country" name="country" disabled>
-  
-  <label>Adresse d'arrivée</label>
-  <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse...">
-  <input type="hidden" id="street_number" name="street_number" disabled>
+	<input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
   <input type="hidden" id="locality" name="locality" disabled>
   <input type="hidden" id="country" name="country" disabled> 
+  
+  <label>Adresse d'arrivée</label>
+  <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse...">
+  
+  	<form:hidden id="D" path="depart.nom" value=""/> 
+	<form:hidden id="A" path="arrivee.nom" value=""/>   
+    		
   
 	<form:label path="commentaire"> Commentaire avec le volume et le poids des objets à déménager : <span
 				class="required" title="ce champ est obligatoire">*</span>
@@ -52,10 +52,7 @@
 		<form:textarea path="commentaire" />
 		<form:errors path="commentaire" />
 		<br />
-		
-		<%-- <%-- <form:hidden id="" path="conducteur.id" value="${conducteurOnClick.id}"/>
-		<%-- <form:hidden id="" path="utilisateur.id" value="${utilisateur.id}"/>  --%>
-    		
+
     	<div style="backgound-color:red"><input type="submit" value="Demander course" /></div>
     </form:form>  
     
@@ -65,6 +62,14 @@
 
 <script type="text/javascript">
 
+function initializeAutocompleteDeux(id) {
+	  var element = document.getElementById(id);
+	  if (element) {
+	    var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+	    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChangedDeux);
+	  }
+	}
+	
 function initializeAutocomplete(id) {
 	  var element = document.getElementById(id);
 	  if (element) {
@@ -72,11 +77,11 @@ function initializeAutocomplete(id) {
 	    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
 	  }
 	}
-
-	function onPlaceChanged() {
+	
+	////////////
+		function onPlaceChanged() {
 	  var place = this.getPlace();
 	  //console.log(place);  // Uncomment this line to view the full object returned by Google API.
-		
 	  for (var i in place.address_components) {
 	    var component = place.address_components[i];
 	    for (var j in component.types) {  // Some types are ["country", "political"]
@@ -86,16 +91,36 @@ function initializeAutocomplete(id) {
 	      }
 	    }
 	  }
+	  var A = $('#street_number').val() + " " + $('#route').val() + ", " + $('#locality').val() + ", " + $('#country').val();
+	  $('#A').val(A);
 	}
 
+	function onPlaceChangedDeux() {
+	  var place = this.getPlace();
+	  //console.log(place);  // Uncomment this line to view the full object returned by Google API.
+	  for (var i in place.address_components) {
+	    var component = place.address_components[i];
+	    for (var j in component.types) {  // Some types are ["country", "political"]
+	      var type_element = document.getElementById(component.types[j]);
+	      if (type_element) {
+	        type_element.value = component.long_name;
+	      }
+	    }
+	  }
+	  var D = $('#street_number').val() + " " + $('#route').val() + ", " + $('#locality').val() + ", " + $('#country').val();
+	  $('#D').val(D);
+	}
+
+	/////////////////Listeners
+	
 	google.maps.event.addDomListener(window, 'load', function() {
-	  initializeAutocomplete('user_input_autocomplete_address');
+	  initializeAutocompleteDeux('user_input_autocomplete_address');
 	});
 	
 	google.maps.event.addDomListener(window, 'load', function() {
 		  initializeAutocomplete('user_input_autocomplete_address_2');
 		});
-		
+
 </script>
 
 
