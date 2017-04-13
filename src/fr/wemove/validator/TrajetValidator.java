@@ -22,7 +22,9 @@ import fr.wemove.model.Trajet;
 			
 			ValidationUtils.rejectIfEmptyOrWhitespace(e, "dateDuTrajet", "dateDuTrajet.empty", "Saisir la date du trajet");
 			ValidationUtils.rejectIfEmptyOrWhitespace(e, "commentaire", "commentaire.empty", "Donnez des précisions sur votre course");
-
+			ValidationUtils.rejectIfEmptyOrWhitespace(e, "depart.nom", "depart.nom.empty", "Saisir le point de départ du trajet");
+			ValidationUtils.rejectIfEmptyOrWhitespace(e, "arrivee.nom", "arrivee.nom.empty", "Saisir l'arrivée du trajet");
+			
 		}
 		
 

@@ -20,8 +20,10 @@
    			 	<p class="noteChauffeur"> Note moyenne </p>
     </div>
     
-    <input type= "button" id="butt-consult-conducteur" value="Consulter profil"/>
-     <input type= "button" id="butt-consult-conducteur" value="Retour profil <c:out value="${conducteurOnClick.prenom }"/>"/>
+    
+    <form method="get" action="utilisateur/profilchauffeur?userId='${conducteurOnClick.id_user}'">
+    <input type= "submit" id="butt-consult-conducteur" value="Retour profil <c:out value="${conducteurOnClick.prenom }"/>"/>
+	</form>
     
     <form:form modelAttribute="nouveauTrajet" action ="demandecourse" method="post">
 
@@ -38,9 +40,11 @@
   <input type="hidden" id="route" name="route" disabled>
   <input type="hidden" id="locality" name="locality" disabled>
   <input type="hidden" id="country" name="country" disabled> 
+  <form:errors path="depart.nom" />
   
   <label>Adresse d'arrivée</label>
   <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse...">
+  <form:errors path="arrivee.nom" />
   
   	<form:hidden id="D" path="depart.nom" value=""/> 
 	<form:hidden id="A" path="arrivee.nom" value=""/>   
