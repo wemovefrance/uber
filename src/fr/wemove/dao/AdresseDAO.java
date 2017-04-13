@@ -26,6 +26,23 @@ public class AdresseDAO extends DAO<Adresse> {
 		return this.em.merge(object);
 	}
 
+	/*
+	public Adresse update ( int id, Adresse object) {
+		
+		Adresse adresse = this.em.find(Adresse.class, id);
+		
+		if ( adresse == null) {
+			
+			throw new IllegalArgumentException("Unknown id");
+		}
+		
+		adresse.setNom(object.getNom());
+		
+		return this.em.merge(adresse);
+	}
+	
+	*/
+	
 	@Override
 	public boolean delete(Adresse object) {
 		try {

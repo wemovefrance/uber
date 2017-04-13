@@ -2,22 +2,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
-<h1 class="titrePage"> Devenir partenaire </h1>
-
-
-<div class=buttons-type-inscription>
-
-	<p>Créer un compte weMove</p>
-
-	<input type="button" class="butt-typeInscription"
-		value="Devenir client">
-	<input type="button" class="butt-typeInscription" value="Devenir conducteur">
-</div>
-
-  
+<h1 class="titrePage"> Devenir partenaire WeMove </h1>
+ 
 <div class="client-inscription">
 
-	<p>Créer un compte client WeMove en remplissant le fomulaire suivant</p>
+	<p>Créer un compte client en remplissant le fomulaire suivant</p>
 	<br /> 
 	<span class="required"> * Champ requis </span>
 	
@@ -44,6 +33,13 @@
 		<form:errors path="email"/>
 		
 		<br />
+		
+		 <label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
+  		<input id="user_input_autocomplete_address" placeholder="Commencer à taper votre adresse...">
+  		<input type="hidden" id="street_number" name="street_number" disabled>
+ 		 <input type="hidden" id="route" name="route" disabled>
+  		<input type="hidden" id="locality" name="locality" disabled>
+  		<input type="hidden" id="country" name="country" disabled>
 
 		<form:label path="motDePasse"> Mot de passe : <span class="required" title="ce champ est obligatoire">*</span></form:label>
 		<form:password path="motDePasse"/>
@@ -56,13 +52,57 @@
 		<form:errors path="confirmation"/>
 		
 		<br />
+		
+		<form:hidden id="lat" path="adresse.latitude" value=""/>
+		<form:hidden id="lon" path="adresse.longitude" value=""/>
 
-
-		<input type="checkbox" name="conditionGeneraleDeVente" id="conditionGeneraleDeVente" value="1" checked /> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span> 
+		J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
+		<form:checkbox id="checkbox" path="condGV"/>  
  		<br />
 		<input type="submit" value="Devenir utilisateur" />
 
 	</form:form>
+	
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
+</script>
+
+<script src="<c:url value="/js/autocomplete.js" />"></script>
+
+<script type="text/javascript">
+
+
+
+	function geocode(){
+		   var longitude = 0;
+	        var latitute = 0;
+	        var address = $('#street_number').val() + " " + $('#route').val() + ", " + $('#locality').val() + ", " + $('#country').val();
+	        console.log(address);
+	        var geocoder = new google.maps.Geocoder();
+
+	        /* Appel au service de geocodage avec l'adresse en paramètre */
+	        geocoder.geocode({
+	            'address': address
+	        }, function(results, status) {
+	            /* Si l'adresse a pu être géolocalisée */
+	            if (status == google.maps.GeocoderStatus.OK) {
+	                /* Récupération de sa latitude et de sa longitude */
+	                latitude = results[0].geometry.location.lat();
+	                longitude = results[0].geometry.location.lng();
+	                $('#lat').val(latitude);
+	                $('#lon').val(longitude);
+
+	                console.log($('#lat').val());
+	                console.log($('#lon').val());
+	            } 
+	        });
+	}
+	
+
+	
+</script>
+	
+	
 	
 </div>
 
