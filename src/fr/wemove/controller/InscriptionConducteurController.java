@@ -32,7 +32,7 @@ public class InscriptionConducteurController {
 	public String devenirPartenaire ( Model model) {
 		
 		model.addAttribute("driver", new Conducteur());
-		 
+		
 		return "accueildevenirconducteur";
 	}
 	

@@ -19,14 +19,19 @@
 		type="hidden" name="idsConducteur" value="${userIdConducteurs}">
 </form>
 
+
+
 <div class=" info-trajets">
 	<ul class="mesTrajets">
 
-		<li>Bonjour ${utilisateur.nom} ${utilisateur.prenom}</li>
+		<li>Bonjour ${utilisateur.nom} ${utilisateur.prenom} <br />
+		</li>
 		<li>Dernier trajet : ${dernierTrajet.dateDuTrajet}</li>
 		<li>prochain trajet : ${prochainTrajet.dateDuTrajet}</li>
 	</ul>
 </div>
+<br />
+
 
 <div class="map"></div>
 

@@ -9,6 +9,15 @@
    			 	<img src ="" id ="photo-profil-chauffeur"/>
     			<p> Profil conducteur de <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
    			 	<p class="noteChauffeur"> Note moyenne  </p>
+   			 	<p> Véhicules à disposition :</p>
+   			 	<ul> 
+   			 				<c:forEach items="${vehiculeByConducteur}" var="vehicule">
+   			 				<li>
+   			 				<c:out value = "${vehicule.modele}"/> <br />
+   			 				</li>
+   			 				</c:forEach>
+   			 				</ul> 
+   			 			
     	</div>
    						
     <p> Nombre de courses : </p>

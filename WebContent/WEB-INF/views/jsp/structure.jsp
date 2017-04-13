@@ -17,7 +17,7 @@
 <!-- <script src="<c:url value="/js/googlemapapi.js" />"></script> -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<c:url value="/js/gestioncartejquery.js" />"></script>
-<script type="text/javascript" src ="<c:url value="/js/updateprofilutil.js"/>"> </script>
+<script type="text/javascript" src ="<c:url value="/js/update-profil-util.js"/>"> </script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">

@@ -29,7 +29,6 @@ public class InscriptionUtilisateurController {
 		
 		model.addAttribute("user", new Utilisateur());
 		
-	
 		return "accueildevenirutilisateur";
 	}
 	
