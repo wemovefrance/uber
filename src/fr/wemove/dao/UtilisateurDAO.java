@@ -57,8 +57,7 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 	
 	@Override
 	public Utilisateur save(Utilisateur object) {
-		this.em.persist(object);
-		return object;
+		return this.em.merge(object);
 	}
 
 	public Utilisateur updateUtil(int id, Utilisateur object) {

@@ -43,8 +43,7 @@ public class GeneratorController {
 		Utilisateur myUtilisateur = null;
 		Vehicule myVehicule = null;
 		Notification myNotification = null;
-		
-		
+	
 		/* CREATION DES Adresses */
 		Adresse adresseUn = new Adresse();
 		Adresse adresseDeux = new Adresse();
@@ -54,6 +53,7 @@ public class GeneratorController {
 		Adresse adresseSix = new Adresse();
 		Adresse adresseSept = new Adresse();
 		Adresse adresseHuit = new Adresse();
+		Adresse adresseNeuf = new Adresse();
 
 		adresseUn.setCodePostal(83);
 		adresseUn.setVille("Toulon");
@@ -119,6 +119,34 @@ public class GeneratorController {
 		adresseHuit.setLongitude(4.851118); 
 		adresseHuit.setNom("Rue Garibaldi, Lyon");
 		
+		adresseNeuf.setCodePostal(13);
+		adresseNeuf.setVille("Marseille");
+		adresseNeuf.setRue("Avenue du Prado");
+		adresseNeuf.setNumero(45);
+		adresseNeuf.setLatitude(43.270357);
+		adresseNeuf.setLongitude(5.387613); 
+		adresseNeuf.setNom("Avenue du Prado, Marseille");
+		
+		/*Conducteur */
+		
+		Conducteur nouveauConducteur = new Conducteur();
+		nouveauConducteur.setAdresse(adresseNeuf);
+		nouveauConducteur.setNom("Bond");
+		nouveauConducteur.setPrenom("James");
+		nouveauConducteur.setLogin("007");
+		nouveauConducteur.setEmail("007@nightfire.com");
+		nouveauConducteur.setMotDePasse("mdp");
+		
+
+		Vehicule nouveauVehicule = new Vehicule();
+		
+		nouveauVehicule.setMarque("BMW");
+		nouveauVehicule.setModele("007series");
+		nouveauVehicule.setTypeVehicule("Sport");
+		nouveauVehicule.setVolumeCoffre(2);
+		nouveauVehicule.setConducteur(nouveauConducteur);
+	
+		
 		
 		
 		/* CREATION D'UN Utilisateur */
@@ -177,8 +205,7 @@ public class GeneratorController {
 		myConducteur.setLogin("martin");
 		myConducteur.setMotDePasse("mdp");
 		myConducteur.setAdresse(adresseTrois);
-		myConducteur = (Conducteur)this.UtilisateurDAO.update(myConducteur);
-		
+	
 		myVehicule = new Vehicule();
 		myVehicule.setMarque("Citroën");
 		myVehicule.setModele("Jumpy");
@@ -195,14 +222,14 @@ public class GeneratorController {
 		TrajetUn.setDateDuTrajet("04/14/2017");
 		TrajetUn.setArrivee(adresseCinq);
 		TrajetUn.setDepart(adresseSix);
-		TrajetUn.setConducteur(myConducteur);
+		TrajetUn.setConducteur(nouveauConducteur);
 		TrajetUn.setUtilisateur(myUtilisateur);	
 		
 		TrajetDeux.setCommentaire("Je dois déplacer un frigo de x m3 et de y kg. On peut se retrouver à 14h");
 		TrajetDeux.setDateDuTrajet("09/14/2017");
 		TrajetDeux.setArrivee(adresseSept);
 		TrajetDeux.setDepart(adresseHuit);
-		TrajetDeux.setConducteur(myConducteur);
+		TrajetDeux.setConducteur(nouveauConducteur);
 		TrajetDeux.setUtilisateur(myUtilisateur);
 		
 		/* CREATION DES NOTIFICATIONS */
@@ -216,6 +243,13 @@ public class GeneratorController {
 		
 		myNotification = new Notification();
 		myNotification.setMessage("Trajet Confirmé");
+		myNotification.setStatutConducteur("nonLu");
+		myNotification.setStatutUtilisateur("lu");
+		myNotification.setTrajet(TrajetUn);
+		myNotification = this.NotificationDAO.save(myNotification);
+		
+		myNotification = new Notification();
+		myNotification.setMessage("Trajet annulé");
 		myNotification.setStatutConducteur("nonLu");
 		myNotification.setStatutUtilisateur("lu");
 		myNotification.setTrajet(TrajetUn);

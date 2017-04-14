@@ -19,11 +19,10 @@
     			<p> <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
    			 	<p class="noteChauffeur"> Note moyenne </p>
     </div>
-    
-    
-    <form method="get" action="utilisateur/profilchauffeur?userId='${conducteurOnClick.id_user}'">
-    <input type= "submit" id="butt-consult-conducteur" value="Retour profil <c:out value="${conducteurOnClick.prenom }"/>"/>
-	</form>
+
+
+  </form>
+  
     
     <form:form modelAttribute="nouveauTrajet" action ="demandecourse" method="post">
 
@@ -34,7 +33,8 @@
 		<form:errors path="dateDuTrajet" />
 		<br />
 
-  <label>Adresse de départ</label>
+  <label>Adresse de départ <span class="required"
+				title="ce champ est obligatoire">*</span></label>
   <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse...">
 	<input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
@@ -48,17 +48,45 @@
   
   	<form:hidden id="D" path="depart.nom" value=""/> 
 	<form:hidden id="A" path="arrivee.nom" value=""/>   
+	
+	
+<form:select style="display:block" name="forfaitKilomètre" id="forfaitKilometre" path="distance">
+  <form:option value = "30">0 - 50 km  </form:option>
+  <form:option value = "50">50 - 100 km</form:option>
+  <form:option value = "70">100 - 150 km</form:option>
+  <form:option value = "150">Plus de  150 km</form:option>
+</form:select>
+
+
+	
+<%-- 	<form:label path="distance"> Choix du forfait kilomètre <span
+				class="required" title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:input path="distance" />
+		<form:errors path="distance" />
+		<br /> --%>
+		
+		<form:label path="poids" id="poids"> Estimer le poids des objets à transporter en kg <span
+				class="required" title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:input path="poids" />
+		<form:errors path="poids" />
+		<br />
     		
   
-	<form:label path="commentaire"> Commentaire avec le volume et le poids des objets à déménager : <span
+	<form:label path="commentaire"> Commentaires : <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:textarea path="commentaire" />
 		<form:errors path="commentaire" />
 		<br />
+		
 
     	<div style="backgound-color:red"><input type="submit" value="Demander course" /></div>
+    	<div style="backgound-color:red"><input type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
     </form:form>  
+    
+    <p>   <input id="prix" value="" disabled> </p>
     
  <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
@@ -127,6 +155,17 @@ function initializeAutocomplete(id) {
 
 </script>
 
-
+<script type="text/javascript">
 	
-    
+function simulerPrix() {
+	
+	var kilometre = $('#forfaitKilometre').val();
+	var poids = $('#poids').val();
+	
+	var prix = kilometre + poids * 0.50 ;
+	
+	$('#prix').val(prix + " euros");
+	
+}
+
+</script>

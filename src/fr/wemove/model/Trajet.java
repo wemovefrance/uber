@@ -50,6 +50,18 @@ public class Trajet implements Serializable {
 	private String commentaire;
 	@Column(name = "DATE")
 	private String dateDuTrajet;
+	
+	@Column(name = "DISTANCE")
+	private double distance;
+
+	@Column(name = "PRIX")
+	private double prix;
+	
+	@Column(name = "POIDS")
+	private double poids;
+	
+	@Column(name = "STATUT")
+	private int statut;
 
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "COND_TRAJET_ID")
@@ -61,6 +73,39 @@ public class Trajet implements Serializable {
 
 	@OneToMany(mappedBy = "trajet", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Notification> notification;
+	
+
+	public int getStatut() {
+		return statut;
+	}
+
+	public void setStatut(int statut) {
+		this.statut = statut;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+	public double getPoids() {
+		return poids;
+	}
+
+	public void setPoids(double poids) {
+		this.poids = poids;
+	}
 
 	public String getDateDuTrajet() {
 		return dateDuTrajet;

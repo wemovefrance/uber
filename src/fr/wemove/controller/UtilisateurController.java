@@ -74,14 +74,15 @@ public class UtilisateurController {
 		
 		trajet.setUtilisateur(utilisateur);
 		trajet.setConducteur(conducteur);
+		trajet.setStatut(1);
 		
-		Notification notificationDemande = new Notification();
-		
-		notificationDemande.setMessage("Vous avez une demande de trajet");
-		notificationDemande.setStatutConducteur("nonLu");
-		notificationDemande.setStatutUtilisateur("lu");
-		notificationDemande.setTrajet(trajet);
-		notificationDemande = this.notificationDAO.save(notificationDemande);
+//		Notification notificationDemande = new Notification();
+//		
+//		notificationDemande.setMessage("Vous avez une demande de trajet");
+//		notificationDemande.setStatutConducteur("nonLu");
+//		notificationDemande.setStatutUtilisateur("lu");
+//		notificationDemande.setTrajet(trajet);
+//		notificationDemande = this.notificationDAO.save(notificationDemande);
 		
 		return "redirect:/utilisateur/monprofil";
 	}
