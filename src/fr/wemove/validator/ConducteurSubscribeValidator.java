@@ -34,7 +34,6 @@ public class ConducteurSubscribeValidator implements Validator {
 			e.rejectValue("condGV", "condGV.empty", "Merci d'accepter les conditions générales de ventes");
 		}*/
 		
-		*/
 		
 		if ( !conducteur.getMotDePasse().equals(conducteur.getConfirmation())) {
 		e.rejectValue("motDePasse", "pwdcheck", "Les mots de passe ne correspondent pas.");

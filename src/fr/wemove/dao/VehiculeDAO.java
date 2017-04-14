@@ -28,12 +28,6 @@ public class VehiculeDAO extends DAO<Vehicule> {
 	public List<Vehicule> findAll() {
 		return this.em.createQuery("SELECT p FROM Vehicule p", Vehicule.class).getResultList();
 	}
-	
-	public List<Vehicule> findByDriverId(int idInput) {
-		Query myQuery = em.createQuery("SELECT p FROM Vehicule p where p.conducteur.id_user=:id") ;
-		myQuery.setParameter("id", idInput) ;
-		return (List<Vehicule>) myQuery.getResultList();
-	}
 
 	@Override
 	public Vehicule save(Vehicule object) {
