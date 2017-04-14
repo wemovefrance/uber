@@ -16,10 +16,11 @@
 
 </ul>
 
-<i class="fa fa-plus fa-2x" style="color: #3498db"></i>
+<p onclick="afficheFormulaire()"><i class="fa fa-plus fa-2x" style="color: #3498db"></i></p>
 
-<form:form method="post" action="drivergestionvehicule"
-	modelAttribute="nouveauVehicule">
+
+<form:form id="formulaireNouveauVehicule" method="post" action="drivergestionvehicule"
+	modelAttribute="nouveauVehicule"  style="display:none">
 
 	<form:label path="marque"> Marque : </form:label>
 	<form:input path="marque" />
@@ -40,3 +41,5 @@
 
 	<input type="submit" value="Ajouter vehicule" />
 </form:form>
+
+<script src="<c:url value="/js/driver_gestionvoiture.js" />"></script>
