@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.wemove.dao.AdresseDAO;
 import fr.wemove.dao.UtilisateurDAO;
+import fr.wemove.model.Adresse;
 import fr.wemove.model.Conducteur;
 import fr.wemove.model.Utilisateur;
 import fr.wemove.validator.ConducteurSubscribeValidator;
@@ -28,6 +30,9 @@ public class DriverController {
 	
 	@Autowired
 	private UtilisateurDAO utilisateurDAO;
+	
+	@Autowired
+	private AdresseDAO adresseDAO;
 	
 	@RequestMapping(value = "monprofil")
 	public String accueil(Model model) {
@@ -76,10 +81,13 @@ public class DriverController {
 		request.setAttribute("message", message);
 		
 		Conducteur conducteur = (Conducteur) session.getAttribute("conducteur");
-
+		Adresse adresse = ( Adresse ) session.getAttribute("adresse");
+		Adresse adresseUpdate = driverUpdate.getAdresse();
+		//adresseUpdate = this.adresseDAO.update(adresse.getId_adresse(), adresseUpdate); 
 		driverUpdate = this.utilisateurDAO.updateCond( conducteur.getId_user(),  driverUpdate);
 		
 		session.setAttribute("conducteur", driverUpdate);
+		session.setAttribute("adresse", adresseUpdate);
 		
 		
 

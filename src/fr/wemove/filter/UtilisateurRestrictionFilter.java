@@ -40,7 +40,9 @@ public class UtilisateurRestrictionFilter implements Filter {
 		
 		if ( session.getAttribute( ATTRIBUT_SESSION_UTILISATEUR ) == null ) {
 			
-			resp.sendRedirect( req.getContextPath() +"/accueil");
+			String message_connexion ="Veuillez vous connecter pour accéder à votre espace personnel";
+			request.setAttribute("logmessage", message_connexion );
+			resp.sendRedirect( req.getContextPath() +"/accueil" );
 		} 
 		else { 
 			

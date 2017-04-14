@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p> <c:out value="${utilisateur.prenom}"/> Voici les informations relatives à votre compte </p>
+<p> <c:out value="${utilisateur.prenom}"/> <br /> Voici les informations relatives à votre compte </p>
 
 <div id="formulaire">
 
@@ -33,15 +33,6 @@
 
  <br />
  
- 		<label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
-  		<input id="user_input_autocomplete_address" placeholder="Commencer à taper votre adresse...">
-  		<input type="hidden" id="street_number" name="street_number" disabled>
- 		 <input type="hidden" id="route" name="route" disabled>
-  		<input type="hidden" id="locality" name="locality" disabled>
-  		<input type="hidden" id="country" name="country" disabled>
- 
- 
-	
 	<form:label path="motDePasse"> Mot de passe :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
 	<form:password path="motDePasse" value = "${utilisateur.motDePasse}"/>
 	<form:errors class="error" path="motDePasse"/>
@@ -54,55 +45,12 @@
 		
 	<br />
 	
-	<form:hidden id="lat" path="adresse.latitude" value=""/>
-		<form:hidden id="lon" path="adresse.longitude" value=""/>
- 	
  	<input type="submit" id="butt-submit" value="Mise à jour de mon profil" />
  	<br /> 
 	<span class="message"> <c:out value="${message}"/></span> 	
 	
  
 </form:form>
-
-
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
-</script>
-
-<script src="<c:url value="/js/autocomplete.js" />"></script>
-
-<script type="text/javascript">
-
-
-
-	function geocode(){
-		   var longitude = 0;
-	        var latitute = 0;
-	        var address = $('#street_number').val() + " " + $('#route').val() + ", " + $('#locality').val() + ", " + $('#country').val();
-	        console.log(address);
-	        var geocoder = new google.maps.Geocoder();
-
-	        /* Appel au service de geocodage avec l'adresse en paramètre */
-	        geocoder.geocode({
-	            'address': address
-	        }, function(results, status) {
-	            /* Si l'adresse a pu être géolocalisée */
-	            if (status == google.maps.GeocoderStatus.OK) {
-	                /* Récupération de sa latitude et de sa longitude */
-	                latitude = results[0].geometry.location.lat();
-	                longitude = results[0].geometry.location.lng();
-	                $('#lat').val(latitude);
-	                $('#lon').val(longitude);
-
-	                console.log($('#lat').val());
-	                console.log($('#lon').val());
-	            } 
-	        });
-	}
-	
-
-	
-</script>
 
  
  </div>

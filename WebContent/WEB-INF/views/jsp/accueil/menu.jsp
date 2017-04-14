@@ -2,6 +2,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<p> Accéder à votre espace personnel </p>
+<p class="error"> ${logmessage} </p>
+
 <form:form action="/frWeMove/accueil/connexion" method="post" modelAttribute="partner">
 
 	<form:label path="login" > Nom d'utilisateur : </form:label>
@@ -14,6 +17,8 @@
 	<br />
 	
 	<input class="bouttonmenuaccueil" type="submit" value="Se connecter">
+
+
 	
 </form:form>
 

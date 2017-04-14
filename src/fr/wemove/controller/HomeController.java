@@ -114,12 +114,14 @@ public class HomeController {
 
 						if (utilisateur.getId_user() == conducteur.getId_user()) {
 							session.setAttribute("conducteur", conducteur);	
+							session.setAttribute("adresse", conducteur.getAdresse() );
 							return "redirect:/conducteur/monprofil";
 						}
 
 					}
 
 					session.setAttribute("utilisateur", utilisateur);
+					session.setAttribute("adresse", utilisateur.getAdresse() );
 					return "redirect:/utilisateur/monprofil";
 				}
 			} catch (WrongUsernameOrPasswordException ex) {

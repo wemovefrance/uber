@@ -39,6 +39,8 @@ public class DriverRestrictionFilter implements Filter {
 		
 		if ( session.getAttribute( ATTRIBUT_SESSION_CONDUCTEUR ) == null ) {
 			
+			String message_connexion ="Veuillez vous connecter pour accéder à votre espace personnel";
+			session.setAttribute("logmessage", message_connexion );
 			resp.sendRedirect( req.getContextPath() +"/accueil");
 		} 
 		else { 

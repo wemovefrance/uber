@@ -37,7 +37,6 @@ public class UtilisateurController {
 	@Autowired
 	private UtilisateurDAO utilisateurDAO;
 	
-
 	@Autowired
 	private VehiculeDAO vehiculeDAO;
 	@Autowired
@@ -114,8 +113,7 @@ public class UtilisateurController {
 		
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
 		
-		
-
+	
 		utilisateurUpdate = this.utilisateurDAO.updateUtil( utilisateur.getId_user(),  utilisateurUpdate);
 		
 		session.setAttribute("utilisateur", utilisateurUpdate);
@@ -124,10 +122,8 @@ public class UtilisateurController {
 		return "utilisateurgestionprofil";
 	}
 
-	@RequestMapping(value = "gestiontrajets")
-	public String trajets (Model model) {
-		return "utilisateurgestiontrajets";
-	}
+
+
 	
 	@RequestMapping(value = "gestiontransactions")
 	public String paiements(Model model) {
