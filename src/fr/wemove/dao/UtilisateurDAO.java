@@ -32,7 +32,7 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 
 	@Override
 	public List<Utilisateur> findAll() {
-		return this.em.createQuery("SELECT p FROM Utilisateur p", Utilisateur.class).getResultList();
+		return this.em.createQuery("FROM Utilisateur p", Utilisateur.class).getResultList();
 	}
 	
 	public List<Conducteur> findAllConducteurs() {
@@ -53,6 +53,16 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 			throw new WrongUsernameOrPasswordException();
 		}
 		
+	}
+	
+	public Utilisateur checkLogin(String login) {
+		
+		Query query = this.em.createQuery("from Utilisateur u where u.login = :login");
+		
+		query.setParameter("login", login);
+		
+		return !query.getResultList().isEmpty() ? (Utilisateur) query.getSingleResult() : null;
+	
 	}
 	
 	@Override

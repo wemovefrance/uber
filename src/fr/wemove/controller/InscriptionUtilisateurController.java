@@ -22,6 +22,9 @@ public class InscriptionUtilisateurController {
 	@Autowired
 	private UtilisateurDAO utilisateurDao;
 	
+	@Autowired
+	private UtilisateurSubscribeValidator utilisateurSubscribeValidator;
+	
 
 	
 	@RequestMapping(value = "/accueil/inscriptionUtilisateur", method = RequestMethod.GET)
@@ -35,7 +38,7 @@ public class InscriptionUtilisateurController {
 	@RequestMapping ( value = "/accueil/inscriptionUtilisateur", method = RequestMethod.POST)
 	public String inscriptionUtilisateur (@ModelAttribute("user") Utilisateur utilisateur, BindingResult result, Model model ){
 		
-		new UtilisateurSubscribeValidator().validate(utilisateur, result);
+		utilisateurSubscribeValidator.validate(utilisateur, result);
 		
 		if ( result.hasErrors()) {	
 			

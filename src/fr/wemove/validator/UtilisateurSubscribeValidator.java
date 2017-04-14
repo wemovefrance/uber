@@ -1,18 +1,29 @@
 package fr.wemove.validator;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.commons.validator.EmailValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Utilisateur;
 
 
 
-
+@Component
 public class UtilisateurSubscribeValidator implements Validator {
+	
+	@Autowired
+	private UtilisateurDAO utilisateurDAO;
+
+	public void setUtilisateurDAO(UtilisateurDAO utilisateurDAO) {
+		this.utilisateurDAO = utilisateurDAO;
+	}
 
 	@Override
 	public boolean supports(Class<?> cls) {
@@ -31,9 +42,6 @@ public class UtilisateurSubscribeValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "motDePasse", "motDePasse.empty", "Le motDePasse doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "confirmation", "confirmation.empty", "Le confirmation doit être saisi");
 		
-		
-		
-		
 		/*
 		if ( utilisateur.getCondGV() != true) {
 			
@@ -41,12 +49,17 @@ public class UtilisateurSubscribeValidator implements Validator {
 		}
 		
 		*/
-		if (isValidEmailAddress(utilisateur.getEmail())) {
-			
-			e.rejectValue("email", "emailcheck", "Adresse email non valide");	
-		}
+		// Verif des emails
 		
-		if (utilisateur.getMotDePasse().length()<8) {	
+		EmailValidator validator = EmailValidator.getInstance();
+
+		if (!validator.isValid(utilisateur.getEmail())) {
+			e.rejectValue("email", "emailcheck", "Adresse email non valide");
+		} 
+		
+		// Verif des mot de passe
+		
+		if (utilisateur.getMotDePasse().length()<8) {
 			e.rejectValue("motDePasse", "pwdcheck", "Le mot de passe doit faire au moins 8 caractères");	
 		}
 		
@@ -56,16 +69,13 @@ public class UtilisateurSubscribeValidator implements Validator {
 		
 		}
 		
-	}
-	
-	public static boolean isValidEmailAddress(String email) {
-		   boolean result = true;
-		   try {
-		      InternetAddress emailAddr = new InternetAddress(email);
-		      emailAddr.validate();
-		   } catch (AddressException ex) {
-		      result = false;
-		   }
-		   return result;
+		// Vérif des logins
+		
+		if (utilisateurDAO.checkLogin(utilisateur.getLogin()) != null) {
+				e.rejectValue("login", "logincheck", "Login déjà utilisé, changer de pseudo");
 		}
+		
+	}
+
+
 }

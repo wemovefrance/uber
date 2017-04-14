@@ -8,13 +8,13 @@
 
 <!DOCTYPE html>
 <html>
-<link href="<c:url value="/css/materialize.css" />" rel="stylesheet">
-<!--  <link href="<c:url value="/css/materialize.min.css" />" rel="stylesheet"> -->
-<link href="<c:url value="/css/theme.css" />" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--<script src="<c:url value="/js/jmaterialize.js" />"></script>-->
-<!--<script src="<c:url value="/js/materialize.min.js" />"></script>--> 
-<!-- <script src="<c:url value="/js/googlemapapi.js" />"></script> -->
+ <head>
+
+    <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<c:url value="/js/gestioncartejquery.js" />"></script>
 <script type="text/javascript" src ="<c:url value="/js/update-profil-util.js"/>"> </script>
@@ -28,6 +28,10 @@
 </head>
 
 <body>
+   <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 	<tiles:insertAttribute name="navigation" />
 	<table width="100%">
 		<tr>
