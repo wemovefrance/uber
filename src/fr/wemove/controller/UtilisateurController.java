@@ -140,6 +140,14 @@ public class UtilisateurController {
 		return "utilisateurnotifications";
 	}
 	
+
+	@RequestMapping(value = "/annulerCourse", method = RequestMethod.POST)
+	public String accepterRefuserCourse(HttpSession session, Model model, HttpServletRequest request) {
+		int idTraj = Integer.parseInt(request.getParameter("idTraj")) ;
+			trajetDAO.updateStatus(idTraj,0);
+		return "redirect:/utilisateur/notifications" ;
+	}
+	
 	@RequestMapping(value = "profilchauffeur", method= RequestMethod.GET)
 	public String chauffeur(Model model, HttpServletRequest request) {
 		

@@ -1,6 +1,9 @@
 <nav>
 	<div class="nav-wrapper">
 		<div class="container">
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li> WeMove </li>
+				</ul>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="/frWeMove/accueil"> Accueil </a></li>
 					<li><a href="/frWeMove/accueil/contact"> Contact ? </a></li>

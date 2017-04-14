@@ -46,7 +46,7 @@
   <input id="user_input_autocomplete_address" placeholder="Commencer à taper votre adresse...">
   <input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
-  <input type="hidden" id="locality" name="locality" disabled>
+  <input type="hidden" id="locality" name="c" disabled>
   <input type="hidden" id="country" name="country" disabled>
 
 

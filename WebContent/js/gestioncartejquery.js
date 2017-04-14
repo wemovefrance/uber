@@ -201,6 +201,10 @@ function recoverPosition() {
 	userIdsConducteursAll = document.getElementById('userIdshidden').value;
 	userIdsConducteurs = userIdsConducteursAll.split(',');
 }
+
+function success(){
+	
+}
 /*
  * function repeatResearchPos(){
  * setInterval('navigator.geolocation.getCurrentPosition(maPosition)',erreurPosition,5000); };
@@ -208,4 +212,4 @@ function recoverPosition() {
 function repeatResearchPos(){
 	setInterval('navigator.geolocation.getCurrentPosition(success)',5000);
 };
-repeatResearchPos() ;
+navigator.geolocation.getCurrentPosition(success) ;

@@ -138,7 +138,7 @@ public class DriverController {
 			return "drivergestionprofil";
 		}
 		
-		String message = "modification(s) enregistrée(s)!";
+		String message = "modification(s) enregistrï¿½e(s)!";
 		request.setAttribute("message", message);
 		
 		Conducteur conducteur = (Conducteur) session.getAttribute("conducteur");
@@ -174,6 +174,24 @@ public class DriverController {
 		session.setAttribute("listeVehicule", listeVehicule);
 		model.addAttribute("nouveauVehicule", new Vehicule());
 		return "drivergestionvehicule";
+	}
+	
+
+	@RequestMapping(value = "/accepterRefuserCourse", method = RequestMethod.POST)
+	public String accepterRefuserCourse(HttpSession session, Model model, HttpServletRequest request) {
+		String choix = (String) request.getParameter("choix") ;
+		int idTraj = Integer.parseInt(request.getParameter("idTraj")) ;
+		System.out.println(choix);
+		System.out.println(idTraj);
+		
+		Trajet trajet = trajetDAO.find(idTraj) ;
+		if (choix.equals("accepter")){
+			trajetDAO.updateStatus(idTraj,2);
+		} else if (choix.equals("refuser")){
+			trajetDAO.updateStatus(idTraj,0);
+		}
+		return "redirect:/conducteur/notifications";
+		
 	}
 
 	@RequestMapping(value = "/removeVehicule")

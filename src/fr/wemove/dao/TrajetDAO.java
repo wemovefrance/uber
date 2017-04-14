@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.wemove.model.Trajet;
+import fr.wemove.model.Utilisateur;
 import fr.wemove.model.Vehicule;
 
 @Repository
@@ -33,8 +34,8 @@ public class TrajetDAO extends DAO<Trajet> {
 		Query myQuery = em.createQuery("SELECT p FROM Trajet p where p.conducteur.id_user=:id") ;
 		myQuery.setParameter("id", idInput) ;
 		return (List<Trajet>) myQuery.getResultList();
-		
 	}
+	
 	@Override
 	public boolean delete(Trajet object) {
 		try {
@@ -45,5 +46,11 @@ public class TrajetDAO extends DAO<Trajet> {
 		catch (Exception ex) {
 			return false;
 		}
+	}
+
+	public Trajet updateStatus(int idInput, int status) {	
+		Trajet trajet = this.em.find( Trajet.class, idInput) ;
+		trajet.setStatut(status); 
+		return this.em.merge(trajet);		
 	}
 }

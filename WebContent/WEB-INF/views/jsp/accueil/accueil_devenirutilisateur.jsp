@@ -33,13 +33,15 @@
 		<form:errors path="email"/>
 		
 		<br />
-		
-		 <label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
-  		<input id="user_input_autocomplete_address" placeholder="Commencer à taper votre adresse...">
-  		<input type="hidden" id="street_number" name="street_number" disabled>
- 		 <input type="hidden" id="route" name="route" disabled>
-  		<input type="hidden" id="locality" name="locality" disabled>
-  		<input type="hidden" id="country" name="country" disabled>
+
+	<!-- 	<label>Adresse <span class="required"
+			title="ce champ est obligatoire">*</span></label>
+		<input id="user_input_autocomplete_address"
+			placeholder="Commencer à taper votre adresse...">
+		<input type="hidden" id="street_number" name="street_number" disabled>
+		<input type="hidden" id="route" name="route" disabled>
+		<input type="hidden" id="locality" name="locality" disabled>
+		<input type="hidden" id="country" name="country" disabled> -->
 
 		<form:label path="motDePasse"> Mot de passe : <span class="required" title="ce champ est obligatoire">*</span></form:label>
 		<form:password path="motDePasse"/>
