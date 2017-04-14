@@ -55,6 +55,9 @@ public class Utilisateur implements Serializable {
 	@Transient
 	private String confirmation;
 	
+	@Transient
+	private boolean condGV = false;
+	
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="USER_ADRESSE_ID",referencedColumnName="ADRESSE_ID")
@@ -85,8 +88,10 @@ public class Utilisateur implements Serializable {
 
 	public Utilisateur() {
 	super();
-}
-
+	}
+	
+	
+	
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
@@ -158,5 +163,16 @@ public class Utilisateur implements Serializable {
 	public void setConfirmation(String confirmation) {
 		this.confirmation = confirmation;
 	}
+
+	public boolean getCondGV() {
+		return condGV;
+	}
+
+	public void setCondGV(boolean condGV) {
+		this.condGV = condGV;
+	}
+	
+	
+	
 
 }

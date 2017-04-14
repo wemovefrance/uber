@@ -34,7 +34,17 @@ public class Adresse implements Serializable{
 	@Column(name = "LATITUDE")
 	private double latitude;
 	@Column(name = "LONGITUDE")
-	private double longitude;
+	private double longitude;	
+	@Column(name = "NOM_ADRESSE")
+	private String nom;
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 	
 	public double getLatitude() {
 		return latitude;

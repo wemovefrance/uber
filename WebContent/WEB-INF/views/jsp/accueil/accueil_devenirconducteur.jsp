@@ -3,11 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<h1 class="titrePage"> Devenir partenaire </h1>
+<h1 class="titrePage"> Devenir partenaire WeMove </h1>
 
     <div class="conducteur-inscription">
 
-	<p>Créer un compte conducteur WeMove en remplissant le fomulaire
+	<p>Créer un compte conducteur en remplissant le fomulaire
 		suivant</p>
 	<br /> <span class="required"> * Champ requis </span>
 	<form:form modelAttribute="driver" method="post" action="inscriptionConducteur">
@@ -42,7 +42,7 @@
 		
 
 
-  <label>Adresse</label>
+  <label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
   <input id="user_input_autocomplete_address" placeholder="Commencer à taper votre adresse...">
   <input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
@@ -66,12 +66,16 @@
 		
 		<form:hidden id="lat" path="adresse.latitude" value=""/>
 		<form:hidden id="lon" path="adresse.longitude" value=""/>
+		<form:hidden id="tex" path="adresse.nom" value=""/>
 		
-		<input type="checkbox" name="conditionGeneraleDeVente" id="conditionGeneraleDeVente" value="1" checked /> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
+		<form:checkbox path="condGV" value="true"/> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
 		
 		<div style="backgound-color:red"><input type="submit" value="Devenir conducteur" /></div>
 
 	</form:form>
+	
+	
+</div>
 	
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
@@ -101,6 +105,7 @@
 	                longitude = results[0].geometry.location.lng();
 	                $('#lat').val(latitude);
 	                $('#lon').val(longitude);
+	               	$('#tex').val(address);
 
 	                console.log($('#lat').val());
 	                console.log($('#lon').val());
@@ -113,5 +118,3 @@
 </script>
 
 
-
-</div>

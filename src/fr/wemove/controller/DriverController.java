@@ -8,7 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +27,11 @@ import fr.wemove.model.Conducteur;
 import fr.wemove.model.Notification;
 import fr.wemove.model.Trajet;
 import fr.wemove.model.Vehicule;
+import fr.wemove.dao.UtilisateurDAO;
+import fr.wemove.model.Conducteur;
+import fr.wemove.model.Utilisateur;
+import fr.wemove.validator.ConducteurSubscribeValidator;
+import fr.wemove.validator.UtilisateurSubscribeValidator;
 
 @Controller
 @RequestMapping("/conducteur")
@@ -40,7 +45,10 @@ public class DriverController {
 
 	@Autowired
 	TrajetDAO trajetDAO;
-
+	
+	@Autowired
+	private UtilisateurDAO utilisateurDAO;
+	
 	@RequestMapping(value = "monprofil")
 	public String accueil(Model model) {
 		return "driveraccueil";
@@ -112,8 +120,35 @@ public class DriverController {
 		return "drivernotifications";
 	}
 
-	@RequestMapping(value = "/gestionprofil")
+	@RequestMapping(value = "/gestionprofil", method = RequestMethod.GET)
 	public String gestionprofil(Model model) {
+		
+		model.addAttribute("driverUpdate", new Conducteur());
+		
+		return "drivergestionprofil";
+	}
+	
+	@RequestMapping(value = "/gestionprofil", method = RequestMethod.POST)
+	public String gestionprofil(@ModelAttribute("driverUpdate") Conducteur driverUpdate, BindingResult result, Model model, HttpSession session, HttpServletRequest request) {
+		
+		new ConducteurSubscribeValidator().validate(driverUpdate, result);
+		
+		if ( result.hasErrors()) {	
+			
+			return "drivergestionprofil";
+		}
+		
+		String message = "modification(s) enregistrée(s)!";
+		request.setAttribute("message", message);
+		
+		Conducteur conducteur = (Conducteur) session.getAttribute("conducteur");
+
+		driverUpdate = this.utilisateurDAO.updateCond( conducteur.getId_user(),  driverUpdate);
+		
+		session.setAttribute("conducteur", driverUpdate);
+		
+		
+
 		return "drivergestionprofil";
 	}
 
@@ -148,9 +183,9 @@ public class DriverController {
 		return "redirect:/conducteur/drivergestionvehicule";
 	}
 
-	@RequestMapping(value = "/deconnexion")
-	public void deconnexion(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+	@RequestMapping ( value="/deconnexion")
+	public void deconnexion ( HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 		request.getSession().invalidate();
 
 		response.sendRedirect(request.getContextPath() + "/accueil");

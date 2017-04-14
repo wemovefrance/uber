@@ -54,44 +54,51 @@ public class UtilisateurDAO extends DAO<Utilisateur>
 		}
 		
 	}
-	/*
-	public ArrayList<Double> findConducteursLat() {
-		ArrayList<Conducteur> conducteurs = new ArrayList<Conducteur>() ;
-		conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
-		ArrayList<Double> latitudeListe = new ArrayList<Double>() ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
-			latitudeListe.add((double) conducteurs.get(ii).getAdresse().getLatitude()) ;
-			System.out.println(conducteurs.get(ii).getAdresse().getLatitude());
-			}		
-		return (ArrayList<Double>) latitudeListe ;
-	}	
 	
-	public ArrayList<Double> findConducteursLong() {
-		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
-		ArrayList<Double> longitudeListe = new ArrayList<Double>() ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
-			longitudeListe.add((double) conducteurs.get(ii).getAdresse().getLongitude()) ;
-			}		
-		return longitudeListe ;
-	}
-	
-	public ArrayList<String> findConducteursLogin() {
-		ArrayList<Conducteur> conducteurs = (ArrayList<Conducteur>) findAllConducteurs();
-		ArrayList<String> loginListe = new ArrayList<String>() ; ;
-		for (int ii=0 ; ii<conducteurs.size() ; ii++){	
-			loginListe.add((String) conducteurs.get(ii).getLogin()) ;
-			}		
-		return loginListe ;
-	}
-	*/
 	@Override
 	public Utilisateur save(Utilisateur object) {
 		return this.em.merge(object);
 	}
 
-	public Utilisateur update(Utilisateur object) {
-		this.em.persist(object);
-		return object;
+	public Utilisateur updateUtil(int id, Utilisateur object) {
+		
+		Utilisateur utilisateur = this.em.find( Utilisateur.class, id);
+		
+		if ( object == null) {
+			
+			throw new IllegalArgumentException("Unknown Employee id");
+		}
+		
+		utilisateur.setEmail(object.getEmail());
+		utilisateur.setLogin(object.getLogin());
+		utilisateur.setMotDePasse(object.getMotDePasse());
+		utilisateur.setNom(object.getNom());
+		utilisateur.setPrenom(object.getPrenom());
+		utilisateur.setAdresse(object.getAdresse());
+		
+		
+		return this.em.merge(utilisateur);
+	}
+	
+
+	public Conducteur updateCond(int id, Conducteur object) {
+		
+		Conducteur conducteur = this.em.find( Conducteur.class, id);
+		
+		if ( conducteur == null) {
+			
+			throw new IllegalArgumentException("Unknown id");
+		}
+		
+		conducteur.setEmail(object.getEmail());
+		conducteur.setLogin(object.getLogin());
+		conducteur.setMotDePasse(object.getMotDePasse());
+		conducteur.setNom(object.getNom());
+		conducteur.setPrenom(object.getPrenom());
+		conducteur.setAdresse(object.getAdresse());
+		
+		
+		return this.em.merge(conducteur);
 	}
 	
 	@Override
