@@ -14,12 +14,13 @@ function rechercheNotifications(id) {
 	});
 	
 	var boutton = document.getElementById("boutton"+id);
-	boutton.style.visibility='hidden';
+	boutton.style.display='none';
 	var bouttonaccept = document.getElementById("bouttonaccept") ;
 	boutton.style.visibility='visible';
-	var tohideblock = document.getElementById("tohide") ;
-	console.log(tohideblock);
-	tohideblock.style.visibility='visible';
+	var tohideblock = document.getElementById("tohide"+id) ;
+	tohideblock.style.display='block';
+	
+	
 	
 	// var ul = document.getElementById("listeNotif" + id);
 	// var li = document.createElement("li");
