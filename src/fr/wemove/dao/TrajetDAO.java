@@ -36,6 +36,12 @@ public class TrajetDAO extends DAO<Trajet> {
 		return (List<Trajet>) myQuery.getResultList();
 	}
 	
+	public List<Trajet> findByPassagerId(int idInput){
+		Query myQuery = em.createQuery("SELECT p FROM Trajet p where p.utilisateur.id_user=:id") ;
+		myQuery.setParameter("id", idInput) ;
+		return (List<Trajet>) myQuery.getResultList();
+	}
+	
 	@Override
 	public boolean delete(Trajet object) {
 		try {

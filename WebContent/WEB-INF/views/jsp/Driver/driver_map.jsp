@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
 <h1>Carte</h1>
 
-<div id="map" style="height: 500px;"></div>
+<div id="map" style="height: 500px;border-style: solid;"></div>
 
 <script
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c&callback=initMap"

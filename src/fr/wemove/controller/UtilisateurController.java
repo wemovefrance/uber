@@ -138,7 +138,20 @@ public class UtilisateurController {
 	}
 
 	@RequestMapping(value = "notifications")
-	public String notifications(Model model) {
+	public String notifications(Model model, HttpSession session, HttpServletRequest request) {
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+		System.out.println("**************************"+utilisateur.getId_user()+"**************************");
+		List<Trajet> listeTrajets = (List<Trajet>) trajetDAO.findByPassagerId(utilisateur.getId_user());
+		ArrayList<String> listeVilleDepartTrajets = new ArrayList<String>();
+		ArrayList<String> listeVilleArriveeTrajets = new ArrayList<String>();
+		for (Trajet Traj : listeTrajets) {
+			listeVilleDepartTrajets.add(Traj.getDepart().getVille());
+			listeVilleArriveeTrajets.add(Traj.getArrivee().getVille());
+			System.out.println(Traj.getDepart().getVille());
+		}
+		request.setAttribute("listeVilleDepartTrajets", listeVilleDepartTrajets);
+		request.setAttribute("listeVilleArriveeTrajets", listeVilleArriveeTrajets);
+		request.setAttribute("listeTrajets", listeTrajets);
 		return "utilisateurnotifications";
 	}
 	

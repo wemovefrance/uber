@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p> <c:out value="${conducteur.prenom}"/> <br /> Voici les informations relatives à votre compte </p>
+<p> <c:out value="${conducteur.prenom}"/> <br /> Voici les informations relatives ï¿½ votre compte </p>
 
 <div id="formulaire">
 
@@ -10,30 +10,30 @@
 
 
 	<form:label path="nom"> Nom <span class="required" title="le nom est obligatoire">*</span> </form:label>
- 	<form:input path="nom" value = "${conducteur.nom}"/>
+ 	<form:input path="nom" value = "${conducteur.nom}"  STYLE="Text-ALIGN:center" />
  	<form:errors class="error" path="nom"/>
 
  	<br />
 	
  	<form:label path="prenom"> Prenom : <span class="required" title="ce champ est obligatoire">*</span></form:label>
- 	<form:input path="prenom" value = "${conducteur.prenom}" />
+ 	<form:input path="prenom" value = "${conducteur.prenom}"  STYLE="Text-ALIGN:center"  />
  	<form:errors class="error" path="prenom"/>
 
 	
  	<form:label path="login"> Login :<span class="required" title="ce champ est obligatoire">*</span> </form:label>
- 	<form:input  path="login" value = "${conducteur.login}" />
+ 	<form:input  path="login" value = "${conducteur.login}" STYLE="Text-ALIGN:center"  />
  	<form:errors class="error" path="login"/>
 
  <br />
 	
  	<form:label path="email"> Email :<span class="required" title="ce champ est obligatoire">*</span> </form:label>
- 	<form:input path="email" value = "${conducteur.email}"/>
+ 	<form:input path="email" value = "${conducteur.email}"  STYLE="Text-ALIGN:center" />
  	<form:errors class="error" path="email"/>
  	
  	 <br />
 
 	<label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
-  	<input id="user_input_autocomplete_address" value ="">
+  	<input id="user_input_autocomplete_address" value =""  STYLE="Text-ALIGN:center" >
   	<input type="hidden" id="street_number" name="street_number" disabled>
   	<input type="hidden" id="route" name="route" disabled>
   	<input type="hidden" id="locality" name="locality" disabled>
@@ -42,13 +42,13 @@
  	<br />
 	
 	<form:label path="motDePasse"> Mot de passe :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
-	<form:password path="motDePasse" value = "${conducteur.motDePasse}"/>
+	<form:password path="motDePasse" value = "${conducteur.motDePasse}" STYLE="Text-ALIGN:center" />
 	<form:errors class="error" path="motDePasse"/>
 		
 	<br />
  	
 	<form:label path="confirmation"> Confirmation :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
-	<form:password path="confirmation"  value = "${conducteur.motDePasse}"/>
+	<form:password path="confirmation"  value = "${conducteur.motDePasse}"  STYLE="Text-ALIGN:center" />
 	<form:errors class="error" path="confirmation"/>
 		
 	<br />
@@ -56,7 +56,7 @@
 	<form:hidden id="lat" path="adresse.latitude" value=""/>
 	<form:hidden id="lon" path="adresse.longitude" value=""/>
  	
- 	<input type="submit" id="butt-submit" value="Mise à jour de mon profil" />
+ 	<input class="bouttonmenuaccueil"  type="submit" id="butt-submit" value="Mise a jour de mon profil" />
  	<br /> 
  	<span class="message"> <c:out value="${message}"/></span>
  	
@@ -81,13 +81,13 @@
 	        console.log(address);
 	        var geocoder = new google.maps.Geocoder();
 
-	        /* Appel au service de geocodage avec l'adresse en paramètre */
+	        /* Appel au service de geocodage avec l'adresse en paramï¿½tre */
 	        geocoder.geocode({
 	            'address': address
 	        }, function(results, status) {
-	            /* Si l'adresse a pu être géolocalisée */
+	            /* Si l'adresse a pu ï¿½tre gï¿½olocalisï¿½e */
 	            if (status == google.maps.GeocoderStatus.OK) {
-	                /* Récupération de sa latitude et de sa longitude */
+	                /* Rï¿½cupï¿½ration de sa latitude et de sa longitude */
 	                latitude = results[0].geometry.location.lat();
 	                longitude = results[0].geometry.location.lng();
 	                $('#lat').val(latitude);

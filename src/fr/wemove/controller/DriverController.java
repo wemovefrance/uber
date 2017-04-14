@@ -80,6 +80,8 @@ public class DriverController {
 		}
         return result;
     }
+    
+    
 	/*
 	@RequestMapping(value = "/findnotifications", method = RequestMethod.GET))
 	public ModelAndView findnotifications(@RequestParam("id_traj") int idTraj, String fdate, String tdate) {
@@ -194,6 +196,13 @@ public class DriverController {
 		
 	}
 
+	@RequestMapping(value = "/annulerCourse", method = RequestMethod.POST)
+	public String annulerCourse(HttpSession session, Model model, HttpServletRequest request) {
+		int idTraj = Integer.parseInt(request.getParameter("idTraj")) ;
+			trajetDAO.updateStatus(idTraj,0);
+		return "redirect:/conducteur/notifications";
+	}
+	
 	@RequestMapping(value = "/removeVehicule")
 	public String removeVehicule(HttpSession session, Model model, HttpServletRequest request) {
 		int idcar = Integer.parseInt(request.getParameter("idcar"));

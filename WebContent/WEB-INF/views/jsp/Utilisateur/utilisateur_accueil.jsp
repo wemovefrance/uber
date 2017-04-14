@@ -33,7 +33,7 @@
 <br />
 
 
-<div class="map"></div>
+<div class="map" style="height: 500px;border-style: solid;"></div>
 
 <input type="button" id="gestionTrajet" value=" Gestion d'un trajet" />
 <input type="button" id="gestionTransaction"
