@@ -2,8 +2,31 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<p> Accéder à votre espace personnel </p>
-<p class="error"> ${logmessage} </p>
+<c:if test ="${ utilisateur != null }">
+
+<c:set var ="url" value="utilisateur/monprofil"/>
+
+<p> <a href="${url}"> <input type="button"  class="bouttonmenuaccueil" value="Retour à mon espace personnel"/>  </a> </p>
+
+</c:if>
+
+
+<c:if test ="${ conducteur != null }">
+
+<c:set var ="url" value="conducteur/monprofil"/>
+
+<p> <a href="${url}"> <input type="button"  class="bouttonmenuaccueil" value="Retour à mon espace personnel"/>  </a> </p>
+
+</c:if>
+
+<c:if test ="${ conducteur == null && utilisateur == null }">
+
+<p> Connectez-vous pour accéder à votre epsace personnel </p>
+
+</c:if>
+
+
+
 
 <form:form action="/frWeMove/accueil/connexion" method="post" modelAttribute="partner">
 

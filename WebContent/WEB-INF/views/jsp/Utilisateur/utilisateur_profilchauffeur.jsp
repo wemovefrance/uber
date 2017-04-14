@@ -7,22 +7,22 @@
     
     	<div class="photo-nom-prenom-notes-conducteur">
    			 	<img src ="" id ="photo-profil-chauffeur"/>
-    			<p> Profil conducteur de <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
-   			 	<p class="noteChauffeur"> Note moyenne  </p>
-   			 	<p> Véhicules à disposition :</p>
+    			<h1> Profil conducteur de <c:out value="${conducteurOnClick.login}"/> </h1>
+   			 	
+   			 	<p>  <c:out value="${conducteurOnClick.prenom}"/> possède les véhicule(s) suivant(s) : </p>
    			 	<ul> 
    			 				<c:forEach items="${vehiculeByConducteur}" var="vehicule">
    			 				<li>
-   			 				<c:out value = "${vehicule.modele}"/> <br />
+   			 				- <c:out value = "${vehicule.marque}"/> <c:out value = "${vehicule.modele}"/> de type <c:out value = "${vehicule.typeVehicule}"/> avec un volume de coffre estimé à <c:out value = "${vehicule.volumeCoffre}"/> m3 <br />
    			 				</li>
    			 				</c:forEach>
-   			 				</ul> 
+   			 	</ul> 
    			 			
     	</div>
    						
     <p> Nombre de courses : </p>
  
-    <p> Commentaires : </p>
+ 
     
     </div>
     

@@ -69,7 +69,7 @@
 		<form:hidden id="lon" path="adresse.longitude" value=""/>
 		<form:hidden id="tex" path="adresse.nom" value=""/>
 		
-		<form:checkbox path="condGV" value="true"/> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
+		<form:checkbox path="condGV" value="true" style="display:block"/> J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
 		
 		<div style="backgound-color:red"><input type="submit" value="Devenir conducteur" /></div>
 
