@@ -51,25 +51,17 @@
 	
 	
 <form:select style="display:block" name="forfaitKilomètre" id="forfaitKilometre" path="distance">
-  <form:option value = "30">0 - 50 km  </form:option>
-  <form:option value = "50">50 - 100 km</form:option>
-  <form:option value = "70">100 - 150 km</form:option>
-  <form:option value = "150">Plus de  150 km</form:option>
+  <form:option value = "30.0">0 - 50 km  </form:option>
+  <form:option value = "50.0">50 - 100 km</form:option>
+  <form:option value = "70.0">100 - 150 km</form:option>
+  <form:option value = "150.0">Plus de  150 km</form:option>
 </form:select>
 
-
-	
-<%-- 	<form:label path="distance"> Choix du forfait kilomètre <span
-				class="required" title="ce champ est obligatoire">*</span>
-		</form:label>
-		<form:input path="distance" />
-		<form:errors path="distance" />
-		<br /> --%>
 		
 		<form:label path="poids" id="poids"> Estimer le poids des objets à transporter en kg <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
-		<form:input path="poids" />
+		<form:input path="poids" id="weight" type="number"/>
 		<form:errors path="poids" />
 		<br />
     		
@@ -84,10 +76,16 @@
 
     	<div style="backgound-color:red"><input type="submit" value="Demander course" /></div>
     	<div style="backgound-color:red"><input type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
+    	
+    	
+    <form:label path="prix" id="prix"> Résultat de l'estimation du prix en euros : <span
+				class="required" title="ce champ est obligatoire">*</span>
+	</form:label>
+    <form:input path="prix" id="p" value=""/>
+	<form:errors path="prix" />
+	<br />
     </form:form>  
-    
-    <p>   <input id="prix" value="" disabled> </p>
-    
+
  <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
 </script>
@@ -159,12 +157,16 @@ function initializeAutocomplete(id) {
 	
 function simulerPrix() {
 	
-	var kilometre = $('#forfaitKilometre').val();
-	var poids = $('#poids').val();
+	var kilometre = parseInt($('#forfaitKilometre').val());
+	var poids = parseInt($('#weight').val());
 	
 	var prix = kilometre + poids * 0.50 ;
 	
-	$('#prix').val(prix + " euros");
+	console.log(typeof poids);
+	console.log(typeof kilometre);
+	console.log(prix);
+	
+	$('#p').val(prix);
 	
 }
 
