@@ -13,13 +13,13 @@
 	<form:errors class="error" path="motDePasse"/> 
 	<br />
 	
-	<input class="bouttonmenuaccueil" type="submit" value="Se connecter">
+	<input class="bouttonmenuaccueil" type="submit" value="Se connecter" style="font-weight: normal;">
 	
 </form:form>
 
 <form action="/frWeMove/accueil/inscriptionUtilisateur">
-	<input class="bouttonmenuaccueil" type="submit" value="Inscription passager">
+	<input class="bouttonmenuaccueil" type="submit" value="Inscription passager" style="font-weight: normal;">
 </form>
 <form action="/frWeMove/accueil/inscriptionConducteur">
-	<input class="bouttonmenuaccueil" type="submit" value="Inscription conducteur">
+	<input class="bouttonmenuaccueil" type="submit" value="Inscription conducteur" style="font-weight: normal;">
 </form>

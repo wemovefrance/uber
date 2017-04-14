@@ -5,7 +5,7 @@
 <p> Bonjour <c:out value="${conducteur.prenom}" /> </p>
 <p>  </p>
 <form action="gestionprofil">
-	<input class="bouttonmenuaccueil" type="submit" value="Gestion du profil">
+	<input class="bouttonmenuaccueil" type="submit" value="Gestion du profil"  style="font-weight: normal;">
 </form>
 <p><a href="monprofil"><i class="fa fa-home fa-5x" style="color:#3498db"></i></a></p>
 <p><a href="carte"><i class="fa fa-map-o fa-5x" style="color:#3498db"></i></a></p>

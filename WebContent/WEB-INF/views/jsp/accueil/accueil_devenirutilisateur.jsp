@@ -2,61 +2,73 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
-<h1 class="titrePage"> Devenir partenaire WeMove </h1>
- 
-<div class="client-inscription">
 
-	<p>Créer un compte client en remplissant le fomulaire suivant</p>
+<div class="client-inscription" style="width: 90%; margin-left: 10%">
+
+	<h1 class="titrePage">Devenir partenaire WeMove</h1>
+	<p>Creer un compte client en remplissant le fomulaire suivant</p>
 	<br /> 
-	<span class="required"> * Champ requis </span>
-	
-	<form:form method="post" action="inscriptionUtilisateur" modelAttribute="user"  >
 
-		<form:label path="nom"> Nom <span class="required" title="le nom est obligatoire">*</span> </form:label>
-		<form:input path="nom"/>
-		<form:errors path="nom"/>		
+	<form:form method="post" action="inscriptionUtilisateur"
+		modelAttribute="user"  style="width: 60%; margin-left: 20%">
+
+		<form:label path="nom" > Nom <span class="required"
+				title="le nom est obligatoire">*</span>
+		</form:label>
+		<form:input path="nom"  STYLE="Text-ALIGN:center"  />
+		<form:errors path="nom" />
 		<br />
 
-		<form:label path="prenom"> Prenom : <span class="required" title="ce champ est obligatoire">*</span></form:label>
-		<form:input path="prenom"/>
-		<form:errors path="prenom"/>
-		
-		<form:label path="login"> Login :<span class="required" title="ce champ est obligatoire">*</span> </form:label>
-		<form:input path="login" />
-		<form:errors path="login"/>
-		
+		<form:label path="prenom"> Prenom : <span
+				class="required" title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:input path="prenom"  STYLE="Text-ALIGN:center"  />
+		<form:errors path="prenom" />
+
+		<form:label path="login"> Login :<span class="required"
+				title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:input path="login"  STYLE="Text-ALIGN:center" />
+		<form:errors path="login" />
+
+		<br />
+
+
+		<form:label path="email"> Email :<span class="required"
+				title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:input path="email" STYLE="Text-ALIGN:center"  />
+		<form:errors path="email" />
+
+		<br />
+
+		<form:label path="motDePasse"> Mot de passe : <span
+				class="required" title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:password path="motDePasse"  STYLE="Text-ALIGN:center" />
+		<form:errors path="motDePasse" />
+
+		<br />
+
+		<form:label path="confirmation"> Confirmation mot de passe :  <span
+				class="required" title="ce champ est obligatoire">*</span>
+		</form:label>
+		<form:password path="confirmation" STYLE="Text-ALIGN:center"  />
+		<form:errors path="confirmation" />
+
 		<br />
 		
 
-		<form:label path="email"> Email :<span class="required" title="ce champ est obligatoire">*</span> </form:label>
-		<form:input path="email" />
-		<form:errors path="email"/>
-		
+		<p>* Champ requis </p>
+		<form:checkbox id="checkbox" path="condGV" />
 		<br />
-
-		<form:label path="motDePasse"> Mot de passe : <span class="required" title="ce champ est obligatoire">*</span></form:label>
-		<form:password path="motDePasse"/>
-		<form:errors path="motDePasse"/>
-		
-		<br />
- 
-		<form:label path="confirmation"> Confirmation mot de passe :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
-		<form:password path="confirmation"/>
-		<form:errors path="confirmation"/>
-		
-		<br />
-		
-
-		J'accepte les conditions générales de ventes <span class="required" title="ce champ est obligatoire">*</span>
-		<form:checkbox id="checkbox" path="condGV"/>  
- 		<br />
-		<input type="submit" value="Devenir utilisateur" />
+		<input  id="butt-ask-course" type="submit" value="Devenir utilisateur"   style="font-weight: normal;"/>
 
 	</form:form>
-	
 
-	
-	
+
+
+
 </div>
 
 

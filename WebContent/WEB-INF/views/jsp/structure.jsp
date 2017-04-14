@@ -27,7 +27,7 @@
     
 </head>
 
-<body>
+<body id="bodyAll">
 	<tiles:insertAttribute name="navigation" />
 	<table width="100%">
 		<tr>
