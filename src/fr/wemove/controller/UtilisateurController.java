@@ -84,6 +84,8 @@ public class UtilisateurController {
 //		notificationDemande.setTrajet(trajet);
 //		notificationDemande = this.notificationDAO.save(notificationDemande);
 		
+		this.trajetDAO.save(trajet);
+		
 		return "redirect:/utilisateur/monprofil";
 	}
 

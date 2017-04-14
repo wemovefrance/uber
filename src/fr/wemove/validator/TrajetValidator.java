@@ -25,7 +25,8 @@ import fr.wemove.model.Trajet;
 			ValidationUtils.rejectIfEmptyOrWhitespace(e, "poids", "poids.empty", "Estimer le poids des objets à transporter");
 			ValidationUtils.rejectIfEmptyOrWhitespace(e, "distance", "distance.empty", "Estimer le poids des objets à transporter");
 			ValidationUtils.rejectIfEmptyOrWhitespace(e, "depart.nom", "depart.nom.empty", "Saisir le point de départ du trajet");
-			ValidationUtils.rejectIfEmptyOrWhitespace(e, "arrivee.nom", "arrivee.nom.empty", "Saisir l'arrivée du trajet");
+			ValidationUtils.rejectIfEmptyOrWhitespace(e, "prix", "prix.empty", "Veuillez simuler un prix");
+
 			
 		}
 		

@@ -31,6 +31,7 @@ public class UtilisateurSubscribeValidator implements Validator {
 		}
 		*/
 		
+		
 		if ( !utilisateur.getMotDePasse().equals(utilisateur.getConfirmation())) {
 		e.rejectValue("motDePasse", "pwdcheck", "Les mots de passe ne correspondent pas.");
 		

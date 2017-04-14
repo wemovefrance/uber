@@ -224,6 +224,7 @@ public class GeneratorController {
 		TrajetUn.setDepart(adresseSix);
 		TrajetUn.setConducteur(nouveauConducteur);
 		TrajetUn.setUtilisateur(myUtilisateur);	
+		TrajetUn.setPrix(50.0);
 		
 		TrajetDeux.setCommentaire("Je dois déplacer un frigo de x m3 et de y kg. On peut se retrouver à 14h");
 		TrajetDeux.setDateDuTrajet("09/14/2017");
@@ -231,6 +232,7 @@ public class GeneratorController {
 		TrajetDeux.setDepart(adresseHuit);
 		TrajetDeux.setConducteur(nouveauConducteur);
 		TrajetDeux.setUtilisateur(myUtilisateur);
+		TrajetDeux.setPrix(50.0);
 		
 		/* CREATION DES NOTIFICATIONS */
 		
@@ -241,19 +243,19 @@ public class GeneratorController {
 		myNotification.setTrajet(TrajetUn);
 		myNotification = this.NotificationDAO.save(myNotification);
 		
-		myNotification = new Notification();
-		myNotification.setMessage("Trajet Confirmé");
-		myNotification.setStatutConducteur("nonLu");
-		myNotification.setStatutUtilisateur("lu");
-		myNotification.setTrajet(TrajetUn);
-		myNotification = this.NotificationDAO.save(myNotification);
-		
-		myNotification = new Notification();
-		myNotification.setMessage("Trajet annulé");
-		myNotification.setStatutConducteur("nonLu");
-		myNotification.setStatutUtilisateur("lu");
-		myNotification.setTrajet(TrajetUn);
-		myNotification = this.NotificationDAO.save(myNotification);
+//		myNotification = new Notification();
+//		myNotification.setMessage("Trajet Confirmé");
+//		myNotification.setStatutConducteur("nonLu");
+//		myNotification.setStatutUtilisateur("lu");
+//		myNotification.setTrajet(TrajetUn);
+//		myNotification = this.NotificationDAO.save(myNotification);
+//		
+//		myNotification = new Notification();
+//		myNotification.setMessage("Trajet annulé");
+//		myNotification.setStatutConducteur("nonLu");
+//		myNotification.setStatutUtilisateur("lu");
+//		myNotification.setTrajet(TrajetUn);
+//		myNotification = this.NotificationDAO.save(myNotification);
 
 		
 		myNotification = new Notification();
