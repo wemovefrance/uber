@@ -52,6 +52,7 @@
 		<input type="hidden" id="route" name="route" disabled>
 		<input type="hidden" id="locality" name="c" disabled>
 		<input type="hidden" id="country" name="country" disabled>
+		<form:errors path="adresse.nom" />
 
 
 		<form:label path="motDePasse"> Mot de passe : <span
