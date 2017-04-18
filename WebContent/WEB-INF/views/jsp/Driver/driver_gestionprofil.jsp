@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p> <c:out value="${conducteur.prenom}"/> <br /> Voici les informations relatives � votre compte </p>
+<p> <c:out value="${conducteur.prenom}"/> <br /> Voici ci-dessous les informations relatives � votre compte </p>
 
 <div id="formulaire">
 
@@ -32,13 +32,14 @@
  	
  	 <br />
 
-	<label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
-  	<input id="user_input_autocomplete_address" value =""  STYLE="Text-ALIGN:center" >
+	<label> Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
+  	<input id="user_input_autocomplete_address" value ="${adresse.nom}"  STYLE="Text-ALIGN:center" >
   	<input type="hidden" id="street_number" name="street_number" disabled>
   	<input type="hidden" id="route" name="route" disabled>
   	<input type="hidden" id="locality" name="locality" disabled>
   	<input type="hidden" id="country" name="country" disabled>
-
+	<form:errors path="adresse.nom" />
+	
  	<br />
 	
 	<form:label path="motDePasse"> Mot de passe :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
@@ -55,6 +56,7 @@
 	
 	<form:hidden id="lat" path="adresse.latitude" value=""/>
 	<form:hidden id="lon" path="adresse.longitude" value=""/>
+ 	<form:hidden id="tex" path="adresse.nom" value=""/>
  	
  	<input class="bouttonmenuaccueil"  type="submit" id="butt-submit" value="Mise a jour de mon profil" />
  	<br /> 
@@ -92,6 +94,7 @@
 	                longitude = results[0].geometry.location.lng();
 	                $('#lat').val(latitude);
 	                $('#lon').val(longitude);
+	                $('#tex').val(address);
 
 	                console.log($('#lat').val());
 	                console.log($('#lon').val());

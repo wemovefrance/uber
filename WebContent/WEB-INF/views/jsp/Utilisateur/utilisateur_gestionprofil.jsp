@@ -33,15 +33,7 @@
 
  <br />
  
- 		<label>Adresse <span class="required" title="ce champ est obligatoire">*</span></label>
-  		<input id="user_input_autocomplete_address" placeholder="Commencer a taper votre adresse..."  STYLE="Text-ALIGN:center" >
-  		<input type="hidden" id="street_number" name="street_number" disabled>
- 		 <input type="hidden" id="route" name="route" disabled>
-  		<input type="hidden" id="locality" name="locality" disabled>
-  		<input type="hidden" id="country" name="country" disabled>
  
- 
-	
 	<form:label path="motDePasse"> Mot de passe :  <span class="required" title="ce champ est obligatoire">*</span> </form:label>
 	<form:password path="motDePasse" value = "${utilisateur.motDePasse}"  STYLE="Text-ALIGN:center" />
 	<form:errors class="error" path="motDePasse"/>
@@ -64,45 +56,6 @@
  
 </form:form>
 
-
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">
-</script>
-
-<script src="<c:url value="/js/autocomplete.js" />"></script>
-
-<script type="text/javascript">
-
-
-
-	function geocode(){
-		   var longitude = 0;
-	        var latitute = 0;
-	        var address = $('#street_number').val() + " " + $('#route').val() + ", " + $('#locality').val() + ", " + $('#country').val();
-	        console.log(address);
-	        var geocoder = new google.maps.Geocoder();
-
-	        /* Appel au service de geocodage avec l'adresse en param�tre */
-	        geocoder.geocode({
-	            'address': address
-	        }, function(results, status) {
-	            /* Si l'adresse a pu �tre g�olocalis�e */
-	            if (status == google.maps.GeocoderStatus.OK) {
-	                /* R�cup�ration de sa latitude et de sa longitude */
-	                latitude = results[0].geometry.location.lat();
-	                longitude = results[0].geometry.location.lng();
-	                $('#lat').val(latitude);
-	                $('#lon').val(longitude);
-
-	                console.log($('#lat').val());
-	                console.log($('#lon').val());
-	            } 
-	        });
-	}
-	
-
-	
-</script>
 
  
  </div>
