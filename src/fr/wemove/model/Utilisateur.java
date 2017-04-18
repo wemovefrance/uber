@@ -3,6 +3,8 @@ package fr.wemove.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -171,8 +173,6 @@ public class Utilisateur implements Serializable {
 	public void setCondGV(boolean condGV) {
 		this.condGV = condGV;
 	}
-	
-	
 	
 
 }

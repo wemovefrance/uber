@@ -17,6 +17,7 @@ import fr.wemove.dao.UtilisateurDAO;
 import fr.wemove.model.Adresse;
 import fr.wemove.model.Conducteur;
 import fr.wemove.validator.ConducteurSubscribeValidator;
+import fr.wemove.validator.UtilisateurSubscribeValidator;
 
 
 @Controller
@@ -26,6 +27,8 @@ public class InscriptionConducteurController {
 	@Autowired
 	private UtilisateurDAO utilisateurDao;
 	
+	@Autowired
+	private ConducteurSubscribeValidator conducteurSubscribeValidator;
 
 	
 	@RequestMapping(value = "/accueil/inscriptionConducteur", method = RequestMethod.GET)
@@ -40,7 +43,7 @@ public class InscriptionConducteurController {
 	@RequestMapping ( value = "/accueil/inscriptionConducteur", method = RequestMethod.POST)
 	public String inscriptionUtilisateur (@ModelAttribute("driver") Conducteur conducteur, BindingResult result, Model model){
 		
-		new ConducteurSubscribeValidator().validate(conducteur, result);
+		conducteurSubscribeValidator.validate(conducteur, result);
 		
 		if ( result.hasErrors()) {	
 			
