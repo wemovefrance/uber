@@ -2,8 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <div id="infoposition"></div>
-<div id="map" style="height: 500px;"></div>
-
+<div id="map" style="height: 500px;border-style: solid;"></div>
 <script
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c&callback=initMap"
 	async defer>
@@ -33,7 +32,6 @@
 <br />
 
 
-<div class="map" style="height: 500px;border-style: solid;"></div>
 
 <input type="button" id="gestionTrajet" value=" Gestion d'un trajet" />
 <input type="button" id="gestionTransaction"

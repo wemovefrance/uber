@@ -24,7 +24,6 @@ public class InscriptionUtilisateurController {
 	
 	@Autowired
 	private UtilisateurSubscribeValidator utilisateurSubscribeValidator;
-	
 
 	
 	@RequestMapping(value = "/accueil/inscriptionUtilisateur", method = RequestMethod.GET)
