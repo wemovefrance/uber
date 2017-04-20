@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
 
-<h1> Qui sommes-nous ?</h1>
+<h4> Qui sommes-nous ?</h4>
 
-<p> Nous sommes une Ã©quipe de 3 personnes, jeunes et dynamiques, qui travaillent ensemble afin de simplifier votre vie quotidienne </p>
+<p> Nous sommes une équipe de 3 personnes, jeunes et dynamiques, qui travaillent ensemble afin de simplifier votre vie quotidienne </p>
 

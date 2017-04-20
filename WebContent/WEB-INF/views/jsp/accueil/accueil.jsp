@@ -3,7 +3,7 @@
 
 
 
-<h1>Bienvenue</h1>
+<h5 class="center">Les conducteurs connectés</h5>
 <div id="map" style="height: 500px;border-style: solid;"></div>
 
 <script

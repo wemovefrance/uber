@@ -26,12 +26,19 @@
     
     <form:form modelAttribute="nouveauTrajet" action ="demandecourse" method="post">
 
-	 <form:label path="dateDuTrajet"> Date du trajet <span class="required"
+	 <%-- <form:label path="dateDuTrajet"> Date du trajet <span class="required"
 				title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:input path="dateDuTrajet" id="datepicker" placeholder="Sélectionner une date"/>
 		<form:errors path="dateDuTrajet" />
-		<br />
+		<br /> --%>
+		
+		 <label>Date du trajet<span class="required"
+				title="ce champ est obligatoire">*</span></label>
+		<input type="date" class="datepicker" id="dateTrajet">
+		 <form:errors path="dateDuTrajet" />
+  
+  	<form:hidden id="dateT" path="dateDuTrajet" value=""/> 
 
   <label>Adresse de départ <span class="required"
 				title="ce champ est obligatoire">*</span></label>
@@ -154,6 +161,8 @@ function initializeAutocomplete(id) {
 </script>
 
 <script type="text/javascript">
+
+///// Simuler prix
 	
 function simulerPrix() {
 	
@@ -167,6 +176,16 @@ function simulerPrix() {
 	console.log(prix);
 	
 	$('#p').val(prix);
+	
+	/////Autocomplete date
+	
+	 $('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 15 // Creates a dropdown of 15 years to control year
+		  });
+	
+	var dat = $('#dateTrajet').val();
+	 $('#dateT').val(dat);
 	
 }
 

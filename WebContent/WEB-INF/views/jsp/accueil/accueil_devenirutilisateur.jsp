@@ -57,12 +57,15 @@
 		<form:errors path="confirmation" />
 
 		<br />
-		
+		<input type="checkbox" id="test5" />
+      	<label for="test5"> J'accepte les conditions générales de vente</label>
+      	<form:hidden id="lat" path="condGV" value="" />
+		<br />
 
 		<p>* Champ requis </p>
-		<form:checkbox id="checkbox" path="condGV" />
+		
 		<br />
-		<input  id="butt-ask-course" type="submit" value="Devenir utilisateur"   style="font-weight: normal;"/>
+		<input  id="butt-ask-course" type="submit" value="Devenir utilisateur"   class="btn-large waves-effect waves-light teal lighten-1"/>
 
 	</form:form>
 

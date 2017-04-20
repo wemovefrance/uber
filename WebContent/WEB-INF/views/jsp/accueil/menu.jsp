@@ -10,7 +10,7 @@
 <p> <a href="${url}"> <input type="button"  class="bouttonmenuaccueil" value="Retour à mon espace personnel"/>  </a> </p>
 
 </c:if>
-
+<h4 class="center brown-text">Login</h4>
 
 <c:if test ="${ conducteur != null }">
 
@@ -22,30 +22,31 @@
 
 <c:if test ="${ conducteur == null && utilisateur == null }">
 
-<p> Connectez-vous pour accéder à votre epsace personnel </p>
+<p> Connectez-vous pour accéder à votre espace personnel </p>
 
 </c:if>
 
 
 
-<form:form action="/frWeMove/accueil/connexion" method="post" modelAttribute="partner">
+<form:form action="/frWeMove/accueil/connexion" method="post" modelAttribute="partner" >
 
 	<form:label path="login" > Nom d'utilisateur : </form:label>
-	<form:input path="login"  class="accueilinput"/>
+	<form:input path="login"  class="accueilinput" STYLE="Text-ALIGN:center"/>
 	 <form:errors class="error" path="login"/> 
 	<br />
 	<form:label path="motDePasse" > Mot de passe : </form:label>
-	<form:password class="accueilinput" path="motDePasse" />
+	<form:password class="accueilinput" path="motDePasse" STYLE="Text-ALIGN:center" />
 	<form:errors class="error" path="motDePasse"/> 
 	<br />
 	
-	<input class="bouttonmenuaccueil" type="submit" value="Se connecter" style="font-weight: normal;">
+	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Se connecter">
 	
 </form:form>
-
+<br />
 <form action="/frWeMove/accueil/inscriptionUtilisateur">
-	<input class="bouttonmenuaccueil" type="submit" value="Inscription passager" style="font-weight: normal;">
+	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Inscription passager" style="font-weight: normal;">
 </form>
+<br />
 <form action="/frWeMove/accueil/inscriptionConducteur">
-	<input class="bouttonmenuaccueil" type="submit" value="Inscription conducteur" style="font-weight: normal;">
+	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Inscription conducteur" style="font-weight: normal;">
 </form>
