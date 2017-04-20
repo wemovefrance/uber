@@ -58,7 +58,7 @@
 	<form:hidden id="lon" path="adresse.longitude" value=""/>
  	<form:hidden id="tex" path="adresse.nom" value=""/>
  	
- 	<input class="bouttonmenuaccueil"  type="submit" id="butt-submit" value="Mise a jour de mon profil" />
+ 	<input  type="submit" id="butt-submit" value="Mise a jour de mon profil" class="btn-large waves-effect waves-light teal lighten-1" />
  	<br /> 
  	<span class="message"> <c:out value="${message}"/></span>
  	
