@@ -1,6 +1,17 @@
 package fr.wemove.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +46,7 @@ public class InscriptionUtilisateurController {
 	}
 	
 	@RequestMapping ( value = "/accueil/inscriptionUtilisateur", method = RequestMethod.POST)
-	public String inscriptionUtilisateur (@ModelAttribute("user") Utilisateur utilisateur, BindingResult result, Model model ){
+	public String inscriptionUtilisateur (@ModelAttribute("user") Utilisateur utilisateur, BindingResult result, Model model ) throws UnsupportedEncodingException{
 		
 		utilisateurSubscribeValidator.validate(utilisateur, result);
 		
@@ -44,10 +55,10 @@ public class InscriptionUtilisateurController {
 			return "accueildevenirutilisateur";
 		} 
 	
-		System.out.println(utilisateur.getEmail());
-		System.out.println(utilisateur.getNom());
 		
 		this.utilisateurDao.save(utilisateur);
+		
+		 
 		
 		return "redirect:/accueil";
 		

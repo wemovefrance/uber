@@ -117,8 +117,6 @@ public class UtilisateurController {
 		
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
 		
-		
-
 		utilisateurUpdate = this.utilisateurDAO.updateUtil( utilisateur.getId_user(),  utilisateurUpdate);
 		
 		session.setAttribute("utilisateur", utilisateurUpdate);

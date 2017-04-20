@@ -16,14 +16,14 @@
 				title="le nom est obligatoire">*</span>
 		</form:label>
 		<form:input path="nom"  STYLE="Text-ALIGN:center" />
-		<form:errors path="nom" />
+		<form:errors class="error" path="nom" />
 		<br />
 
 		<form:label path="prenom"> Prenom : <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:input path="prenom" STYLE="Text-ALIGN:center"  />
-		<form:errors path="prenom" />
+		<form:errors class="error" path="prenom" />
 		<br />
 
 
@@ -31,7 +31,7 @@
 				title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:input path="login"  STYLE="Text-ALIGN:center" />
-		<form:errors path="login" />
+		<form:errors class="error" path="login" />
 
 		<br />
 
@@ -39,7 +39,7 @@
 				title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:input path="email"  STYLE="Text-ALIGN:center" />
-		<form:errors path="email" />
+		<form:errors class="error" path="email" />
 		<br />
 
 
@@ -52,21 +52,21 @@
 		<input type="hidden" id="route" name="route" disabled>
 		<input type="hidden" id="locality" name="c" disabled>
 		<input type="hidden" id="country" name="country" disabled>
-		<form:errors path="adresse.nom" />
+		<form:errors class="error" path="adresse.nom" />
 
 
 		<form:label path="motDePasse"> Mot de passe : <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:password path="motDePasse" STYLE="Text-ALIGN:center"  />
-		<form:errors path="motDePasse" />
+		<form:errors class="error" path="motDePasse" />
 		<br />
 
 		<form:label path="confirmation"> Confirmation mot de passe :  <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:password path="confirmation"  STYLE="Text-ALIGN:center"  />
-		<form:errors path="confirmation" />
+		<form:errors class="error" path="confirmation" />
 		<br />
 
 		<form:hidden id="lat" path="adresse.latitude" value="" />

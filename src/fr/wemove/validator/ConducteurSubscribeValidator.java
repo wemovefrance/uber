@@ -31,7 +31,7 @@ public class ConducteurSubscribeValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "email", "email.empty", "Le email doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "login", "login.empty", "Le login doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "adresse.nom", "adresse.nom.empty", "L'adresse doit être saisi");
-		ValidationUtils.rejectIfEmptyOrWhitespace(e, "motDePasse", "motDePasse.empty", "Le motDePasse doit être saisi");
+		ValidationUtils.rejectIfEmptyOrWhitespace(e, "motDePasse", "motDePasse.empty", "Le mot de passe doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "confirmation", "confirmation.empty", "Le confirmation doit être saisi");
 		
 		/*
