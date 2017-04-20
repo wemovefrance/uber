@@ -14,52 +14,51 @@
 
 		<form:label path="nom"> Nom <span class="required"
 				title="le nom est obligatoire">*</span>
+		<form:errors path="nom" style="color:red"/>  
 		</form:label>
 		<form:input path="nom"  STYLE="Text-ALIGN:center" />
-		<form:errors path="nom" />
 		<br />
 
 		<form:label path="prenom"> Prenom : <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="prenom" style="color:red"/>
 		</form:label>
 		<form:input path="prenom" STYLE="Text-ALIGN:center"  />
-		<form:errors path="prenom" />
 		<br />
 
 
 		<form:label path="login"> Login :<span class="required"
 				title="ce champ est obligatoire">*</span>
+		<form:errors path="login" style="color:red" />
+				
 		</form:label>
 		<form:input path="login"  STYLE="Text-ALIGN:center" />
-		<form:errors path="login" />
-
 		<br />
 
 		<form:label path="email"> Email :<span class="required"
 				title="ce champ est obligatoire">*</span>
+		<form:errors path="email" style="color:red" />
 		</form:label>
 		<form:input path="email"  STYLE="Text-ALIGN:center" />
-		<form:errors path="email" />
 		<br />
 
 
 
 		<label>Adresse <span class="required"
-			title="ce champ est obligatoire">*</span></label>
+			title="ce champ est obligatoire">*</span>
+		<form:errors path="adresse.nom" style="color:red" /></label>
 		<input id="user_input_autocomplete_address"
 			placeholder="Commencer a taper votre adresse..."  STYLE="Text-ALIGN:center" >
 		<input type="hidden" id="street_number" name="street_number" disabled>
 		<input type="hidden" id="route" name="route" disabled>
 		<input type="hidden" id="locality" name="c" disabled>
 		<input type="hidden" id="country" name="country" disabled>
-		<form:errors path="adresse.nom" />
-
 
 		<form:label path="motDePasse"> Mot de passe : <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="motDePasse" style="color:red"  />
 		</form:label>
 		<form:password path="motDePasse" STYLE="Text-ALIGN:center"  />
-		<form:errors path="motDePasse" />
 		<br />
 
 		<form:label path="confirmation"> Confirmation mot de passe :  <span
@@ -72,7 +71,11 @@
 		<form:hidden id="lat" path="adresse.latitude" value="" />
 		<form:hidden id="lon" path="adresse.longitude" value="" />
 		<form:hidden id="tex" path="adresse.nom" value="" />
-
+		<br />
+		<input type="checkbox" id="test5" />
+      	<label for="test5"> J'accepte les conditions générales de vente</label>
+      	<form:hidden id="lat" path="condGV" value="" />
+		<br />
 		<p>* Champ requis </p>
 
 		<div style="backgound-color: red">

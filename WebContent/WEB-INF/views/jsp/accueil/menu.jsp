@@ -31,12 +31,12 @@
 <form:form action="/frWeMove/accueil/connexion" method="post" modelAttribute="partner" >
 
 	<form:label path="login" > Nom d'utilisateur : </form:label>
+	 <form:errors class="error" path="login" style="color:red"/> 
 	<form:input path="login"  class="accueilinput" STYLE="Text-ALIGN:center"/>
-	 <form:errors class="error" path="login"/> 
 	<br />
 	<form:label path="motDePasse" > Mot de passe : </form:label>
+	<form:errors class="error" path="motDePasse" style="color:red"/> 
 	<form:password class="accueilinput" path="motDePasse" STYLE="Text-ALIGN:center" />
-	<form:errors class="error" path="motDePasse"/> 
 	<br />
 	
 	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Se connecter">
