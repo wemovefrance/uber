@@ -5,7 +5,7 @@
 
 <div class="client-inscription" style="width: 90%; margin-left: 10%">
 
-	<h1 class="titrePage">Devenir partenaire WeMove</h1>
+	<h3 class="titrePage">Devenir partenaire WeMove</h3>
 	<p>Creer un compte client en remplissant le fomulaire suivant</p>
 	<br /> 
 

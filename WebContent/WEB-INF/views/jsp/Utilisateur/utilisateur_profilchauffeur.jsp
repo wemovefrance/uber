@@ -8,7 +8,7 @@
 	<div class="photo-nom-prenom-notes-conducteur">
 		<img src="" id="photo-profil-chauffeur" />
 		
-		<h1> Profil conducteur de <c:out value="${conducteurOnClick.login}"/> </h1>
+		<h4> Profil conducteur de <c:out value="${conducteurOnClick.login}"/> </h4>
    			 	
    			 	<p>  <c:out value="${conducteurOnClick.prenom}"/> possède les véhicule(s) suivant(s) : </p>
    			 	<ul> 
@@ -27,6 +27,6 @@
 <div class="demanderCourse" >
 
 	<form action="demandecourse">
-		<input type="submit" value="Demander course" id="butt-ask-course" />
+		<input type="submit" value="Demander course" id="butt-ask-course" class="btn-large waves-effect waves-light teal lighten-1" />
 	</form>
 </div>
