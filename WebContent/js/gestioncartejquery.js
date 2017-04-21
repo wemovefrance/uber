@@ -68,22 +68,16 @@ function initMap() {
 			userid = userid.replace('[','');
 			userid = userid.replace(' ','');
 			Lat = latitudes[nn] ;
-			console.log("Lat1="+Lat);
 			Lat = Lat.replace(']','');
 			Lat = Lat.replace('[','');
 			Lat = Lat.replace(' ','');
 			Lat=Number(Lat);
-			console.log("Lat2="+Lat);
 			Long = longitudes[nn] ;
-			console.log("Long1="+Long);
 			Long = Long.replace(']','');
 			Long = Long.replace('[','');
 			Long = Long.replace(' ','');
 			Long=Number(Long);
 			// plotMarker(Lat,Long, "test");
-			console.log("Long2="+Long);
-			console.log(Lat);
-			console.log(Long);
 			plotMarker(parseFloat(Lat), parseFloat(Long), label, userid);
 		}
 				/*
@@ -137,13 +131,13 @@ function initMap() {
 function maPosition(position) {
 	var crd = position.coords;
 	var infopos = "test";
-	console.log('Your current position is:');
-	console.log(`Latitude : ${crd.latitude}`);
+//	console.log('Your current position is:');
+//	console.log(`Latitude : ${crd.latitude}`);
 	sessionStorage.setItem("latitude", crd.latitude);
-	console.log(`Longitude: ${crd.longitude}`);
+//	console.log(`Longitude: ${crd.longitude}`);
 	sessionStorage.setItem("longitude", crd.longitude);
-	console.log(`More or less ${crd.accuracy} meters.`);
-	console.log(`-------------------------------`);
+//	console.log(`More or less ${crd.accuracy} meters.`);
+//	console.log(`-------------------------------`);
 	document.getElementById("infoposition").innerHTML = infopos;
 
 	// Un nouvel objet LatLng pour Google Maps avec les paramètres de

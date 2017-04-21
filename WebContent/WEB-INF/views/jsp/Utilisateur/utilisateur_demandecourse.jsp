@@ -17,7 +17,6 @@
     <div class="photo-nom-prenom-notes-conducteur">
    			 	<img src ="" id ="photo-profil-chauffeur"/>
     			<p> <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
-   			 	<p class="noteChauffeur"> Note moyenne </p>
     </div>
 
 
@@ -34,24 +33,24 @@
 		<br /> --%>
 		
 		 <label>Date du trajet<span class="required"
-				title="ce champ est obligatoire">*</span></label>
+				title="ce champ est obligatoire">*</span>
+		 <form:errors path="dateDuTrajet"  style="color:red" /></label>
 		<input type="date" class="datepicker" id="dateTrajet" STYLE="Text-ALIGN:center">
-		 <form:errors path="dateDuTrajet" />
   
   	<form:hidden id="dateT" path="dateDuTrajet" value=""/> 
 
   <label>Adresse de départ <span class="required"
-				title="ce champ est obligatoire">*</span></label>
+				title="ce champ est obligatoire">*</span>
+  <form:errors path="depart.nom"  style="color:red"  /></label>
   <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
 	<input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
   <input type="hidden" id="locality" name="locality" disabled>
   <input type="hidden" id="country" name="country" disabled> 
-  <form:errors path="depart.nom" />
   
   <label>Adresse d'arrivée</label>
+  <form:errors path="arrivee.nom"  style="color:red" />
   <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
-  <form:errors path="arrivee.nom" />
   
   	<form:hidden id="D" path="depart.nom" value=""/> 
 	<form:hidden id="A" path="arrivee.nom" value=""/>   
@@ -67,17 +66,17 @@
 		
 		<form:label path="poids" id="poids"> Estimer le poids des objets à transporter en kg <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="poids"  style="color:red"  />
 		</form:label>
 		<form:input path="poids" id="weight" type="number" STYLE="Text-ALIGN:center"/>
-		<form:errors path="poids" />
 		<br />
     		
   
 	<form:label path="commentaire"> Commentaires : <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="commentaire"  style="color:red" />
 		</form:label>
 		<form:textarea path="commentaire" STYLE="Text-ALIGN:center" />
-		<form:errors path="commentaire" />
 		<br />
 		
 
@@ -88,9 +87,9 @@
     	
     <form:label path="prix" id="prix"> Résultat de l'estimation du prix en euros : <span
 				class="required" title="ce champ est obligatoire">*</span>
+	<form:errors path="prix" />
 	</form:label>
     <form:input path="prix" id="p" value=""/>
-	<form:errors path="prix" />
 	<br />
     </form:form>  
   

@@ -14,6 +14,7 @@
         <li><a href="notifications"><i class="fa fa-envelope-o fa-2x" style="color:#26a69a"></i></a></li>
 <!--         <li><a href="drivergestionvehicule"><i class="fa fa-car fa-2x" style="color:#26a69a"></i><i class="fa fa-plus fa-1x" style="color:#26a69a"></i></a></li>
  -->        <li><a href="carte"><i class="fa fa-map-o fa-2x" style="color:#26a69a"></i></a></li>
+		<li><a href="gestionprofil"><i class="fa fa-cog fa-2x" style="color:#26a69a"></i></a></li>
         <li><a href="deconnexion"><i class="fa fa-power-off fa-2x" style="color:#26a69a"> </i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -26,6 +27,7 @@
         <li><a href="notifications"><i class="fa fa-envelope-o fa-2x" style="color:#26a69a"></i> Notifications</a></li>
         <!-- <li><a href="drivergestionvehicule"><i class="fa fa-car fa-2x" style="color:#26a69a"></i><i class="fa fa-plus fa-1x" style="color:#26a69a"></i> Gestion des véhicules</a></li> -->
         <li><a href="carte"><i class="fa fa-map-o fa-2x" style="color:#26a69a"></i>Carte</a></li>
+		<li><a href="gestionprofil"><i class="fa fa-cog fa-2x" style="color:#26a69a"></i>Gérer mon profil</a></li>
         <li><a href="deconnexion"><i class="fa fa-power-off fa-2x" style="color:#26a69a"> </i>Déconnexion</a> </li>
       </ul>
     </div>
