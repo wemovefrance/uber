@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>    
-<h1>Carte</h1>
+<h5>Conducteurs inscrits autour de vous</h5>
 
 <div id="map" style="height: 500px;border-style: solid;"></div>
 

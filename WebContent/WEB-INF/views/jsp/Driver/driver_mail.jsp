@@ -2,7 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<h1>Courses</h1>
+<h4>Courses</h4>
 
 <p class="titresDriverMap">---------------- Courses non confirmées
 	----------------</p>
@@ -12,7 +12,7 @@
 		<c:if test="${item.getStatut()==1}">
 			<li>${item.getDateDuTrajet()}-${item.getDepart().getNom()} a
 				${item.getArrivee().getNom()} <i id="boutton${item.getId_trajet()}"
-				class="fa fa-search-plus fa-1x" style="color: #3498db"
+				class="fa fa-search-plus fa-1x" style="color: #26a69a"
 				onclick="rechercheNotifications('${item.getId_trajet()}')"></i>
 			</li>
 			<div id="tohide${item.getId_trajet()}" style="display: none">
@@ -25,8 +25,8 @@
 				<form action="accepterRefuserCourse" method="post">
 					<input type="hidden" name="idTraj" value="${item.getId_trajet()}" />
 					<input id="bouttonaccept" type="submit" name="choix"
-						value="accepter" /> <input id="bouttonaccept" type="submit"
-						name="choix" value="refuser" />
+						value="accepter" class="btn-large waves-effect waves-light teal lighten-1"/> <input id="bouttonaccept" type="submit"
+						name="choix" value="refuser" class="btn-large waves-effect waves-light teal lighten-1" />
 				</form>
 			</div>
 		</c:if>
@@ -40,14 +40,14 @@
 		<c:if test="${item.getStatut()==2}">
 			<li>${item.getDateDuTrajet()}-${item.getDepart().getNom()} a
 				${item.getArrivee().getNom()} <i id="boutton${item.getId_trajet()}"
-				class="fa fa-search-plus fa-1x" style="color: #3498db"
+				class="fa fa-search-plus fa-1x" style="color: #26a69a"
 				onclick="rechercheNotifications('${item.getId_trajet()}')"></i>
 			</li>
 			<div id="tohide${item.getId_trajet()}" style="display: none">
 				<form action="annulerCourse" method="post">
 					<input type="hidden" name="idTraj" value="${item.getId_trajet()}" />
 					<input id="bouttonaccept" type="submit" name="choix"
-						value="annuler" />
+						value="annuler" class="btn-large waves-effect waves-light teal lighten-1" />
 				</form>
 			</div>
 		</c:if>

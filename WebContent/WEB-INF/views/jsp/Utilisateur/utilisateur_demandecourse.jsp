@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+ <!--  <script>
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
-  </script>
+  </script> -->
 
-    
+
     <div class="photo-nom-prenom-notes-conducteur">
    			 	<img src ="" id ="photo-profil-chauffeur"/>
     			<p> <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
@@ -35,14 +35,14 @@
 		
 		 <label>Date du trajet<span class="required"
 				title="ce champ est obligatoire">*</span></label>
-		<input type="date" class="datepicker" id="dateTrajet">
+		<input type="date" class="datepicker" id="dateTrajet" STYLE="Text-ALIGN:center">
 		 <form:errors path="dateDuTrajet" />
   
   	<form:hidden id="dateT" path="dateDuTrajet" value=""/> 
 
   <label>Adresse de départ <span class="required"
 				title="ce champ est obligatoire">*</span></label>
-  <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse...">
+  <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
 	<input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
   <input type="hidden" id="locality" name="locality" disabled>
@@ -50,14 +50,14 @@
   <form:errors path="depart.nom" />
   
   <label>Adresse d'arrivée</label>
-  <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse...">
+  <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
   <form:errors path="arrivee.nom" />
   
   	<form:hidden id="D" path="depart.nom" value=""/> 
 	<form:hidden id="A" path="arrivee.nom" value=""/>   
 	
 	
-<form:select style="display:block" name="forfaitKilomètre" id="forfaitKilometre" path="distance">
+<form:select style="display:block" name="forfaitKilomètre" id="forfaitKilometre" path="distance" >
   <form:option value = "30.0">0 - 50 km  </form:option>
   <form:option value = "50.0">50 - 100 km</form:option>
   <form:option value = "70.0">100 - 150 km</form:option>
@@ -68,7 +68,7 @@
 		<form:label path="poids" id="poids"> Estimer le poids des objets à transporter en kg <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
-		<form:input path="poids" id="weight" type="number"/>
+		<form:input path="poids" id="weight" type="number" STYLE="Text-ALIGN:center"/>
 		<form:errors path="poids" />
 		<br />
     		
@@ -76,13 +76,14 @@
 	<form:label path="commentaire"> Commentaires : <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
-		<form:textarea path="commentaire" />
+		<form:textarea path="commentaire" STYLE="Text-ALIGN:center" />
 		<form:errors path="commentaire" />
 		<br />
 		
 
-    	<div style="backgound-color:red"><input type="submit" value="Demander course" /></div>
-    	<div style="backgound-color:red"><input type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
+    	<div style="backgound-color:red"><input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Demander course" /></div>
+    	<br />
+    	<div style="backgound-color:red"><input class="btn-large waves-effect waves-light teal lighten-1" type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
     	
     	
     <form:label path="prix" id="prix"> Résultat de l'estimation du prix en euros : <span
@@ -92,6 +93,8 @@
 	<form:errors path="prix" />
 	<br />
     </form:form>  
+  
+
 
  <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhHjZ-FFC3DuM36RLB6GRvs53eH26zY9c">

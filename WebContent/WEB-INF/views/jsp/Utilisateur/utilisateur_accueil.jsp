@@ -20,8 +20,8 @@
 
 
 
-<p> Bienvenue sur votre espace personnel ${utilisateur.prenom} ${utilisateur.nom} </p>  <br />
-		
+<%-- <p> Bienvenue sur votre espace personnel ${utilisateur.prenom} ${utilisateur.nom} </p>  <br />
+ --%>		
 	
 <br />
 

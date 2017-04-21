@@ -6,7 +6,7 @@
 
 <div class="conducteur-inscription" style="width: 90%; margin-left: 10%">
 
-	<h1 class="titrePage">Devenir partenaire WeMove</h1>
+	<h3 class="titrePage">Devenir partenaire WeMove</h3>
 	<p>Creer un compte conducteur en remplissant le fomulaire suivant</p>
 	<br /> <span class="required">  </span>
 	<form:form modelAttribute="driver" method="post"
@@ -71,15 +71,17 @@
 		<form:hidden id="lat" path="adresse.latitude" value="" />
 		<form:hidden id="lon" path="adresse.longitude" value="" />
 		<form:hidden id="tex" path="adresse.nom" value="" />
-		<br />
+		
+			<br />
 		<input type="checkbox" id="test5" />
       	<label for="test5"> J'accepte les conditions générales de vente</label>
       	<form:hidden id="lat" path="condGV" value="" />
 		<br />
+
 		<p>* Champ requis </p>
 
 		<div style="backgound-color: red">
-			<input id="butt-ask-course" type="submit" value="Devenir conducteur" />
+			<input id="butt-ask-course" type="submit" value="Devenir conducteur" class="btn-large waves-effect waves-light teal lighten-1" />
 		</div>
 
 	</form:form>
