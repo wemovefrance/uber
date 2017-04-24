@@ -2,9 +2,18 @@
 package fr.wemove.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -60,7 +69,7 @@ public class UtilisateurController {
 
 	
 	@RequestMapping(value = "demandecourse", method= RequestMethod.POST)
-	public String carte(@ModelAttribute("nouveauTrajet") Trajet trajet , BindingResult result, Model model, HttpSession session ) {
+	public String carte(@ModelAttribute("nouveauTrajet") Trajet trajet , BindingResult result, Model model, HttpSession session ) throws UnsupportedEncodingException {
 
 		new TrajetValidator().validate(trajet, result);
 		
@@ -75,16 +84,42 @@ public class UtilisateurController {
 		trajet.setUtilisateur(utilisateur);
 		trajet.setConducteur(conducteur);
 		trajet.setStatut(1);
-		
-//		Notification notificationDemande = new Notification();
-//		
-//		notificationDemande.setMessage("Vous avez une demande de trajet");
-//		notificationDemande.setStatutConducteur("nonLu");
-//		notificationDemande.setStatutUtilisateur("lu");
-//		notificationDemande.setTrajet(trajet);
-//		notificationDemande = this.notificationDAO.save(notificationDemande);
-		
 		this.trajetDAO.save(trajet);
+		
+		// envoi mail 
+		
+		final String username = "wemove.france.contact@gmail.com";
+		final String password = "08080808";
+
+			try {
+		            Properties props = new Properties();
+		            props.put("mail.smtp.auth", "true");
+		            props.put("mail.smtp.starttls.enable", "true");
+		            props.put("mail.smtp.host", "smtp.gmail.com");
+		            props.put("mail.smtp.port", "587");
+
+		            Session sessionmail = Session.getInstance(props,
+		          		  new javax.mail.Authenticator() {
+		          			protected PasswordAuthentication getPasswordAuthentication() {
+		          				return new PasswordAuthentication(username, password);
+		          			}
+		          		  });
+
+		            String message = "Bonjour " + conducteur.getPrenom() + ", <br /> Vous avez recu une nouvelle demande de trajet ! <br /> <br /> <a href='http://localhost:8080/frWeMove/accueil'> Accéder à votre espace personnel </a> pour bénéficier des services WeMove ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
+		            
+		            Message msg = new MimeMessage(sessionmail);
+		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "Administrateur"));
+		            msg.addRecipient(Message.RecipientType.TO,
+		                             new InternetAddress(utilisateur.getEmail()));
+		            msg.setSubject(" Nouvelle demande de trajet de " + utilisateur.getLogin());
+		            msg.setContent(message, "text/html");
+		            msg.saveChanges();
+		            //msg.setText(message);
+		            Transport.send(msg);
+		        } catch (MessagingException e) {
+		            e.printStackTrace();
+		        }
+
 		
 		return "redirect:/utilisateur/monprofil";
 	}
