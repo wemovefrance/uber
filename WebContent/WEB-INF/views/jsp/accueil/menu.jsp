@@ -39,7 +39,7 @@
 	<form:password class="accueilinput" path="motDePasse" STYLE="Text-ALIGN:center" />
 	<br />
 	
-	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Se connecter">
+	<input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Se connecter" >
 	
 </form:form>
 <br />

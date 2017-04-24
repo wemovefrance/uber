@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
 <div class="infoChauffeur">
 
 	<div class="photo-nom-prenom-notes-conducteur">
