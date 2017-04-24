@@ -58,8 +58,36 @@ public class InscriptionUtilisateurController {
 		
 		this.utilisateurDao.save(utilisateur);
 		
-		 
-		
+		final String username = "wemove.france.contact@gmail.com";
+		final String password = "08080808";
+
+			try {
+		            Properties props = new Properties();
+		            props.put("mail.smtp.auth", "true");
+		            props.put("mail.smtp.starttls.enable", "true");
+		            props.put("mail.smtp.host", "smtp.gmail.com");
+		            props.put("mail.smtp.port", "587");
+
+		            Session session = Session.getInstance(props,
+		          		  new javax.mail.Authenticator() {
+		          			protected PasswordAuthentication getPasswordAuthentication() {
+		          				return new PasswordAuthentication(username, password);
+		          			}
+		          		  });
+
+		            String message = "Bonjour votre inscription au service WeMove est validée!";
+
+		            Message msg = new MimeMessage(session);
+		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "Administrateur"));
+		            msg.addRecipient(Message.RecipientType.TO,
+		                             new InternetAddress(utilisateur.getEmail()));
+		            msg.setSubject("Bienvenue sur WeMove !");
+		            msg.setText(message);
+		            Transport.send(msg);
+		        } catch (MessagingException e) {
+		            e.printStackTrace();
+		        }
+
 		return "redirect:/accueil";
 		
 		

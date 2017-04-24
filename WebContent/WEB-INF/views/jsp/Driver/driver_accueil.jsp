@@ -2,5 +2,5 @@
 
 
 
-<h1>Accueil </h1> <br/>
-<p> Bievenue sur votre espace personnel <c:out value="${conducteur.prenom}"/> <c:out value="${conducteur.nom}"/> </p>
+<%-- <h1>Accueil </h1> <br/>
+<p> Bienvenue sur votre espace personnel <c:out value="${conducteur.prenom}"/> <c:out value="${conducteur.nom}"/> </p> --%>

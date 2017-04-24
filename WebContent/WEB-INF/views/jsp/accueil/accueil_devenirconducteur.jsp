@@ -6,7 +6,7 @@
 
 <div class="conducteur-inscription" style="width: 90%; margin-left: 10%">
 
-	<h1 class="titrePage">Devenir partenaire WeMove</h1>
+	<h3 class="titrePage">Devenir partenaire WeMove</h3>
 	<p>Creer un compte conducteur en remplissant le fomulaire suivant</p>
 	<br /> <span class="required">  </span>
 	<form:form modelAttribute="driver" method="post"
@@ -14,6 +14,7 @@
 
 		<form:label path="nom"> Nom <span class="required"
 				title="le nom est obligatoire">*</span>
+		<form:errors path="nom" style="color:red"/>  
 		</form:label>
 		<form:input path="nom"  STYLE="Text-ALIGN:center" />
 		<form:errors class="error" path="nom" />
@@ -21,6 +22,7 @@
 
 		<form:label path="prenom"> Prenom : <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="prenom" style="color:red"/>
 		</form:label>
 		<form:input path="prenom" STYLE="Text-ALIGN:center"  />
 		<form:errors class="error" path="prenom" />
@@ -29,6 +31,8 @@
 
 		<form:label path="login"> Login :<span class="required"
 				title="ce champ est obligatoire">*</span>
+		<form:errors path="login" style="color:red" />
+				
 		</form:label>
 		<form:input path="login"  STYLE="Text-ALIGN:center" />
 		<form:errors class="error" path="login" />
@@ -37,6 +41,7 @@
 
 		<form:label path="email"> Email :<span class="required"
 				title="ce champ est obligatoire">*</span>
+		<form:errors path="email" style="color:red" />
 		</form:label>
 		<form:input path="email"  STYLE="Text-ALIGN:center" />
 		<form:errors class="error" path="email" />
@@ -45,7 +50,8 @@
 
 
 		<label>Adresse <span class="required"
-			title="ce champ est obligatoire">*</span></label>
+			title="ce champ est obligatoire">*</span>
+		<form:errors path="adresse.nom" style="color:red" /></label>
 		<input id="user_input_autocomplete_address"
 			placeholder="Commencer a taper votre adresse..."  STYLE="Text-ALIGN:center" >
 		<input type="hidden" id="street_number" name="street_number" disabled>
@@ -54,9 +60,9 @@
 		<input type="hidden" id="country" name="country" disabled>
 		<form:errors class="error" path="adresse.nom" />
 
-
 		<form:label path="motDePasse"> Mot de passe : <span
 				class="required" title="ce champ est obligatoire">*</span>
+		<form:errors path="motDePasse" style="color:red"  />
 		</form:label>
 		<form:password path="motDePasse" STYLE="Text-ALIGN:center"  />
 		<form:errors class="error" path="motDePasse" />
@@ -72,11 +78,17 @@
 		<form:hidden id="lat" path="adresse.latitude" value="" />
 		<form:hidden id="lon" path="adresse.longitude" value="" />
 		<form:hidden id="tex" path="adresse.nom" value="" />
+		
+			<br />
+		<input type="checkbox" id="test5" />
+      	<label for="test5"> J'accepte les conditions générales de vente</label>
+      	<form:hidden id="lat" path="condGV" value="" />
+		<br />
 
 		<p>* Champ requis </p>
 
 		<div style="backgound-color: red">
-			<input id="butt-ask-course" type="submit" value="Devenir conducteur" />
+			<input id="butt-ask-course" type="submit" value="Devenir conducteur" class="btn-large waves-effect waves-light teal lighten-1" />
 		</div>
 
 	</form:form>
