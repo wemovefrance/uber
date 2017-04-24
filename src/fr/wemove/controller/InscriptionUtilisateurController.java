@@ -75,14 +75,16 @@ public class InscriptionUtilisateurController {
 		          			}
 		          		  });
 
-		            String message = "Bonjour votre inscription au service WeMove est validée!";
-
+		            String message = "Bonjour " + utilisateur.getPrenom() + ", <br /> votre inscription au service WeMove est validée! <br /> <br /> <a href='http://localhost:8080/frWeMove/accueil'> Accéder à votre espace personnel </a> pour bénéficier des services WeMove ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
+		            
 		            Message msg = new MimeMessage(session);
 		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "Administrateur"));
 		            msg.addRecipient(Message.RecipientType.TO,
 		                             new InternetAddress(utilisateur.getEmail()));
 		            msg.setSubject("Bienvenue sur WeMove !");
-		            msg.setText(message);
+		            msg.setContent(message, "text/html");
+		            msg.saveChanges();
+		            //msg.setText(message);
 		            Transport.send(msg);
 		        } catch (MessagingException e) {
 		            e.printStackTrace();
