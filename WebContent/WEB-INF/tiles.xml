@@ -88,7 +88,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Driver/driver_map.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+			value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
@@ -119,7 +119,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Driver/driver_mail.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+			value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 
@@ -129,7 +129,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Driver/driver_gestionprofil.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+			value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
 	</definition>
 	
@@ -138,7 +138,7 @@
 		<put-attribute name="title" value="Profil conducteur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Driver/driver_profil.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -149,7 +149,7 @@
 		<put-attribute name="title" value="Vehicules" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Driver/navigationconducteur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Driver/menuconducteur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Driver/driver_gestionvoiture.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -177,7 +177,7 @@
 		<put-attribute name="title" value="Demande de course" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_demandecourse.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -189,7 +189,7 @@
 		<put-attribute name="title" value="Evaluation de course" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_evaluationcourse.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -202,7 +202,7 @@
 		<put-attribute name="title" value="Gestion profil" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestionprofil.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -214,7 +214,7 @@
 		<put-attribute name="title" value="Trajets" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestiontrajets.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -226,7 +226,7 @@
 		<put-attribute name="title" value="Transactions" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_gestiontransactions.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -238,7 +238,7 @@
 		<put-attribute name="title" value="Notifications" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_messagerie-notification.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />
@@ -251,7 +251,7 @@
 		<put-attribute name="title" value="Profil chauffeur" />
 		<put-attribute name="navigation" value="/WEB-INF/views/jsp/Utilisateur/navigationutilisateur.jsp" />
 		<put-attribute name="menu"
-			value="/WEB-INF/views/jsp/Utilisateur/menuutilisateur.jsp" />
+			value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/Utilisateur/utilisateur_profilchauffeur.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp" />

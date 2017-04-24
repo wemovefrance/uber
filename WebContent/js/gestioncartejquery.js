@@ -34,11 +34,15 @@ var options = {
 
 function plotMarker(Lat, Long, Label) {
 	markerPos = new google.maps.LatLng(Lat, Long);
+
+	var iconBase = 'https://maps.google.com/mapfiles/kml/pal4/';
 	var marker = new google.maps.Marker({
 		position : markerPos,
 		map : map,
-		title : Label,
+		icon: 'http://maps.google.com/mapfiles/kml/pal4/icon15.png' ,
+		title : Label
 	});
+	
 	gmarkers.push(marker);
 	var infowindow = new google.maps.InfoWindow({
 	    content: '<a href="/frWeMove/utilisateur/profilchauffeur?userId=' +userid+ '"> '+Label+' </a>'});
@@ -55,7 +59,7 @@ function initMap() {
 			lat : -34.397,
 			lng : 150.644
 		},
-		zoom : 9
+		zoom : 11
 	});
 	recoverPosition();
 		for (nn = 0; nn < longitudes.length; nn++) {			

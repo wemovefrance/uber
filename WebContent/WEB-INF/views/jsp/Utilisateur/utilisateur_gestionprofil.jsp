@@ -1,8 +1,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<i class="fa fa-cog fa-3x" aria-hidden="true"></i>
 
-<p> <c:out value="${utilisateur.prenom}"/> Voici les informations relatives a votre compte </p>
+<h3> Voici les informations relatives a votre compte </h3>
 
 <div id="formulaire">
 
@@ -49,7 +50,7 @@
 	<form:hidden id="lat" path="adresse.latitude" value=""/>
 		<form:hidden id="lon" path="adresse.longitude" value=""/>
  	
- 	<input type="submit" class="bouttonmenuaccueil"  id="butt-submit" value="Mise a jour de mon profil" />
+ 	<input type="submit" class="btn-large waves-effect waves-light teal lighten-1"  id="butt-submit" value="Mise a jour de mon profil" />
  	<br /> 
 	<span class="message"> <c:out value="${message}"/></span> 	
 	
