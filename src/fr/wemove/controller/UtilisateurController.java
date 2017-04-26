@@ -105,13 +105,13 @@ public class UtilisateurController {
 		          			}
 		          		  });
 
-		            String message = "Bonjour " + conducteur.getPrenom() + ", <br /> Vous avez recu une nouvelle demande de trajet ! <br /> <br /> <a href='http://localhost:8080/frWeMove/accueil'> Accéder à votre espace personnel </a> pour bénéficier des services WeMove ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
+		            String message = "Bonjour " + conducteur.getPrenom() + ", <br /> Vous avez recu une nouvelle demande de trajet ! <br /> <br /> <a href='http://localhost:8080/frWeMove/accueil'> Accéder à votre espace personnel </a> pour consulter votre notification ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
 		            
 		            Message msg = new MimeMessage(sessionmail);
-		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "Administrateur"));
+		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "WeMove France"));
 		            msg.addRecipient(Message.RecipientType.TO,
 		                             new InternetAddress(utilisateur.getEmail()));
-		            msg.setSubject(" Nouvelle demande de trajet de " + utilisateur.getLogin());
+		            msg.setSubject("  Notifications : nouvelle demande de trajet de " + utilisateur.getLogin());
 		            msg.setContent(message, "text/html");
 		            msg.saveChanges();
 		            //msg.setText(message);

@@ -20,7 +20,7 @@
     </div>
 
 
-  </form>
+ 
   
     
     <form:form modelAttribute="nouveauTrajet" action ="demandecourse" method="post">

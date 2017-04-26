@@ -87,7 +87,7 @@ public class InscriptionConducteurController {
 		            String message = "Bonjour " + conducteur.getPrenom() + ", <br /> votre inscription au service WeMove est validée! <br /> <br /> <a href='frWeMove/accueil'> Accéder à votre espace personnel </a> pour bénéficier des services WeMove ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
 
 		            Message msg = new MimeMessage(session);
-		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "Administrateur"));
+		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "WeMove France"));
 		            msg.addRecipient(Message.RecipientType.TO,
 		                             new InternetAddress(conducteur.getEmail()));
 		            msg.setSubject("Bienvenue sur WeMove !");
