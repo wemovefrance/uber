@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
@@ -7,11 +7,18 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <!--  <script>
+  <script>
   $( function() {
-    $( "#datepicker" ).datepicker();
+		/////Autocomplete date
+		
+		 $('.datepicker').pickadate({
+			    selectMonths: true, // Creates a dropdown to control month
+			    selectYears: 15 // Creates a dropdown of 15 years to control year
+			  });
+			
   } );
-  </script> -->
+  
+  </script>
 
 
     <div class="photo-nom-prenom-notes-conducteur">
@@ -19,8 +26,8 @@
     			<p> <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
     </div>
 
-
-  </form>
+<div class="container">
+ 
   
     
     <form:form modelAttribute="nouveauTrajet" action ="demandecourse" method="post">
@@ -28,7 +35,7 @@
 	 <%-- <form:label path="dateDuTrajet"> Date du trajet <span class="required"
 				title="ce champ est obligatoire">*</span>
 		</form:label>
-		<form:input path="dateDuTrajet" id="datepicker" placeholder="Sélectionner une date"/>
+		<form:input path="dateDuTrajet" id="datepicker" placeholder="SÃ©lectionner une date"/>
 		<form:errors path="dateDuTrajet" />
 		<br /> --%>
 		
@@ -39,32 +46,32 @@
   
   	<form:hidden id="dateT" path="dateDuTrajet" value=""/> 
 
-  <label>Adresse de départ <span class="required"
+  <label>Adresse de dÃ©part <span class="required"
 				title="ce champ est obligatoire">*</span>
   <form:errors path="depart.nom"  style="color:red"  /></label>
-  <input id="user_input_autocomplete_address" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
+  <input id="user_input_autocomplete_address" placeholder="Commencer Ã  taper une adresse..." STYLE="Text-ALIGN:center">
 	<input type="hidden" id="street_number" name="street_number" disabled>
   <input type="hidden" id="route" name="route" disabled>
   <input type="hidden" id="locality" name="locality" disabled>
   <input type="hidden" id="country" name="country" disabled> 
   
-  <label>Adresse d'arrivée</label>
+  <label>Adresse d'arrivÃ©e</label>
   <form:errors path="arrivee.nom"  style="color:red" />
-  <input id="user_input_autocomplete_address_2" placeholder="Commencer à taper une adresse..." STYLE="Text-ALIGN:center">
+  <input id="user_input_autocomplete_address_2" placeholder="Commencer Ã  taper une adresse..." STYLE="Text-ALIGN:center">
   
   	<form:hidden id="D" path="depart.nom" value=""/> 
 	<form:hidden id="A" path="arrivee.nom" value=""/>   
 	
 	
-<form:select style="display:block" name="forfaitKilomètre" id="forfaitKilometre" path="distance" >
-  <form:option value = "30.0">0 - 50 km  </form:option>
-  <form:option value = "50.0">50 - 100 km</form:option>
-  <form:option value = "70.0">100 - 150 km</form:option>
-  <form:option value = "150.0">Plus de  150 km</form:option>
+<form:select style="display:block" name="forfaitKilomÃ¨tre" id="forfaitKilometre" path="distance" >
+  <form:option value = "30.0">0 - 50 km  - 30â‚¬ </form:option>
+  <form:option value = "50.0">50 - 100 km - 50 â‚¬</form:option>
+  <form:option value = "70.0">100 - 150 km - 70 â‚¬</form:option>
+  <form:option value = "150.0">Plus de  150 km - 150 â‚¬</form:option>
 </form:select>
 
 		
-		<form:label path="poids" id="poids"> Estimer le poids des objets à transporter en kg <span
+		<form:label path="poids" id="poids"> Estimer le poids des objets Ã  transporter en kg <span
 				class="required" title="ce champ est obligatoire">*</span>
 		<form:errors path="poids"  style="color:red"  />
 		</form:label>
@@ -80,18 +87,21 @@
 		<br />
 		
 
-    	<div style="backgound-color:red"><input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Demander course" /></div>
+    	<div style="backgound-color:red"><input class="btn-large waves-effect waves-light teal lighten-1" type="submit" value="Demander course" id="button" /></div>
     	<br />
-    	<div style="backgound-color:red"><input class="btn-large waves-effect waves-light teal lighten-1" type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
+    	<div style="backgound-color:red"><input class="btn red lighten-3" type="button" value="Simuler Prix" onclick="simulerPrix()"/></div>
     	
     	
-    <form:label path="prix" id="prix"> Résultat de l'estimation du prix en euros : <span
+    <form:label path="prix" id="prix"> RÃ©sultat de l'estimation du prix en euros : <span
 				class="required" title="ce champ est obligatoire">*</span>
-	<form:errors path="prix" />
+	
 	</form:label>
     <form:input path="prix" id="p" value=""/>
+    <form:errors path="prix" />
 	<br />
     </form:form>  
+    
+    </div>
   
 
 
@@ -168,6 +178,8 @@ function initializeAutocomplete(id) {
 	
 function simulerPrix() {
 	
+	
+	
 	var kilometre = parseInt($('#forfaitKilometre').val());
 	var poids = parseInt($('#weight').val());
 	
@@ -177,18 +189,13 @@ function simulerPrix() {
 	console.log(typeof kilometre);
 	console.log(prix);
 	
-	$('#p').val(prix);
-	
-	/////Autocomplete date
-	
-	 $('.datepicker').pickadate({
-		    selectMonths: true, // Creates a dropdown to control month
-		    selectYears: 15 // Creates a dropdown of 15 years to control year
-		  });
-	
 	var dat = $('#dateTrajet').val();
 	 $('#dateT').val(dat);
 	
+	$('#p').val(prix);
+	
 }
+
+
 
 </script>
