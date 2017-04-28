@@ -26,11 +26,9 @@
     			<p> <c:out value="${conducteurOnClick.prenom}"/> <c:out value="${conducteurOnClick.nom}"/> </p>
     </div>
 
-<<<<<<< HEAD
-<div class="container">
-=======
 
->>>>>>> master
+<div class="container">
+
  
   
     
