@@ -1,6 +1,17 @@
 package fr.wemove.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +46,7 @@ public class InscriptionUtilisateurController {
 	}
 	
 	@RequestMapping ( value = "/accueil/inscriptionUtilisateur", method = RequestMethod.POST)
-	public String inscriptionUtilisateur (@ModelAttribute("user") Utilisateur utilisateur, BindingResult result, Model model ){
+	public String inscriptionUtilisateur (@ModelAttribute("user") Utilisateur utilisateur, BindingResult result, Model model ) throws UnsupportedEncodingException{
 		
 		utilisateurSubscribeValidator.validate(utilisateur, result);
 		
@@ -44,11 +55,41 @@ public class InscriptionUtilisateurController {
 			return "accueildevenirutilisateur";
 		} 
 	
-		System.out.println(utilisateur.getEmail());
-		System.out.println(utilisateur.getNom());
 		
 		this.utilisateurDao.save(utilisateur);
 		
+		final String username = "wemove.france.contact@gmail.com";
+		final String password = "08080808";
+
+			try {
+		            Properties props = new Properties();
+		            props.put("mail.smtp.auth", "true");
+		            props.put("mail.smtp.starttls.enable", "true");
+		            props.put("mail.smtp.host", "smtp.gmail.com");
+		            props.put("mail.smtp.port", "587");
+
+		            Session session = Session.getInstance(props,
+		          		  new javax.mail.Authenticator() {
+		          			protected PasswordAuthentication getPasswordAuthentication() {
+		          				return new PasswordAuthentication(username, password);
+		          			}
+		          		  });
+
+		            String message = "Bonjour " + utilisateur.getPrenom() + ", <br /> votre inscription au service WeMove est validée! <br /> <br /> <a href='http://localhost:8080/frWeMove/accueil'> Accéder à votre espace personnel </a> pour bénéficier des services WeMove ! <br /> <br /> A votre service, <br/> L'équipe WeMove  ";
+		            
+		            Message msg = new MimeMessage(session);
+		            msg.setFrom(new InternetAddress("wemove.france@gmail.com", "WeMove France"));
+		            msg.addRecipient(Message.RecipientType.TO,
+		                             new InternetAddress(utilisateur.getEmail()));
+		            msg.setSubject("Bienvenue sur WeMove !");
+		            msg.setContent(message, "text/html");
+		            msg.saveChanges();
+		            //msg.setText(message);
+		            Transport.send(msg);
+		        } catch (MessagingException e) {
+		            e.printStackTrace();
+		        }
+
 		return "redirect:/accueil";
 		
 		

@@ -17,6 +17,7 @@
 		<form:errors path="nom" style="color:red"/>  
 		</form:label>
 		<form:input path="nom"  STYLE="Text-ALIGN:center" />
+		<form:errors class="error" path="nom" />
 		<br />
 
 		<form:label path="prenom"> Prenom : <span
@@ -24,6 +25,7 @@
 		<form:errors path="prenom" style="color:red"/>
 		</form:label>
 		<form:input path="prenom" STYLE="Text-ALIGN:center"  />
+		<form:errors class="error" path="prenom" />
 		<br />
 
 
@@ -33,6 +35,8 @@
 				
 		</form:label>
 		<form:input path="login"  STYLE="Text-ALIGN:center" />
+		<form:errors class="error" path="login" />
+
 		<br />
 
 		<form:label path="email"> Email :<span class="required"
@@ -40,6 +44,7 @@
 		<form:errors path="email" style="color:red" />
 		</form:label>
 		<form:input path="email"  STYLE="Text-ALIGN:center" />
+		<form:errors class="error" path="email" />
 		<br />
 
 
@@ -53,19 +58,21 @@
 		<input type="hidden" id="route" name="route" disabled>
 		<input type="hidden" id="locality" name="c" disabled>
 		<input type="hidden" id="country" name="country" disabled>
+		<form:errors class="error" path="adresse.nom" />
 
 		<form:label path="motDePasse"> Mot de passe : <span
 				class="required" title="ce champ est obligatoire">*</span>
 		<form:errors path="motDePasse" style="color:red"  />
 		</form:label>
 		<form:password path="motDePasse" STYLE="Text-ALIGN:center"  />
+		<form:errors class="error" path="motDePasse" />
 		<br />
 
 		<form:label path="confirmation"> Confirmation mot de passe :  <span
 				class="required" title="ce champ est obligatoire">*</span>
 		</form:label>
 		<form:password path="confirmation"  STYLE="Text-ALIGN:center"  />
-		<form:errors path="confirmation" />
+		<form:errors class="error" path="confirmation" />
 		<br />
 
 		<form:hidden id="lat" path="adresse.latitude" value="" />

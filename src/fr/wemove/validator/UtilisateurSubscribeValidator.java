@@ -39,7 +39,7 @@ public class UtilisateurSubscribeValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "nom", "nom.empty", "Le nom doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "email", "email.empty", "L'email doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "login", "login.empty", "Le login doit être saisi");
-		ValidationUtils.rejectIfEmptyOrWhitespace(e, "motDePasse", "motDePasse.empty", "Le motDePasse doit être saisi");
+		ValidationUtils.rejectIfEmptyOrWhitespace(e, "motDePasse", "motDePasse.empty", "Le mot de passe doit être saisi");
 		ValidationUtils.rejectIfEmptyOrWhitespace(e, "confirmation", "confirmation.empty", "Le confirmation doit être saisi");
 		
 		/*
@@ -49,6 +49,8 @@ public class UtilisateurSubscribeValidator implements Validator {
 		}
 		
 		*/
+		
+		
 		// Verif des emails
 		
 		EmailValidator validator = EmailValidator.getInstance();
@@ -74,6 +76,8 @@ public class UtilisateurSubscribeValidator implements Validator {
 		if (utilisateurDAO.checkLogin(utilisateur.getLogin()) != null) {
 				e.rejectValue("login", "logincheck", "Login déjà utilisé, changer de pseudo");
 		}
+		
+		
 		
 	}
 
